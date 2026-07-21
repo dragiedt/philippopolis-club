@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Heritage from './pages/Heritage'
 import Membership from './pages/Membership'
 import Events from './pages/Events'
+import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/heritage" element={<Heritage />} />
           <Route path="/membership" element={<Membership />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>

@@ -25,6 +25,7 @@ export default function Footer() {
                 { name: 'Heritage', href: '/heritage' },
                 { name: 'Membership', href: '/membership' },
                 { name: 'Events', href: '/events' },
+                { name: 'Gallery', href: '/gallery' },
                 { name: 'Contact', href: '/contact' },
               ].map((item) => (
                 <li key={item.name}>

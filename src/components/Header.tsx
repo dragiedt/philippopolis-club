@@ -6,6 +6,7 @@ const navigation = [
   { name: 'Heritage', href: '/heritage' },
   { name: 'Membership', href: '/membership' },
   { name: 'Events', href: '/events' },
+  { name: 'Gallery', href: '/gallery' },
   { name: 'Contact', href: '/contact' },
 ]
 
