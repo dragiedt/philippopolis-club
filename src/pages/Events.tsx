@@ -1,4 +1,5 @@
 import SectionDivider from '../components/SectionDivider'
+import FadeIn from '../components/FadeIn'
 
 const upcomingEvents = [
   {
@@ -38,7 +39,7 @@ const pastEvents = [
     date: 'December 2025',
     title: 'Winter Gala',
     description: 'A black-tie evening celebrating the season, with a curated selection of aged rums and premium cigars.',
-    highlight: ' attendance by over 60 members and distinguished guests.',
+    highlight: 'Attendance by over 60 members and distinguished guests.',
   },
 ]
 
@@ -48,43 +49,48 @@ export default function Events() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Events</p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream font-light leading-tight max-w-3xl">
-            Evenings that linger.
-          </h1>
+          <FadeIn>
+            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Events</p>
+          </FadeIn>
+          <FadeIn delay={150}>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream font-light leading-tight max-w-3xl">
+              Evenings that linger.
+            </h1>
+          </FadeIn>
         </div>
       </section>
 
       {/* Upcoming */}
       <section className="py-24 md:py-32 px-6">
         <div className="mx-auto max-w-5xl">
-          <div className="mb-16">
-            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Upcoming</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
-              Mark your calendar.
-            </h2>
-          </div>
+          <FadeIn>
+            <div className="mb-16">
+              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Upcoming</p>
+              <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
+                Mark your calendar.
+              </h2>
+            </div>
+          </FadeIn>
           <div className="space-y-8">
             {upcomingEvents.map((event, index) => (
-              <div
-                key={index}
-                className="group p-8 border border-brand-200 hover:border-gold-500/50 transition-colors duration-300"
-              >
-                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-                  <div className="md:w-40 shrink-0">
-                    <span className="text-gold-500 text-sm tracking-wider uppercase">{event.date}</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
-                    <p className="text-brand-600 leading-relaxed">{event.description}</p>
-                  </div>
-                  <div className="md:w-32 shrink-0">
-                    <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
-                      {event.type}
-                    </span>
+              <FadeIn key={index} delay={index * 100}>
+                <div className="group p-8 border border-brand-200 hover:border-gold-500/50 transition-colors duration-300">
+                  <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+                    <div className="md:w-40 shrink-0">
+                      <span className="text-gold-500 text-sm tracking-wider uppercase">{event.date}</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
+                      <p className="text-brand-600 leading-relaxed">{event.description}</p>
+                    </div>
+                    <div className="md:w-32 shrink-0">
+                      <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
+                        {event.type}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -93,29 +99,35 @@ export default function Events() {
       {/* Past Events */}
       <section className="py-24 md:py-32 px-6 bg-brand-50">
         <div className="mx-auto max-w-5xl">
-          <SectionDivider className="mb-16" />
-          <div className="mb-16">
-            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Past Events</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
-              A glimpse of evenings past.
-            </h2>
-          </div>
+          <FadeIn>
+            <SectionDivider className="mb-16" />
+          </FadeIn>
+          <FadeIn>
+            <div className="mb-16">
+              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Past Events</p>
+              <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
+                A glimpse of evenings past.
+              </h2>
+            </div>
+          </FadeIn>
           <div className="space-y-8">
             {pastEvents.map((event, index) => (
-              <div key={index} className="p-8 bg-cream border border-brand-200">
-                <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                  <div className="md:w-40 shrink-0">
-                    <span className="text-brand-500 text-sm tracking-wider uppercase">{event.date}</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
-                    <p className="text-brand-600 leading-relaxed mb-3">{event.description}</p>
-                    {event.highlight && (
-                      <p className="text-gold-600 text-sm italic">{event.highlight}</p>
-                    )}
+              <FadeIn key={index} delay={index * 100}>
+                <div className="p-8 bg-cream border border-brand-200">
+                  <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+                    <div className="md:w-40 shrink-0">
+                      <span className="text-brand-500 text-sm tracking-wider uppercase">{event.date}</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
+                      <p className="text-brand-600 leading-relaxed mb-3">{event.description}</p>
+                      {event.highlight && (
+                        <p className="text-gold-600 text-sm italic">{event.highlight}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -124,10 +136,12 @@ export default function Events() {
       {/* Note */}
       <section className="py-16 px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-brand-500 text-sm leading-relaxed">
-            All events are held at the club or by invitation at select venues in Plovdiv. 
-            Details are shared with members directly. For inquiries about attending, please contact us.
-          </p>
+          <FadeIn>
+            <p className="text-brand-500 text-sm leading-relaxed">
+              All events are held at the club or by invitation at select venues in Plovdiv.
+              Details are shared with members directly. For inquiries about attending, please contact us.
+            </p>
+          </FadeIn>
         </div>
       </section>
     </>
