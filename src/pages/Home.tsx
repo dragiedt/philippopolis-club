@@ -28,7 +28,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40 scale-105"
           style={{
-            backgroundImage: `url('/images/drive/GC_0528.jpg')`,
+            backgroundImage: `url('/images/photo_168.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/60 via-brand-900/40 to-brand-900/80" />
@@ -40,7 +40,7 @@ export default function Home() {
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-8">Established in Plovdiv</p>
           </FadeIn>
           <FadeIn delay={400}>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream font-light leading-tight mb-8">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream font-light leading-tight mb-8">
               Gentlemen's Club<br />Philippopolis
             </h1>
           </FadeIn>
