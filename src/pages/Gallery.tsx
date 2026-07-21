@@ -83,7 +83,7 @@ export default function Gallery() {
           </FadeIn>
           <FadeIn delay={300}>
             <p className="mt-6 text-brand-300 text-lg max-w-xl mx-auto font-light">
-              Moments captured within the walls of Philippopolis — the smoke, the glass, the fellowship.
+              Enjoy the little things, for one day you may look back and realize they were the big things.
             </p>
           </FadeIn>
         </div>
