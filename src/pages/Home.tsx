@@ -32,7 +32,7 @@ export default function Home() {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/60 via-brand-900/40 to-brand-900/80" />
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
           <FadeIn delay={100}>
             <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mb-8 w-32 md:w-40" />
           </FadeIn>
@@ -41,12 +41,12 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={400}>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream font-light leading-tight mb-8">
-              A private circle,<br />bound by smoke and time.
+              Gentlemen's Club<br />Philippopolis
             </h1>
           </FadeIn>
           <FadeIn delay={600}>
             <p className="text-brand-300 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-              Gentlemen's Club Philippopolis — a members-only society devoted to the quiet pleasures of the cigar, the glass, and considered conversation.
+              A members-only society devoted to the quiet pleasures of the cigar, the glass, and considered conversation.
             </p>
           </FadeIn>
           <FadeIn delay={800}>
