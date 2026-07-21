@@ -6,11 +6,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center">
-                <span className="text-brand-900 font-serif text-lg font-semibold">P</span>
-              </div>
-              <span className="font-serif text-xl text-cream tracking-wide">Philippopolis</span>
+            <div className="mb-6">
+              <img src="/images/logo.svg" alt="Gentlemen's Club Philippopolis" className="h-16 w-auto" />
             </div>
             <p className="text-brand-400 text-sm leading-relaxed max-w-md">
               A private society devoted to the quiet pleasures of the cigar, the glass, and considered conversation. Est. Plovdiv, Bulgaria.

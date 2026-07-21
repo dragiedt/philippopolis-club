@@ -18,12 +18,7 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-brand-900 flex items-center justify-center">
-              <span className="text-gold-500 font-serif text-lg font-semibold">P</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-serif text-lg text-brand-900 tracking-wide">Philippopolis</span>
-            </div>
+            <img src="/images/logo.svg" alt="Gentlemen's Club Philippopolis" className="h-12 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
