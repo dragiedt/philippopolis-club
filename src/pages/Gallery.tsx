@@ -5,21 +5,28 @@ import SmokeBackground from '../components/SmokeBackground'
 
 const photos = [
   { src: '/images/drive/GC_0043.jpg', alt: 'The club interior', span: 'tall' },
+  { src: '/images/drive/GC_0064.jpg', alt: 'Evening setting', span: 'normal' },
   { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere', span: 'wide' },
-  { src: '/images/drive/GC_0186.jpg', alt: 'Members gathering', span: 'normal' },
+  { src: '/images/drive/GC_0128.jpg', alt: 'Members gathering', span: 'normal' },
+  { src: '/images/drive/GC_0186.jpg', alt: 'The lounge', span: 'normal' },
+  { src: '/images/drive/GC_0230.jpg', alt: 'Fine spirits', span: 'normal' },
   { src: '/images/drive/GC_0269.jpg', alt: 'The humidor', span: 'normal' },
-  { src: '/images/drive/GC_0318.jpg', alt: 'Fine spirits', span: 'tall' },
+  { src: '/images/drive/GC_0318.jpg', alt: 'Cigar selection', span: 'tall' },
   { src: '/images/drive/GC_0362.jpg', alt: 'Cigar ritual', span: 'normal' },
   { src: '/images/drive/GC_0396.jpg', alt: 'The salon', span: 'wide' },
+  { src: '/images/drive/GC_0406.jpg', alt: 'The ancient theatre', span: 'normal' },
   { src: '/images/drive/GC_0455.jpg', alt: 'By the fireplace', span: 'normal' },
   { src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style', span: 'normal' },
+  { src: '/images/drive/GC_0534.jpg', alt: 'The terrace', span: 'normal' },
   { src: '/images/drive/GC_0592.jpg', alt: 'Conversation & smoke', span: 'tall' },
   { src: '/images/drive/GC_0665.jpg', alt: 'The cellar', span: 'normal' },
   { src: '/images/drive/GC_0700.jpg', alt: 'A toast among friends', span: 'wide' },
   { src: '/images/drive/GC_0739.jpg', alt: 'Details & craft', span: 'normal' },
   { src: '/images/drive/GC_0770.jpg', alt: 'The study', span: 'normal' },
+  { src: '/images/drive/GC_0773.jpg', alt: 'Evening mood', span: 'normal' },
   { src: '/images/drive/GC_0815.jpg', alt: 'Members portrait', span: 'tall' },
   { src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal' },
+  { src: '/images/drive/GC_0143.jpg', alt: 'The hallway', span: 'normal' },
 ]
 
 export default function Gallery() {
