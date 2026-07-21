@@ -4,24 +4,24 @@ import FadeIn from '../components/FadeIn'
 import SmokeBackground from '../components/SmokeBackground'
 
 const photos = [
-  { src: '/images/drive/GC_0043.jpg', alt: 'The club interior' },
-  { src: '/images/drive/GC_0064.jpg', alt: 'Evening setting' },
-  { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere' },
-  { src: '/images/drive/GC_0128.jpg', alt: 'Members gathering' },
-  { src: '/images/drive/GC_0143.jpg', alt: 'The lounge' },
-  { src: '/images/drive/GC_0186.jpg', alt: 'Conversation & smoke' },
-  { src: '/images/drive/GC_0230.jpg', alt: 'Fine spirits' },
-  { src: '/images/drive/GC_0269.jpg', alt: 'The humidor' },
-  { src: '/images/drive/GC_0299.jpg', alt: 'An evening at the club' },
-  { src: '/images/drive/GC_0318.jpg', alt: 'The cellar selection' },
-  { src: '/images/drive/GC_0362.jpg', alt: 'Cigar ritual' },
-  { src: '/images/drive/GC_0396.jpg', alt: 'The salon' },
-  { src: '/images/drive/GC_0455.jpg', alt: 'By the fireplace' },
-  { src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style' },
-  { src: '/images/drive/GC_0592.jpg', alt: 'Portrait' },
-  { src: '/images/drive/GC_0665.jpg', alt: 'The cellar' },
-  { src: '/images/drive/GC_0700.jpg', alt: 'A toast among friends' },
-  { src: '/images/drive/GC_0739.jpg', alt: 'Details & craft' },
+  { src: '/images/drive/GC_0043.jpg', alt: 'The club interior', span: 'tall' },
+  { src: '/images/drive/GC_0064.jpg', alt: 'Evening setting', span: 'normal' },
+  { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere', span: 'wide' },
+  { src: '/images/drive/GC_0128.jpg', alt: 'Members gathering', span: 'normal' },
+  { src: '/images/drive/GC_0143.jpg', alt: 'The lounge', span: 'normal' },
+  { src: '/images/drive/GC_0186.jpg', alt: 'Conversation & smoke', span: 'wide' },
+  { src: '/images/drive/GC_0230.jpg', alt: 'Fine spirits', span: 'tall' },
+  { src: '/images/drive/GC_0269.jpg', alt: 'The humidor', span: 'normal' },
+  { src: '/images/drive/GC_0299.jpg', alt: 'An evening at the club', span: 'wide' },
+  { src: '/images/drive/GC_0318.jpg', alt: 'The cellar selection', span: 'normal' },
+  { src: '/images/drive/GC_0362.jpg', alt: 'Cigar ritual', span: 'normal' },
+  { src: '/images/drive/GC_0396.jpg', alt: 'The salon', span: 'wide' },
+  { src: '/images/drive/GC_0455.jpg', alt: 'By the fireplace', span: 'tall' },
+  { src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style', span: 'normal' },
+  { src: '/images/drive/GC_0592.jpg', alt: 'Portrait', span: 'wide' },
+  { src: '/images/drive/GC_0665.jpg', alt: 'The cellar', span: 'normal' },
+  { src: '/images/drive/GC_0700.jpg', alt: 'A toast among friends', span: 'normal' },
+  { src: '/images/drive/GC_0739.jpg', alt: 'Details & craft', span: 'wide' },
 ]
 
 export default function Gallery() {
@@ -53,12 +53,10 @@ export default function Gallery() {
   }, [lightbox, close, next, prev])
 
   const getSpanClass = (i: number) => {
-    const isWide = i % 3 === 2
-    const tallIndices = [0, 6, 12]
-    const isTall = tallIndices.includes(i)
+    const photo = photos[i]
     const parts: string[] = []
-    if (isWide) parts.push('md:col-span-2')
-    if (isTall) parts.push('md:row-span-2')
+    if (photo.span === 'wide') parts.push('col-span-2', 'md:col-span-2')
+    if (photo.span === 'tall') parts.push('md:row-span-2')
     return parts.join(' ')
   }
 
