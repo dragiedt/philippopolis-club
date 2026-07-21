@@ -27,7 +27,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
-            backgroundImage: `url('https://philippopolis-smokehouse-ai.lovable.app/__l5e/assets-v1/29e0b44c-d2dd-4323-a943-f9e98e2730c0/club-members.jpg')`,
+            backgroundImage: `url('/images/drive/GC_0528.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/60 via-brand-900/40 to-brand-900/80" />
@@ -85,7 +85,7 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-[4/5] bg-brand-200 overflow-hidden">
                 <img
-                  src="https://philippopolis-smokehouse-ai.lovable.app/__l5e/assets-v1/be059adb-be83-4afc-bd2f-4b50dfb76caa/club-event.jpg"
+                  src="/images/drive/GC_0299.jpg"
                   alt="An evening at the club"
                   className="w-full h-full object-cover"
                 />
@@ -133,7 +133,7 @@ export default function Home() {
             <div className="order-2 lg:order-1 relative">
               <div className="aspect-[4/3] bg-brand-200 overflow-hidden">
                 <img
-                  src="https://philippopolis-smokehouse-ai.lovable.app/assets/heritage-philippopolis-B-AFDCh0.jpg"
+                  src="/images/drive/GC_0406.jpg"
                   alt="Ancient theatre of Philippopolis"
                   className="w-full h-full object-cover"
                 />

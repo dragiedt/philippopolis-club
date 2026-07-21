@@ -64,7 +64,7 @@ export default function Heritage() {
             <div className="relative">
               <div className="aspect-[4/5] bg-brand-200 overflow-hidden">
                 <img
-                  src="https://philippopolis-smokehouse-ai.lovable.app/assets/heritage-philippopolis-B-AFDCh0.jpg"
+                  src="/images/drive/GC_0110.jpg"
                   alt="Ancient theatre of Philippopolis"
                   className="w-full h-full object-cover"
                 />
