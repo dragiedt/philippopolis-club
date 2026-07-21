@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
+import SmokeBackground from '../components/SmokeBackground'
 
 const photos = [
   { src: '/images/drive/GC_0043.jpg', alt: 'The club interior', span: 'tall' },
@@ -52,9 +53,10 @@ export default function Gallery() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 bg-brand-900">
-        <div className="absolute inset-0 bg-[url('/images/drive/GC_0362.jpg')] bg-cover bg-center opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-900/80 via-brand-900/60 to-brand-900" />
+      <section className="relative pt-32 pb-16 bg-brand-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/drive/GC_0362.jpg')] bg-cover bg-center opacity-10" />
+        <SmokeBackground />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-900/50 to-brand-900 z-[1]" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The Collection</p>
@@ -73,8 +75,12 @@ export default function Gallery() {
       </section>
 
       {/* Masonry Grid */}
-      <section className="py-20 px-6">
-        <div className="mx-auto max-w-7xl">
+      <section className="relative py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-800/20 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-700/10 rounded-full blur-[100px]" />
+        </div>
+        <div className="relative mx-auto max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[240px]">
             {photos.map((photo, i) => (
               <FadeIn
