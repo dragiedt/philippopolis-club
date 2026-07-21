@@ -81,17 +81,15 @@ export default function Gallery() {
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-700/10 rounded-full blur-[100px]" />
         </div>
         <div className="relative mx-auto max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[240px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 auto-rows-[160px] md:auto-rows-[240px]">
             {photos.map((photo, i) => (
               <FadeIn
                 key={photo.src}
                 delay={i * 60}
                 className={
-                  photo.span === 'tall'
-                    ? 'row-span-2'
-                    : photo.span === 'wide'
-                      ? 'col-span-2'
-                      : ''
+                  photo.span === 'wide' ? 'col-span-2' :
+                  photo.span === 'tall' ? 'md:row-span-2' :
+                  ''
                 }
               >
                 <button
