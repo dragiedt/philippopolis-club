@@ -31,47 +31,47 @@ export default function SmokeEffect() {
     resize()
 
     const spawn = () => {
-      if (particles.length >= 30) return
+      if (particles.length >= 20) return
       const centerX = canvas.offsetWidth * 0.5
       particles.push({
-        x: centerX + (Math.random() - 0.5) * 16,
+        x: centerX + (Math.random() - 0.5) * 6,
         y: canvas.offsetHeight * 0.92,
-        size: 30 + Math.random() * 30,
-        speedX: (Math.random() - 0.5) * 0.15,
-        speedY: -(0.4 + Math.random() * 0.4),
+        size: 12 + Math.random() * 10,
+        speedX: (Math.random() - 0.5) * 0.06,
+        speedY: -(0.5 + Math.random() * 0.3),
         opacity: 0,
         life: 0,
-        maxLife: 200 + Math.random() * 150,
+        maxLife: 180 + Math.random() * 120,
       })
     }
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
 
-      if (Math.random() < 0.12) spawn()
+      if (Math.random() < 0.15) spawn()
 
       particles = particles.filter((p) => {
         p.life++
-        p.x += p.speedX + Math.sin(p.life * 0.008) * 0.3
+        p.x += p.speedX + Math.sin(p.life * 0.006) * 0.08
         p.y += p.speedY
-        p.size += 0.2
+        p.size += 0.15
 
         const progress = p.life / p.maxLife
         if (progress < 0.1) {
           p.opacity = progress / 0.1
-        } else if (progress > 0.6) {
-          p.opacity = 1 - (progress - 0.6) / 0.4
+        } else if (progress > 0.5) {
+          p.opacity = 1 - (progress - 0.5) / 0.5
         } else {
           p.opacity = 1
         }
-        p.opacity *= 0.07
+        p.opacity *= 0.06
 
         if (p.life >= p.maxLife) return false
 
         const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size)
-        gradient.addColorStop(0, `rgba(190, 180, 165, ${p.opacity})`)
-        gradient.addColorStop(0.4, `rgba(170, 160, 145, ${p.opacity * 0.6})`)
-        gradient.addColorStop(1, `rgba(150, 140, 125, 0)`)
+        gradient.addColorStop(0, `rgba(160, 175, 200, ${p.opacity})`)
+        gradient.addColorStop(0.4, `rgba(140, 155, 180, ${p.opacity * 0.5})`)
+        gradient.addColorStop(1, `rgba(120, 135, 160, 0)`)
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)

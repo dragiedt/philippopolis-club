@@ -47,7 +47,7 @@ export default function Events() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 cigar-wrapper">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Events</p>
@@ -61,7 +61,7 @@ export default function Events() {
       </section>
 
       {/* Upcoming */}
-      <section className="py-24 md:py-32 px-6">
+      <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <div className="mb-16">
@@ -97,7 +97,7 @@ export default function Events() {
       </section>
 
       {/* Past Events */}
-      <section className="py-24 md:py-32 px-6 bg-brand-50">
+      <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm">
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <SectionDivider className="mb-16" />
@@ -134,7 +134,7 @@ export default function Events() {
       </section>
 
       {/* Note */}
-      <section className="py-16 px-6">
+      <section className="py-16 px-6 tobacco-leaf">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <p className="text-brand-500 text-sm leading-relaxed">

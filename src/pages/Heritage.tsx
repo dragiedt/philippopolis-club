@@ -38,7 +38,7 @@ export default function Heritage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 cigar-wrapper">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Heritage</p>
@@ -52,7 +52,7 @@ export default function Heritage() {
       </section>
 
       {/* Story */}
-      <section className="py-24 md:py-32 px-6">
+      <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn direction="left">
@@ -85,7 +85,7 @@ export default function Heritage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 md:py-32 px-6 bg-brand-50">
+      <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm">
         <div className="mx-auto max-w-4xl">
           <FadeIn>
             <SectionDivider className="mb-16" />
@@ -111,7 +111,7 @@ export default function Heritage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 md:py-32 px-6">
+      <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
             <div className="text-center mb-16">
@@ -135,7 +135,7 @@ export default function Heritage() {
       </section>
 
       {/* Quote */}
-      <section className="py-24 md:py-32 px-6 bg-brand-900">
+      <section className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper vignette">
         <div className="mx-auto max-w-4xl text-center">
           <FadeIn>
             <div className="relative">

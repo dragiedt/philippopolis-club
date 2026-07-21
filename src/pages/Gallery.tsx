@@ -53,7 +53,7 @@ export default function Gallery() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 bg-brand-900 overflow-hidden">
+      <section className="relative pt-32 pb-16 bg-brand-900 overflow-hidden cigar-wrapper">
         <SmokeBackground />
         <div className="absolute inset-0 bg-[url('/images/drive/GC_0362.jpg')] bg-cover bg-center opacity-10 z-[1]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-900/30 to-brand-900 z-[2]" />

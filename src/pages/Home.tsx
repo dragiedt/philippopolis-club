@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center bg-brand-900 overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center bg-brand-900 overflow-hidden cigar-wrapper">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40 scale-105"
           style={{
@@ -74,8 +74,8 @@ export default function Home() {
       </section>
 
       {/* The Society */}
-      <section className="py-24 md:py-32 px-6">
-        <div className="mx-auto max-w-7xl">
+      <section className="py-24 md:py-32 px-6 tobacco-leaf">
+        <div className="relative mx-auto max-w-7xl">
           <FadeIn>
             <SectionDivider className="mb-16" />
           </FadeIn>
@@ -117,8 +117,8 @@ export default function Home() {
       </section>
 
       {/* The Three Pleasures */}
-      <section className="py-24 md:py-32 px-6 bg-brand-50">
-        <div className="mx-auto max-w-7xl">
+      <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm gold-hairline-top">
+        <div className="relative mx-auto max-w-7xl">
           <FadeIn>
             <div className="text-center mb-16">
               <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The three pleasures</p>
@@ -139,7 +139,7 @@ export default function Home() {
       </section>
 
       {/* Quote */}
-      <section className="py-24 md:py-32 px-6 bg-brand-900">
+      <section className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper vignette">
         <div className="mx-auto max-w-4xl text-center">
           <FadeIn>
             <div className="relative">
@@ -153,7 +153,7 @@ export default function Home() {
       </section>
 
       {/* Heritage Preview */}
-      <section className="py-24 md:py-32 px-6">
+      <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn direction="left" className="order-2 lg:order-1">

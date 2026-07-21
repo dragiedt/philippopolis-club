@@ -113,33 +113,149 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .smoke-layer-1 {
-  background: radial-gradient(ellipse 200px 350px at 50% 90%, rgba(200,190,170,0.18), transparent 65%);
+  background: radial-gradient(ellipse 80px 280px at 50% 90%, rgba(160,175,200,0.16), transparent 65%);
   animation: smoke-drift-1 25s ease-in-out infinite;
 }
 
 .smoke-layer-2 {
-  background: radial-gradient(ellipse 160px 400px at 50% 85%, rgba(180,170,150,0.14), transparent 60%);
+  background: radial-gradient(ellipse 60px 320px at 50% 88%, rgba(140,155,180,0.12), transparent 60%);
   animation: smoke-drift-2 30s ease-in-out infinite;
 }
 
 .smoke-layer-3 {
-  background: radial-gradient(ellipse 120px 300px at 50% 95%, rgba(210,195,165,0.12), transparent 55%);
+  background: radial-gradient(ellipse 50px 240px at 50% 92%, rgba(170,185,210,0.10), transparent 55%);
   animation: smoke-drift-3 35s ease-in-out infinite;
 }
 
 @keyframes smoke-drift-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-  33% { transform: translate(40px, -30px) scale(1.1); opacity: 1; }
-  66% { transform: translate(-20px, -15px) scale(0.95); opacity: 0.7; }
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  33% { transform: translate(6px, -20px) scale(1.05); opacity: 0.9; }
+  66% { transform: translate(-4px, -10px) scale(0.97); opacity: 0.6; }
 }
 
 @keyframes smoke-drift-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
-  40% { transform: translate(-50px, -20px) scale(1.15); opacity: 0.9; }
-  70% { transform: translate(30px, -40px) scale(0.9); opacity: 0.6; }
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  40% { transform: translate(-8px, -15px) scale(1.08); opacity: 0.8; }
+  70% { transform: translate(5px, -25px) scale(0.94); opacity: 0.5; }
 }
 
 @keyframes smoke-drift-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-  50% { transform: translate(25px, -35px) scale(1.08); opacity: 0.8; }
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  50% { transform: translate(4px, -18px) scale(1.04); opacity: 0.7; }
+}
+
+/* ── Cigar textures ────────────────────────────────────────── */
+
+/* Tobacco leaf vein — light cream sections */
+.tobacco-leaf {
+  position: relative;
+  overflow: hidden;
+}
+.tobacco-leaf::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231a1410' stroke-width='0.5'%3E%3Cpath d='M0 0l60 60'/%3E%3Cpath d='M-10 0l60 60' transform='translate(20,0)'/%3E%3Cpath d='M10 60L60 10'/%3E%3Cpath d='M-10 60L40 10' transform='translate(20,0)'/%3E%3Cpath d='M30 0v60'/%3E%3Cpath d='M0 30h60'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Tobacco leaf warm — bg-brand-50 sections */
+.tobacco-leaf-warm {
+  position: relative;
+  overflow: hidden;
+}
+.tobacco-leaf-warm::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%233d342a' stroke-width='0.5'%3E%3Cpath d='M0 0l60 60'/%3E%3Cpath d='M-10 0l60 60' transform='translate(20,0)'/%3E%3Cpath d='M10 60L60 10'/%3E%3Cpath d='M-10 60L40 10' transform='translate(20,0)'/%3E%3Cpath d='M30 0v60'/%3E%3Cpath d='M0 30h60'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Cigar wrapper mottling — dark sections */
+.cigar-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.cigar-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  mix-blend-mode: soft-light;
+}
+
+/* Cigar band top ornament — membership cards */
+.cigar-band-top {
+  position: relative;
+}
+.cigar-band-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-gold-500) 15%,
+    var(--color-gold-300) 50%,
+    var(--color-gold-500) 85%,
+    transparent 100%
+  );
+}
+
+/* Vignette for quote/CTA sections */
+.vignette {
+  position: relative;
+}
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    transparent 50%,
+    rgba(10, 8, 5, 0.3) 100%
+  );
+}
+
+/* Gold hairline between sections */
+.gold-hairline-top {
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-gold-500) 30%,
+    var(--color-gold-400) 50%,
+    var(--color-gold-500) 70%,
+    transparent 100%
+  ) 1;
+  border-image-slice: 1;
+}
+
+/* Header gold hairline border */
+.header-border {
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 169, 110, 0.2) 20%,
+    rgba(201, 169, 110, 0.1) 50%,
+    rgba(201, 169, 110, 0.2) 80%,
+    transparent 100%
+  ) 1;
 }

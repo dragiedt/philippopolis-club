@@ -15,7 +15,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-brand-200/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md header-border">
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link to="/" className="flex items-center gap-3">

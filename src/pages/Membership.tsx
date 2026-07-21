@@ -64,7 +64,7 @@ export default function Membership() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 cigar-wrapper">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Membership</p>
@@ -78,7 +78,7 @@ export default function Membership() {
       </section>
 
       {/* Introduction */}
-      <section className="py-24 md:py-32 px-6">
+      <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <p className="text-brand-600 text-lg leading-relaxed">
@@ -89,7 +89,7 @@ export default function Membership() {
       </section>
 
       {/* Tiers */}
-      <section className="py-24 md:py-32 px-6 bg-brand-50">
+      <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm gold-hairline-top">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
             <div className="text-center mb-16">
@@ -103,7 +103,7 @@ export default function Membership() {
             {tiers.map((tier, index) => (
               <FadeIn key={index} delay={index * 150}>
                 <div
-                  className={`p-8 border h-full ${
+                  className={`p-8 border h-full cigar-band-top ${
                     index === 1
                       ? 'border-gold-500 bg-cream shadow-lg'
                       : 'border-brand-200 bg-cream'
@@ -134,7 +134,7 @@ export default function Membership() {
       </section>
 
       {/* Process */}
-      <section className="py-24 md:py-32 px-6">
+      <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <SectionDivider className="mb-16" />
@@ -164,7 +164,7 @@ export default function Membership() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 px-6 bg-brand-900">
+      <section className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <h2 className="font-serif text-3xl md:text-4xl text-cream font-light mb-6">
