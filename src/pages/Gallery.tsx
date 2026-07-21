@@ -3,31 +3,44 @@ import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import SmokeBackground from '../components/SmokeBackground'
 
-const photos = [
-  { src: '/images/drive/GC_0043.jpg', alt: 'The club interior', span: 'tall' },
-  { src: '/images/drive/GC_0064.jpg', alt: 'Evening setting', span: 'normal' },
-  { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere', span: 'wide' },
-  { src: '/images/drive/GC_0128.jpg', alt: 'Members gathering', span: 'normal' },
-  { src: '/images/drive/GC_0186.jpg', alt: 'The lounge', span: 'normal' },
-  { src: '/images/drive/GC_0230.jpg', alt: 'Fine spirits', span: 'normal' },
-  { src: '/images/drive/GC_0269.jpg', alt: 'The humidor', span: 'normal' },
-  { src: '/images/drive/GC_0318.jpg', alt: 'Cigar selection', span: 'tall' },
-  { src: '/images/drive/GC_0362.jpg', alt: 'Cigar ritual', span: 'normal' },
-  { src: '/images/drive/GC_0396.jpg', alt: 'The salon', span: 'wide' },
-  { src: '/images/drive/GC_0406.jpg', alt: 'The ancient theatre', span: 'normal' },
-  { src: '/images/drive/GC_0455.jpg', alt: 'By the fireplace', span: 'normal' },
-  { src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style', span: 'normal' },
-  { src: '/images/drive/GC_0534.jpg', alt: 'The terrace', span: 'normal' },
-  { src: '/images/drive/GC_0592.jpg', alt: 'Conversation & smoke', span: 'tall' },
-  { src: '/images/drive/GC_0665.jpg', alt: 'The cellar', span: 'normal' },
-  { src: '/images/drive/GC_0700.jpg', alt: 'A toast among friends', span: 'wide' },
-  { src: '/images/drive/GC_0739.jpg', alt: 'Details & craft', span: 'normal' },
-  { src: '/images/drive/GC_0770.jpg', alt: 'The study', span: 'normal' },
-  { src: '/images/drive/GC_0773.jpg', alt: 'Evening mood', span: 'normal' },
-  { src: '/images/drive/GC_0815.jpg', alt: 'Members portrait', span: 'tall' },
-  { src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal' },
-  { src: '/images/drive/GC_0143.jpg', alt: 'The hallway', span: 'normal' },
+const words = [
+  { word: 'Honor.' },
+  { word: 'Loyalty.' },
+  { word: 'Integrity.' },
+  { word: 'Authenticity.' },
+  { word: 'Humility.' },
 ]
+
+const wordSizes = ['text-3xl', 'text-4xl', 'text-2xl', 'text-5xl', 'text-3xl']
+
+const gridItems: ({ type: 'photo'; src: string; alt: string; span: string } | { type: 'word'; word: string; size: string })[] = [
+  { type: 'photo', src: '/images/drive/GC_0043.jpg', alt: 'The club interior', span: 'tall' },
+  { type: 'photo', src: '/images/drive/GC_0064.jpg', alt: 'Evening setting', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere', span: 'wide' },
+  { type: 'photo', src: '/images/drive/GC_0128.jpg', alt: 'Members gathering', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0186.jpg', alt: 'The lounge', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0230.jpg', alt: 'Fine spirits', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0269.jpg', alt: 'The humidor', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0318.jpg', alt: 'Cigar selection', span: 'tall' },
+  { type: 'photo', src: '/images/drive/GC_0362.jpg', alt: 'Cigar ritual', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0396.jpg', alt: 'The salon', span: 'wide' },
+  { type: 'photo', src: '/images/drive/GC_0406.jpg', alt: 'The ancient theatre', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0455.jpg', alt: 'By the fireplace', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0534.jpg', alt: 'The terrace', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0592.jpg', alt: 'Conversation & smoke', span: 'tall' },
+  { type: 'photo', src: '/images/drive/GC_0665.jpg', alt: 'The cellar', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0700.jpg', alt: 'A toast among friends', span: 'wide' },
+  { type: 'photo', src: '/images/drive/GC_0739.jpg', alt: 'Details & craft', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0770.jpg', alt: 'The study', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0773.jpg', alt: 'Evening mood', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0815.jpg', alt: 'Members portrait', span: 'tall' },
+  { type: 'photo', src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal' },
+  { type: 'photo', src: '/images/drive/GC_0143.jpg', alt: 'The hallway', span: 'normal' },
+  ...words.map((w, i) => ({ type: 'word' as const, word: w.word, size: wordSizes[i] })),
+]
+
+const photos = gridItems.filter((item) => item.type === 'photo')
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null)
@@ -57,12 +70,17 @@ export default function Gallery() {
     }
   }, [lightbox, close, next, prev])
 
-  const getSpanClass = (i: number) => {
-    const photo = photos[i]
+  const getSpanClass = (item: typeof gridItems[number]) => {
+    if (item.type === 'word') return 'hidden lg:flex'
     const parts: string[] = []
-    if (photo.span === 'wide') parts.push('col-span-2', 'md:col-span-2')
-    if (photo.span === 'tall') parts.push('md:row-span-2')
+    if (item.span === 'wide') parts.push('col-span-2', 'md:col-span-2')
+    if (item.span === 'tall') parts.push('md:row-span-2')
     return parts.join(' ')
+  }
+
+  const photoIndex = (item: typeof gridItems[number]) => {
+    if (item.type !== 'photo') return -1
+    return photos.indexOf(item)
   }
 
   return (
@@ -96,29 +114,37 @@ export default function Gallery() {
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-700/10 rounded-full blur-[100px]" />
         </div>
         <div className="relative mx-auto max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 auto-rows-[160px] md:auto-rows-[240px]">
-            {photos.map((photo, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 auto-rows-[160px] md:auto-rows-[240px]" style={{ gridAutoFlow: 'dense' }}>
+            {gridItems.map((item, i) => (
               <FadeIn
-                key={photo.src}
-                delay={i * 60}
-                className={getSpanClass(i)}
+                key={i}
+                delay={item.type === 'photo' ? i * 60 : 0}
+                className={getSpanClass(item)}
               >
-                <button
-                  onClick={() => setLightbox(i)}
-                  className="group relative w-full h-full overflow-hidden cursor-pointer"
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    className="w-full h-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/40 transition-all duration-500 flex items-end">
-                    <span className="text-cream text-sm tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 p-4 font-light">
-                      {photo.alt}
+                {item.type === 'photo' ? (
+                  <button
+                    onClick={() => setLightbox(photoIndex(item))}
+                    className="group relative w-full h-full overflow-hidden cursor-pointer"
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/40 transition-all duration-500 flex items-end">
+                      <span className="text-cream text-sm tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 p-4 font-light">
+                        {item.alt}
+                      </span>
+                    </div>
+                  </button>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-brand-50 border border-brand-200/50">
+                    <span className={`font-display ${item.size} text-brand-400/60 tracking-wide`}>
+                      {item.word}
                     </span>
                   </div>
-                </button>
+                )}
               </FadeIn>
             ))}
           </div>
