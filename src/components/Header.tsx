@@ -56,7 +56,7 @@ export default function Header() {
             </a>
             <button
               type="button"
-              className="p-2 text-brand-900"
+              className="text-brand-900"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
