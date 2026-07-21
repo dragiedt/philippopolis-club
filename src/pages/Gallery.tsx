@@ -4,22 +4,24 @@ import FadeIn from '../components/FadeIn'
 import SmokeBackground from '../components/SmokeBackground'
 
 const photos = [
-  { src: '/images/drive/GC_0043.jpg', alt: 'The club interior', span: 'tall' },
-  { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere', span: 'wide' },
-  { src: '/images/drive/GC_0186.jpg', alt: 'Members gathering', span: 'normal' },
-  { src: '/images/drive/GC_0269.jpg', alt: 'The humidor', span: 'normal' },
-  { src: '/images/drive/GC_0318.jpg', alt: 'Fine spirits', span: 'tall' },
-  { src: '/images/drive/GC_0362.jpg', alt: 'Cigar ritual', span: 'normal' },
-  { src: '/images/drive/GC_0396.jpg', alt: 'The salon', span: 'wide' },
-  { src: '/images/drive/GC_0455.jpg', alt: 'By the fireplace', span: 'normal' },
-  { src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style', span: 'normal' },
-  { src: '/images/drive/GC_0592.jpg', alt: 'Conversation & smoke', span: 'tall' },
-  { src: '/images/drive/GC_0665.jpg', alt: 'The cellar', span: 'normal' },
-  { src: '/images/drive/GC_0700.jpg', alt: 'A toast among friends', span: 'wide' },
-  { src: '/images/drive/GC_0739.jpg', alt: 'Details & craft', span: 'normal' },
-  { src: '/images/drive/GC_0770.jpg', alt: 'The study', span: 'normal' },
-  { src: '/images/drive/GC_0815.jpg', alt: 'Members portrait', span: 'tall' },
-  { src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal' },
+  { src: '/images/drive/GC_0043.jpg', alt: 'The club interior' },
+  { src: '/images/drive/GC_0064.jpg', alt: 'Evening setting' },
+  { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere' },
+  { src: '/images/drive/GC_0128.jpg', alt: 'Members gathering' },
+  { src: '/images/drive/GC_0143.jpg', alt: 'The lounge' },
+  { src: '/images/drive/GC_0186.jpg', alt: 'Conversation & smoke' },
+  { src: '/images/drive/GC_0230.jpg', alt: 'Fine spirits' },
+  { src: '/images/drive/GC_0269.jpg', alt: 'The humidor' },
+  { src: '/images/drive/GC_0299.jpg', alt: 'An evening at the club' },
+  { src: '/images/drive/GC_0318.jpg', alt: 'The cellar selection' },
+  { src: '/images/drive/GC_0362.jpg', alt: 'Cigar ritual' },
+  { src: '/images/drive/GC_0396.jpg', alt: 'The salon' },
+  { src: '/images/drive/GC_0455.jpg', alt: 'By the fireplace' },
+  { src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style' },
+  { src: '/images/drive/GC_0592.jpg', alt: 'Portrait' },
+  { src: '/images/drive/GC_0665.jpg', alt: 'The cellar' },
+  { src: '/images/drive/GC_0700.jpg', alt: 'A toast among friends' },
+  { src: '/images/drive/GC_0739.jpg', alt: 'Details & craft' },
 ]
 
 export default function Gallery() {
@@ -50,6 +52,16 @@ export default function Gallery() {
     }
   }, [lightbox, close, next, prev])
 
+  const getSpanClass = (i: number) => {
+    const isWide = i % 3 === 2
+    const tallIndices = [0, 6, 12]
+    const isTall = tallIndices.includes(i)
+    const parts: string[] = []
+    if (isWide) parts.push('md:col-span-2')
+    if (isTall) parts.push('md:row-span-2')
+    return parts.join(' ')
+  }
+
   return (
     <>
       {/* Hero */}
@@ -74,7 +86,7 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Masonry Grid */}
+      {/* Grid */}
       <section className="relative py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-800/20 rounded-full blur-[120px]" />
@@ -86,11 +98,7 @@ export default function Gallery() {
               <FadeIn
                 key={photo.src}
                 delay={i * 60}
-                className={
-                  photo.span === 'wide' ? 'md:col-span-2' :
-                  photo.span === 'tall' ? 'md:row-span-2' :
-                  ''
-                }
+                className={getSpanClass(i)}
               >
                 <button
                   onClick={() => setLightbox(i)}
