@@ -22,7 +22,7 @@ export default function SmokeEffect() {
 
     let animId: number
     let particles: Particle[] = []
-    const maxParticles = 40
+    const maxParticles = 60
 
     const resize = () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio
@@ -48,7 +48,7 @@ export default function SmokeEffect() {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
 
-      if (Math.random() < 0.08) spawn()
+      if (Math.random() < 0.15) spawn()
 
       particles = particles.filter((p) => {
         p.life++
@@ -64,7 +64,7 @@ export default function SmokeEffect() {
         } else {
           p.opacity = 1
         }
-        p.opacity *= 0.04
+        p.opacity *= 0.12
 
         if (p.life >= p.maxLife) return false
 
