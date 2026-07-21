@@ -54,9 +54,9 @@ export default function Gallery() {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-16 bg-brand-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/drive/GC_0362.jpg')] bg-cover bg-center opacity-10" />
         <SmokeBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-900/50 to-brand-900 z-[1]" />
+        <div className="absolute inset-0 bg-[url('/images/drive/GC_0362.jpg')] bg-cover bg-center opacity-10 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-900/30 to-brand-900 z-[2]" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The Collection</p>

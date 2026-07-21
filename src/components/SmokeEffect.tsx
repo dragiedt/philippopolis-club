@@ -22,7 +22,6 @@ export default function SmokeEffect() {
 
     let animId: number
     let particles: Particle[] = []
-    const maxParticles = 60
 
     const resize = () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio
@@ -32,46 +31,47 @@ export default function SmokeEffect() {
     resize()
 
     const spawn = () => {
-      if (particles.length >= maxParticles) return
+      if (particles.length >= 30) return
+      const centerX = canvas.offsetWidth * 0.5
       particles.push({
-        x: canvas.offsetWidth * 0.3 + Math.random() * canvas.offsetWidth * 0.4,
-        y: canvas.offsetHeight + 10,
-        size: 20 + Math.random() * 40,
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: -(0.3 + Math.random() * 0.5),
+        x: centerX + (Math.random() - 0.5) * 16,
+        y: canvas.offsetHeight * 0.92,
+        size: 30 + Math.random() * 30,
+        speedX: (Math.random() - 0.5) * 0.15,
+        speedY: -(0.4 + Math.random() * 0.4),
         opacity: 0,
         life: 0,
-        maxLife: 300 + Math.random() * 200,
+        maxLife: 200 + Math.random() * 150,
       })
     }
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
 
-      if (Math.random() < 0.15) spawn()
+      if (Math.random() < 0.12) spawn()
 
       particles = particles.filter((p) => {
         p.life++
-        p.x += p.speedX + Math.sin(p.life * 0.01) * 0.2
+        p.x += p.speedX + Math.sin(p.life * 0.008) * 0.3
         p.y += p.speedY
-        p.size += 0.15
+        p.size += 0.2
 
         const progress = p.life / p.maxLife
-        if (progress < 0.15) {
-          p.opacity = progress / 0.15
-        } else if (progress > 0.7) {
-          p.opacity = 1 - (progress - 0.7) / 0.3
+        if (progress < 0.1) {
+          p.opacity = progress / 0.1
+        } else if (progress > 0.6) {
+          p.opacity = 1 - (progress - 0.6) / 0.4
         } else {
           p.opacity = 1
         }
-        p.opacity *= 0.12
+        p.opacity *= 0.07
 
         if (p.life >= p.maxLife) return false
 
         const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size)
-        gradient.addColorStop(0, `rgba(200, 190, 170, ${p.opacity})`)
-        gradient.addColorStop(0.5, `rgba(180, 170, 150, ${p.opacity * 0.5})`)
-        gradient.addColorStop(1, `rgba(160, 150, 130, 0)`)
+        gradient.addColorStop(0, `rgba(190, 180, 165, ${p.opacity})`)
+        gradient.addColorStop(0.4, `rgba(170, 160, 145, ${p.opacity * 0.6})`)
+        gradient.addColorStop(1, `rgba(150, 140, 125, 0)`)
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
