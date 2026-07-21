@@ -87,7 +87,7 @@ export default function Gallery() {
                 key={photo.src}
                 delay={i * 60}
                 className={
-                  photo.span === 'wide' ? 'col-span-2' :
+                  photo.span === 'wide' ? 'md:col-span-2' :
                   photo.span === 'tall' ? 'md:row-span-2' :
                   ''
                 }
