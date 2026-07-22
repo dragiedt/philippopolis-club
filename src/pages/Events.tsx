@@ -77,7 +77,8 @@ const pastEvents = [
 export default function Events() {
   const [activeFilter, setActiveFilter] = useState('All')
   const filters = ['All', 'Members Only', 'Invitation', 'Guests']
-  const filteredPastEvents = activeFilter === 'All' ? pastEvents : pastEvents.filter(e => e.type === activeFilter)
+  const filteredUpcoming = activeFilter === 'All' ? upcomingEvents : upcomingEvents.filter(e => e.type === activeFilter)
+  const filteredPast = activeFilter === 'All' ? pastEvents : pastEvents.filter(e => e.type === activeFilter)
 
   return (
     <>
@@ -95,6 +96,32 @@ export default function Events() {
         </div>
       </section>
 
+      {/* Event Type Filter */}
+      <section className="py-8 px-6 border-b border-brand-200">
+        <div className="mx-auto max-w-5xl">
+          <FadeIn>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <span className="text-brand-500 text-xs tracking-[0.2em] uppercase shrink-0">Event Type</span>
+              <div className="flex flex-wrap gap-3">
+                {filters.map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => setActiveFilter(filter)}
+                    className={`px-4 py-1.5 text-xs tracking-wider uppercase border transition-colors duration-200 ${
+                      activeFilter === filter
+                        ? 'bg-brand-900 text-cream border-brand-900'
+                        : 'bg-transparent text-brand-600 border-brand-300 hover:border-brand-900 hover:text-brand-900'
+                    }`}
+                  >
+                    {filter}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Upcoming */}
       <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-5xl">
@@ -107,7 +134,7 @@ export default function Events() {
             </div>
           </FadeIn>
           <div className="space-y-8">
-            {upcomingEvents.map((event, index) => (
+            {filteredUpcoming.map((event, index) => (
               <FadeIn key={index} delay={index * 100}>
                 <div className="group p-8 border border-brand-200 hover:border-gold-500/50 transition-colors duration-300">
                   <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
@@ -145,25 +172,8 @@ export default function Events() {
               </h2>
             </div>
           </FadeIn>
-          <FadeIn>
-            <div className="flex flex-wrap gap-3 mb-10">
-              {filters.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`px-4 py-1.5 text-xs tracking-wider uppercase border transition-colors duration-200 ${
-                    activeFilter === filter
-                      ? 'bg-brand-900 text-cream border-brand-900'
-                      : 'bg-transparent text-brand-600 border-brand-300 hover:border-brand-900 hover:text-brand-900'
-                  }`}
-                >
-                  {filter}
-                </button>
-              ))}
-            </div>
-          </FadeIn>
           <div className="space-y-8">
-            {filteredPastEvents.map((event, index) => (
+            {filteredPast.map((event, index) => (
               <FadeIn key={index} delay={index * 100}>
                 <div className="p-8 bg-cream border border-brand-200">
                   <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
