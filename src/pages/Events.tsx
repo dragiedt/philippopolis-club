@@ -99,26 +99,24 @@ export default function Events() {
       {/* Event Type Filter */}
       <section className="py-8 px-6 border-b border-brand-200">
         <div className="mx-auto max-w-5xl">
-          <FadeIn>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-              <span className="text-brand-500 text-xs tracking-[0.2em] uppercase shrink-0">Event Type</span>
-              <div className="flex flex-wrap gap-3">
-                {filters.map((filter) => (
-                  <button
-                    key={filter}
-                    onClick={() => setActiveFilter(filter)}
-                    className={`px-4 py-1.5 text-xs tracking-wider uppercase border transition-colors duration-200 ${
-                      activeFilter === filter
-                        ? 'bg-brand-900 text-cream border-brand-900'
-                        : 'bg-transparent text-brand-600 border-brand-300 hover:border-brand-900 hover:text-brand-900'
-                    }`}
-                  >
-                    {filter}
-                  </button>
-                ))}
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <span className="text-brand-500 text-xs tracking-[0.2em] uppercase shrink-0">Event Type</span>
+            <div className="flex flex-wrap gap-3">
+              {filters.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`px-4 py-1.5 text-xs tracking-wider uppercase border transition-colors duration-200 ${
+                    activeFilter === filter
+                      ? 'bg-brand-900 text-cream border-brand-900'
+                      : 'bg-transparent text-brand-600 border-brand-300 hover:border-brand-900 hover:text-brand-900'
+                  }`}
+                >
+                  {filter}
+                </button>
+              ))}
             </div>
-          </FadeIn>
+          </div>
         </div>
       </section>
 
