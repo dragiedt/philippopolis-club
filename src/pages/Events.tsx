@@ -24,22 +24,44 @@ const upcomingEvents = [
 
 const pastEvents = [
   {
+    date: 'July 2026',
+    title: 'Davidoff White Party',
+    description: 'An evening with Hristo Kenansky of Delion, celebrating the Davidoff legacy.',
+  },
+  {
     date: 'June 2026',
-    title: 'Fly Me to the Moon',
-    description: 'Cigars, Sinatra & Retro Cars — our annual celebration featuring live jazz, classic automobiles, and the finest Habanos.',
-    highlight: 'Featuring Vasyl Petrov performing the greatest hits of Frank Sinatra.',
+    title: 'Plasencia Year of the Horse Night',
+    description: 'A special collaboration with Corojo Club, honouring the Plasencia Year of the Horse release.',
+  },
+  {
+    date: 'June 2026',
+    title: 'Regional Edition',
+    description: 'An exclusive regional edition presentation in partnership with Kaliman Caribe.',
+  },
+  {
+    date: 'May 2026',
+    title: "Bucanero's Cigar Night",
+    description: 'An evening dedicated to the Bucanero brand and its distinguished portfolio.',
+  },
+  {
+    date: 'May 2026',
+    title: 'Special Guest Rob Diedrich',
+    description: 'Blackened Whisky and Cigars — an evening with Rob Diedrich exploring the pairing of peated spirits and full-bodied cigars.',
+  },
+  {
+    date: 'April 2026',
+    title: 'San Luis Rey Night',
+    description: 'A night dedicated to the San Luis Rey marque, in collaboration with KD Leaf.',
+  },
+  {
+    date: 'April 2026',
+    title: 'Partagás Maduro Night',
+    description: 'A Partagás Maduro evening with Kaliman Caribe and special guest Yordan "Yuri" Kostadinov.',
   },
   {
     date: 'March 2026',
-    title: 'Honorary Membership',
-    description: 'Krasimir Balakov, legend of Bulgarian football, was received as an honorary member of the club.',
-    highlight: 'Previous honourees include Yordan Yovchev and Mikhail Bilalov.',
-  },
-  {
-    date: 'December 2025',
-    title: 'Winter Gala',
-    description: 'A black-tie evening celebrating the season, with a curated selection of aged rums and premium cigars.',
-    highlight: 'Attendance by over 60 members and distinguished guests.',
+    title: 'Artista Cigars Night',
+    description: 'An Artista Cigars showcase in collaboration with Leaf Brothers.',
   },
 ]
 
@@ -120,10 +142,7 @@ export default function Events() {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
-                      <p className="text-brand-600 leading-relaxed mb-3">{event.description}</p>
-                      {event.highlight && (
-                        <p className="text-gold-600 text-sm italic">{event.highlight}</p>
-                      )}
+                      <p className="text-brand-600 leading-relaxed">{event.description}</p>
                     </div>
                   </div>
                 </div>
