@@ -81,6 +81,29 @@ export default function Heritage() {
               </div>
             </FadeIn>
           </div>
+
+          <FadeIn>
+            <div className="mt-16 space-y-6">
+              <p className="text-brand-600 text-lg leading-relaxed">
+                Our club was established by a small circle of cigar aficionados. It all began as a gathering of friends from all walks of life united by a shared appreciation for fine cigars, thoughtful conversation, and timeless traditions. Over time, this informal circle evolved into an organized cigar club with its own governance, more than 50 paid members, and a growing community of gentlemen who value refinement, camaraderie and culture.
+              </p>
+              <p className="text-brand-600 text-lg leading-relaxed">
+                Soon Gentlemen's Club Philippopolis started rapidly growing and evolving — a Sofia chapter is currently in development — while at the same time maintaining strict admission rules. Each candidate must adhere to the Club's policies of cultivating gentlemanly conduct, etiquette, and elegance among its members and guests while promoting the culture and knowledge surrounding cigars, fine spirits, coffee, and gastronomy. Through tastings, lectures, cultural events, and meetings with cigar manufacturers and industry experts, members deepen their appreciation for the craftsmanship and traditions behind these arts. We strive to make cigar culture more popular and teach gentlemen the 'art of slow living'.
+              </p>
+              <p className="text-brand-600 text-lg leading-relaxed">
+                Gentlemen's Club Philippopolis emerged in a time when cigar culture was at its infancy in Bulgaria and Eastern Europe as a whole. Our organization was the first legally established cigar club in Bulgaria and remains as such to this day. The club is currently working on a long-term plan to expand its operations abroad and establish more chapters in other European countries, defying language barriers and sometimes letting 'the smoke do the talking instead'.
+              </p>
+              <p className="text-brand-600 text-lg leading-relaxed">
+                Notable events which Gentlemen's Club Philippopolis has participated in include meetings and cigar presentations with Christian and Vivian Eiroa (Eiroa Cigars), Oscar Valladares (Oscar Valladares Cigars), Tom Lazuka (Asylum Cigars), Freddy Molina and Steven Kron (A.J. Fernandez Cigars), Rocky Patel (Rocky Patel Cigars), Pedro Gomez (Drew Estate Cigars), Jose Blanco (Arturo Fuente Cigars), Christopher Mey and Craig Cunningham (Esteban Carreras Cigars), J.C. Newman (J.C. Newman Cigars) and more. In addition we organize and participate in regular whisky, rum and wine presentations. Each year we organize a major event in autumn open to all major cigar aficionados and industry professionals in Europe.
+              </p>
+              <p className="text-brand-600 text-lg leading-relaxed">
+                Furthermore, Gentlemen's Club Philippopolis has great club relationships with cigar organizations in Bulgaria and throughout Europe: KD Leaf Diaries (UK), Cigar Club Luxembourg, Smoke Society Macedonia, Cigars Club Yatrus (Bulgaria), Cigar Nomads Sofia (Bulgaria). Our club ambassadors — one in France and one in Belgium — are always working on expanding our contacts with cigar aficionados even further.
+              </p>
+              <p className="text-brand-600 text-lg leading-relaxed">
+                Our partners and sponsors include all major cigar and premium alcohol distributors in Bulgaria such as: Kaliman Caribe, Best Cigars, Delion, Aficionado, Corojo Club, Valentino Siesto, Azteca, Leaf Brothers and more.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
