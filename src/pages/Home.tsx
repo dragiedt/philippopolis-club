@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center bg-brand-900 overflow-hidden cigar-wrapper">
+      <section className="relative h-screen flex items-center justify-center bg-brand-900 cigar-wrapper">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40 scale-105"
           style={{
