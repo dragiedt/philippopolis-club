@@ -34,7 +34,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/60 via-brand-900/40 to-brand-900/80" />
         <SmokeEffect />
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <FadeIn delay={100}>
             <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mb-8 w-32 md:w-40" />
           </FadeIn>
