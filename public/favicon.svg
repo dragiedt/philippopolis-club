@@ -1,13 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Cigar body -->
-  <rect x="12" y="36" width="40" height="10" rx="5" ry="5" fill="#1a1410" transform="rotate(-25 32 41)"/>
-  <!-- Cigar band -->
-  <rect x="30" y="33" width="8" height="16" rx="1" ry="1" fill="#c9a96e" transform="rotate(-25 34 41)"/>
-  <!-- Lit end glow -->
-  <circle cx="14" cy="50" r="4" fill="#c9a96e" opacity="0.6"/>
-  <circle cx="14" cy="50" r="2.5" fill="#e8d5a8" opacity="0.8"/>
-  <!-- Smoke wisps -->
-  <path d="M 12 46 Q 8 38 14 30 Q 18 24 12 16" fill="none" stroke="#1a1410" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-  <path d="M 16 44 Q 20 36 14 28 Q 10 22 16 14" fill="none" stroke="#1a1410" stroke-width="1.2" stroke-linecap="round" opacity="0.2"/>
-  <path d="M 10 48 Q 6 40 12 32 Q 16 26 10 18" fill="none" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round" opacity="0.25"/>
+  <!-- Hat brim -->
+  <ellipse cx="32" cy="44" rx="26" ry="6" fill="#1a1410"/>
+  <!-- Hat crown -->
+  <rect x="18" y="12" width="28" height="32" rx="3" ry="3" fill="#1a1410"/>
+  <!-- Hat band -->
+  <rect x="18" y="34" width="28" height="5" fill="#c9a96e"/>
+  <!-- Crown highlight -->
+  <rect x="20" y="14" width="8" height="18" rx="2" ry="2" fill="#2a2218" opacity="0.4"/>
 </svg>
