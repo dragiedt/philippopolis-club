@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 
@@ -74,6 +75,10 @@ const pastEvents = [
 ]
 
 export default function Events() {
+  const [activeFilter, setActiveFilter] = useState('All')
+  const filters = ['All', 'Members Only', 'Invitation', 'Guests']
+  const filteredPastEvents = activeFilter === 'All' ? pastEvents : pastEvents.filter(e => e.type === activeFilter)
+
   return (
     <>
       {/* Hero */}
@@ -140,8 +145,25 @@ export default function Events() {
               </h2>
             </div>
           </FadeIn>
+          <FadeIn>
+            <div className="flex flex-wrap gap-3 mb-10">
+              {filters.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`px-4 py-1.5 text-xs tracking-wider uppercase border transition-colors duration-200 ${
+                    activeFilter === filter
+                      ? 'bg-brand-900 text-cream border-brand-900'
+                      : 'bg-transparent text-brand-600 border-brand-300 hover:border-brand-900 hover:text-brand-900'
+                  }`}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
+          </FadeIn>
           <div className="space-y-8">
-            {pastEvents.map((event, index) => (
+            {filteredPastEvents.map((event, index) => (
               <FadeIn key={index} delay={index * 100}>
                 <div className="p-8 bg-cream border border-brand-200">
                   <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
