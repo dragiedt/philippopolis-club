@@ -120,19 +120,6 @@ export default function Events() {
         </div>
       </section>
 
-      {/* Delicate Banner */}
-      <div className="py-12 px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="flex items-center gap-6">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
-            <svg className="w-4 h-4 text-gold-500/50 shrink-0" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.2 3.1 15l.9-5.3-4-3.9L5.5 5z" />
-            </svg>
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
-          </div>
-        </div>
-      </div>
-
       {/* Upcoming */}
       <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-5xl">
@@ -166,33 +153,6 @@ export default function Events() {
               </FadeIn>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Featured Event — Facebook Embed */}
-      <section className="py-16 px-6 tobacco-leaf">
-        <div className="mx-auto max-w-5xl">
-          <FadeIn>
-            <div className="mb-8 text-center">
-              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-3">Featured Event</p>
-              <h3 className="font-serif text-2xl md:text-3xl text-brand-900 font-light">Davidoff White Party</h3>
-            </div>
-          </FadeIn>
-          <FadeIn>
-            <div className="flex justify-center">
-              <iframe
-                src="https://www.facebook.com/plugins/event.php?href=https%3A%2F%2Ffb.me%2Fe%2F4g45U6Yjw&width=500&height=700&show_posts=false&tabs=timeline&small_header=false&adapt_container_width=true&hide_cover=false&locale=en_US"
-                width="500"
-                height="700"
-                style={{ border: 'none', overflow: 'hidden', maxWidth: '100%' }}
-                scrolling="no"
-                frameBorder="0"
-                allowFullScreen
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                className="w-full max-w-[500px]"
-              />
-            </div>
-          </FadeIn>
         </div>
       </section>
 
