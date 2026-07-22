@@ -27,41 +27,49 @@ const pastEvents = [
     date: 'July 2026',
     title: 'Davidoff White Party',
     description: 'An evening with Hristo Kenansky of Delion, celebrating the Davidoff legacy.',
+    type: 'Invitation',
   },
   {
     date: 'June 2026',
     title: 'Plasencia Year of the Horse Night',
     description: 'A special collaboration with Corojo Club, honouring the Plasencia Year of the Horse release.',
+    type: 'Members Only',
   },
   {
     date: 'June 2026',
-    title: 'Regional Edition',
+    title: 'Rosa Bulgaria Regional Edition',
     description: 'An exclusive regional edition presentation in partnership with Kaliman Caribe.',
+    type: 'Guests',
   },
   {
     date: 'May 2026',
     title: "Bucanero's Cigar Night",
     description: 'An evening dedicated to the Bucanero brand and its distinguished portfolio.',
+    type: 'Invitation',
   },
   {
     date: 'May 2026',
     title: 'Special Guest Rob Diedrich',
     description: 'Blackened Whisky and Cigars — an evening with Rob Diedrich exploring the pairing of peated spirits and full-bodied cigars.',
+    type: 'Guests',
   },
   {
     date: 'April 2026',
     title: 'San Luis Rey Night',
     description: 'A night dedicated to the San Luis Rey marque, in collaboration with KD Leaf.',
+    type: 'Invitation',
   },
   {
     date: 'April 2026',
     title: 'Partagás Maduro Night',
     description: 'A Partagás Maduro evening with Kaliman Caribe and special guest Yordan "Yuri" Kostadinov.',
+    type: 'Members Only',
   },
   {
     date: 'March 2026',
     title: 'Artista Cigars Night',
     description: 'An Artista Cigars showcase in collaboration with Leaf Brothers.',
+    type: 'Members Only',
   },
 ]
 
@@ -143,6 +151,11 @@ export default function Events() {
                     <div className="flex-1">
                       <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
                       <p className="text-brand-600 leading-relaxed">{event.description}</p>
+                    </div>
+                    <div className="md:w-32 shrink-0">
+                      <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
+                        {event.type}
+                      </span>
                     </div>
                   </div>
                 </div>
