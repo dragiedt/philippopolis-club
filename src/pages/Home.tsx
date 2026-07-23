@@ -36,7 +36,7 @@ export default function Home() {
         <SmokeEffect />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <FadeIn delay={100}>
-            <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mb-8 w-32 md:w-40" />
+            <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mb-8 w-24 md:w-40" />
           </FadeIn>
           <FadeIn delay={200}>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-8">Established in Plovdiv</p>
