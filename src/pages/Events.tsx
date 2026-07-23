@@ -185,6 +185,12 @@ export default function Events() {
         </div>
       </section>
 
+      {/* Banner */}
+      <section className="relative h-48 md:h-64 overflow-hidden">
+        <img src="/images/events-banner.jpg" alt="Events banner" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-brand-900/20" />
+      </section>
+
       {/* Past Events */}
       <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm">
         <div className="mx-auto max-w-5xl">
