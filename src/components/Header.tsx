@@ -41,13 +41,26 @@ export default function Header() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => setLang(lang === 'en' ? 'bg' : 'en')}
-              className="text-xs tracking-widest uppercase text-brand-600 hover:text-brand-900 transition-colors duration-200 font-medium"
-            >
-              {lang === 'en' ? 'BG' : 'EN'}
-            </button>
+            <div className="flex items-center border border-brand-300 rounded-full overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={`px-2.5 py-1 text-[10px] tracking-widest uppercase font-medium transition-colors duration-200 ${
+                  lang === 'en' ? 'bg-brand-900 text-cream' : 'bg-transparent text-brand-500 hover:text-brand-900'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang('bg')}
+                className={`px-2.5 py-1 text-[10px] tracking-widest uppercase font-medium transition-colors duration-200 ${
+                  lang === 'bg' ? 'bg-brand-900 text-cream' : 'bg-transparent text-brand-500 hover:text-brand-900'
+                }`}
+              >
+                BG
+              </button>
+            </div>
             <Link
               to="/contact"
               className="inline-flex items-center px-6 py-2.5 bg-brand-900 text-cream text-sm tracking-widest uppercase hover:bg-brand-800 transition-colors duration-200"
@@ -57,13 +70,26 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-3 md:hidden">
-            <button
-              type="button"
-              onClick={() => setLang(lang === 'en' ? 'bg' : 'en')}
-              className="text-brand-900 hover:text-brand-600 transition-colors text-xs tracking-widest uppercase font-medium"
-            >
-              {lang === 'en' ? 'BG' : 'EN'}
-            </button>
+            <div className="flex items-center border border-brand-300 rounded-full overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={`px-2 py-0.5 text-[10px] tracking-widest uppercase font-medium transition-colors duration-200 ${
+                  lang === 'en' ? 'bg-brand-900 text-cream' : 'bg-transparent text-brand-500'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang('bg')}
+                className={`px-2 py-0.5 text-[10px] tracking-widest uppercase font-medium transition-colors duration-200 ${
+                  lang === 'bg' ? 'bg-brand-900 text-cream' : 'bg-transparent text-brand-500'
+                }`}
+              >
+                BG
+              </button>
+            </div>
             <a href="https://www.facebook.com/profile.php?id=100088984060770" target="_blank" rel="noopener noreferrer" className="text-brand-900 hover:text-brand-600 transition-colors">
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
