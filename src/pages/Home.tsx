@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center bg-brand-900 cigar-wrapper">
+      <section className="relative h-screen flex items-center justify-center bg-brand-900 cigar-wrapper pt-20 md:pt-32">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40 scale-105"
           style={{
@@ -24,7 +24,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/60 via-brand-900/40 to-brand-900/80" />
         <SmokeEffect />
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-16 md:pt-24">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <FadeIn delay={100}>
             <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mb-8 w-24 md:w-40" />
           </FadeIn>
