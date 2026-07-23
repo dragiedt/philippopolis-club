@@ -54,8 +54,8 @@ export default function Heritage() {
       {/* Story */}
       <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <FadeIn direction="left">
+          <div className="max-w-4xl mx-auto">
+            <FadeIn>
               <div>
                 <p className="text-brand-600 text-lg leading-relaxed mb-6">
                   Founded upon the seven hills of one of Europe's oldest continuously inhabited cities, our club draws its name — and its temperament — from a place that has watched empires pass.
@@ -66,18 +66,13 @@ export default function Heritage() {
                 <p className="text-brand-600 text-lg leading-relaxed">
                   It is from this layered history that our club draws its spirit — a reverence for tradition, an appreciation for the finer things, and an understanding that true elegance is timeless.
                 </p>
-              </div>
-            </FadeIn>
-            <FadeIn direction="right">
-              <div className="relative">
-                <div className="aspect-[4/5] bg-brand-200 overflow-hidden">
+                <div className="mt-8 aspect-[16/9] overflow-hidden">
                   <img
-                    src="/images/drive/GC_0110.jpg"
-                    alt="Ancient theatre of Philippopolis"
+                    src="/images/drive/photo_167.jpg"
+                    alt="Gentlemen's Club Philippopolis"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-gold-500/30" />
               </div>
             </FadeIn>
           </div>
