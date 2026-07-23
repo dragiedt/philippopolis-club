@@ -26,7 +26,7 @@ export default function Contact() {
           </FadeIn>
           <FadeIn delay={150}>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream font-light leading-tight max-w-3xl">
-              Begin a conversation.
+              Reach out.
             </h1>
           </FadeIn>
           <FadeIn delay={300}>
