@@ -39,7 +39,7 @@ export default function Heritage() {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 cigar-wrapper overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/logo-light.svg')] bg-center bg-no-repeat bg-[length:60%_auto] opacity-[0.15]" />
+        <div className="absolute inset-0 bg-[url('/images/logo-light.svg')] bg-center bg-no-repeat bg-[length:60%_auto] opacity-[0.06]" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Heritage</p>
