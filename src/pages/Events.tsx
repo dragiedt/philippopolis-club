@@ -17,9 +17,11 @@ const upcomingEvents = [
   },
   {
     date: 'October 2026',
-    title: 'Guest Speaker Series',
-    description: 'An evening with a distinguished guest from the world of tobacco or spirits. Details to be announced.',
+    title: 'Once Upon a Time in Philippopolis',
+    description: 'Our flagship annual event — an unforgettable evening celebrating cigar culture, heritage, and fellowship. Details to be announced.',
     type: 'Invitation',
+    highlighted: true,
+    image: '/images/ouatip-logo.png',
   },
 ]
 
@@ -134,22 +136,49 @@ export default function Events() {
           <div className="space-y-8">
             {filteredUpcoming.map((event, index) => (
               <FadeIn key={index} delay={index * 100}>
-                <div className="group p-8 border border-brand-200 hover:border-gold-500/50 transition-colors duration-300">
-                  <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-                    <div className="md:w-40 shrink-0">
-                      <span className="text-gold-500 text-sm tracking-wider uppercase">{event.date}</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
-                      <p className="text-brand-600 leading-relaxed">{event.description}</p>
-                    </div>
-                    <div className="md:w-32 shrink-0">
-                      <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
-                        {event.type}
-                      </span>
+                {event.highlighted ? (
+                  <div className="relative overflow-hidden border-2 border-gold-500/40 bg-brand-900">
+                    {event.image && (
+                      <div className="absolute inset-0">
+                        <img src={event.image} alt={event.title} className="w-full h-full object-cover opacity-30" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/80 to-brand-900/60" />
+                      </div>
+                    )}
+                    <div className="relative p-8 md:p-10">
+                      <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
+                        <div className="md:w-40 shrink-0">
+                          <span className="text-gold-500 text-sm tracking-wider uppercase">{event.date}</span>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-display text-2xl md:text-3xl text-cream mb-3 gold-shimmer">{event.title}</h3>
+                          <p className="text-brand-300 leading-relaxed">{event.description}</p>
+                        </div>
+                        <div className="md:w-32 shrink-0">
+                          <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-gold-500/50 text-gold-500">
+                            {event.type}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="group p-8 border border-brand-200 hover:border-gold-500/50 transition-colors duration-300">
+                    <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+                      <div className="md:w-40 shrink-0">
+                        <span className="text-gold-500 text-sm tracking-wider uppercase">{event.date}</span>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
+                        <p className="text-brand-600 leading-relaxed">{event.description}</p>
+                      </div>
+                      <div className="md:w-32 shrink-0">
+                        <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
+                          {event.type}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </FadeIn>
             ))}
           </div>
