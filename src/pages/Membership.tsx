@@ -88,7 +88,7 @@ export default function Membership() {
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <p className="text-brand-600 text-lg leading-relaxed">
-              Gentlemen's Club Philippopolis is a private society. Membership is by invitation only, proposed by an existing member and approved by the committee. We welcome those who share our appreciation for discretion, craft, and fellowship.
+              Gentlemen's Club Philippopolis is a private society. Membership is by invitation only, proposed by an existing member and approved by the committee. We welcome those who share our appreciation for fellowship and follow the way of the leaf.
             </p>
           </FadeIn>
         </div>
