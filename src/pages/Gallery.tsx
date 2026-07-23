@@ -59,6 +59,12 @@ const photos = [
   { src: '/images/drive/GC_0815.jpg', alt: 'Members portrait', span: 'tall' },
   { src: '/images/drive/GC_0819.jpg', alt: 'The veranda', span: 'normal' },
   { src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal' },
+  { src: '/images/drive/GC_0064.jpg', alt: 'Evening setting II', span: 'normal' },
+  { src: '/images/drive/GC_0119.jpg', alt: 'The gathering', span: 'normal' },
+  { src: '/images/drive/GC_0299.jpg', alt: 'Embers', span: 'normal' },
+  { src: '/images/drive/GC_0408.jpg', alt: 'The courtyard II', span: 'normal' },
+  { src: '/images/drive/GC_0553.jpg', alt: 'City lights II', span: 'normal' },
+  { src: '/images/drive/GC_0698.jpg', alt: 'The collection', span: 'normal' },
 ]
 
 export default function Gallery() {
