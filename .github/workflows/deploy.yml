@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-  VERCEL_ORG_ID: gcp3
-  VERCEL_PROJECT_ID: philippopolis-club
+  VERCEL_ORG_ID: team_Lcr8gzTBaRuXoytqHhbQsvsr
+  VERCEL_PROJECT_ID: prj_4BEmlV8mQ8GWTmgec7ci7w6kDclS
 
 jobs:
   deploy:
