@@ -46,10 +46,10 @@ export default function Header() {
               onClick={() => setLang(lang === 'en' ? 'bg' : 'en')}
               className="relative flex items-center w-14 h-7 rounded-full border border-brand-300 bg-cream transition-colors duration-200 cursor-pointer"
             >
-              <span className="absolute left-1.5 text-[9px] tracking-widest font-medium text-brand-400">EN</span>
-              <span className="absolute right-1.5 text-[9px] tracking-widest font-medium text-brand-400">BG</span>
+              <span className={`relative z-10 w-7 text-center text-[9px] tracking-widest font-medium transition-colors duration-200 ${lang === 'en' ? 'text-cream' : 'text-brand-400'}`}>EN</span>
+              <span className={`relative z-10 w-7 text-center text-[9px] tracking-widest font-medium transition-colors duration-200 ${lang === 'bg' ? 'text-cream' : 'text-brand-400'}`}>BG</span>
               <span
-                className={`absolute top-0.5 h-6 w-6 rounded-full bg-brand-900 shadow-sm transition-transform duration-200 ${
+                className={`absolute top-0.5 left-0.5 h-6 w-6 rounded-full bg-brand-900 shadow-sm transition-transform duration-200 ${
                   lang === 'bg' ? 'translate-x-7' : 'translate-x-0'
                 }`}
               />
@@ -68,10 +68,10 @@ export default function Header() {
               onClick={() => setLang(lang === 'en' ? 'bg' : 'en')}
               className="relative flex items-center w-12 h-6 rounded-full border border-brand-300 bg-cream transition-colors duration-200 cursor-pointer"
             >
-              <span className="absolute left-1 text-[8px] tracking-widest font-medium text-brand-400">EN</span>
-              <span className="absolute right-1 text-[8px] tracking-widest font-medium text-brand-400">BG</span>
+              <span className={`relative z-10 w-6 text-center text-[8px] tracking-widest font-medium transition-colors duration-200 ${lang === 'en' ? 'text-cream' : 'text-brand-400'}`}>EN</span>
+              <span className={`relative z-10 w-6 text-center text-[8px] tracking-widest font-medium transition-colors duration-200 ${lang === 'bg' ? 'text-cream' : 'text-brand-400'}`}>BG</span>
               <span
-                className={`absolute top-0.5 h-5 w-5 rounded-full bg-brand-900 shadow-sm transition-transform duration-200 ${
+                className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-brand-900 shadow-sm transition-transform duration-200 ${
                   lang === 'bg' ? 'translate-x-6' : 'translate-x-0'
                 }`}
               />
