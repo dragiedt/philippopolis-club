@@ -24,9 +24,9 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/60 via-brand-900/40 to-brand-900/80" />
         <SmokeEffect />
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-16 md:pt-24">
           <FadeIn delay={100}>
-            <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mt-12 md:mt-20 mb-4 w-24 md:w-40" />
+            <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mb-8 w-24 md:w-40" />
           </FadeIn>
           <FadeIn delay={200}>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-8">{t('home.hero.tagline')}</p>
