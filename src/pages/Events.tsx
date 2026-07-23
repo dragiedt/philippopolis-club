@@ -170,7 +170,7 @@ export default function Events() {
       {/* Info */}
       <section className="py-8 px-6 bg-brand-50 border-b border-brand-200">
         <div className="mx-auto max-w-5xl">
-          <p className="text-brand-600 text-sm leading-relaxed">
+          <p className="text-brand-600 leading-relaxed">
             The events organized by Gentlemen's Club Philippopolis are essential to our private society. More information about our mission can be found in the <Link to="/heritage" className="text-gold-500 hover:text-gold-600 underline underline-offset-2 transition-colors">Heritage</Link> section of the website.
           </p>
         </div>
