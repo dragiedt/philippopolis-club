@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import SmokeBackground from '../components/SmokeBackground'
@@ -85,94 +86,18 @@ const photos: GalleryItem[] = [
   { src: '/images/drive/GC_0597.jpg', alt: 'The toast', span: 'normal' },
 ]
 
-function Lightbox({ index, onClose, onPrev, onNext }: {
-  index: number
-  onClose: () => void
-  onPrev: () => void
-  onNext: () => void
-}) {
-  const touchRef = useRef<{ x: number; y: number } | null>(null)
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
-      if (e.key === 'ArrowRight') onNext()
-      if (e.key === 'ArrowLeft') onPrev()
-    }
-    document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
-    }
-  }, [onClose, onNext, onPrev])
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
-  }
-
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (!touchRef.current) return
-    const dx = e.changedTouches[0].clientX - touchRef.current.x
-    touchRef.current = null
-    if (Math.abs(dx) > 50) {
-      dx < 0 ? onNext() : onPrev()
-    }
-  }
-
-  const photo = photos[index]
-
-  return (
-    <div
-      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(26,20,16,0.97)', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(8px)' }}
-      onClick={onClose}
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-    >
-      <button onClick={onClose} style={{ position: 'absolute', top: 16, right: 16, zIndex: 10, width: 48, height: 48, borderRadius: '50%', background: 'rgba(44,36,28,0.8)', border: 'none', color: '#b8a88a', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-      </button>
-
-      <button onClick={(e) => { e.stopPropagation(); onPrev() }} style={{ position: 'absolute', left: 8, top: '50%', transform: 'translateY(-50%)', zIndex: 10, width: 56, height: 56, borderRadius: '50%', background: 'rgba(44,36,28,0.8)', border: 'none', color: '#b8a88a', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
-      </button>
-
-      <button onClick={(e) => { e.stopPropagation(); onNext() }} style={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)', zIndex: 10, width: 56, height: 56, borderRadius: '50%', background: 'rgba(44,36,28,0.8)', border: 'none', color: '#b8a88a', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
-      </button>
-
-      <div style={{ maxWidth: '90vw', maxHeight: '85vh', textAlign: 'center' }} onClick={(e) => e.stopPropagation()}>
-        <img
-          key={index}
-          src={photo.src}
-          alt={photo.alt}
-          style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain', display: 'block', margin: '0 auto' }}
-        />
-        <p style={{ color: '#b8a88a', fontSize: 14, marginTop: 16, letterSpacing: '0.05em', fontFamily: 'Inter, sans-serif' }}>
-          {photo.alt}
-          <span style={{ color: '#8b7355', marginLeft: 12 }}>{index + 1} / {photos.length}</span>
-        </p>
-      </div>
-    </div>
-  )
-}
-
 export default function Gallery() {
-  const [lightbox, setLightbox] = useState<number | null>(null)
+  const [lbIdx, setLbIdx] = useState<number | null>(null)
 
-  const close = useCallback(() => setLightbox(null), [])
-  const next = useCallback(() => {
-    setLightbox((prev) => (prev !== null ? (prev + 1) % photos.length : null))
-  }, [])
-  const prev = useCallback(() => {
-    setLightbox((prev) => (prev !== null ? (prev - 1 + photos.length) % photos.length : null))
-  }, [])
+  const close = useCallback(() => setLbIdx(null), [])
+  const next = useCallback(() => setLbIdx((p) => (p !== null ? (p + 1) % photos.length : null)), [])
+  const prev = useCallback(() => setLbIdx((p) => (p !== null ? (p - 1 + photos.length) % photos.length : null)), [])
 
   const getSpanClass = (i: number) => {
-    const photo = photos[i]
+    const p = photos[i]
     const parts: string[] = []
-    if (photo.span === 'wide') parts.push('col-span-2', 'md:col-span-2')
-    if (photo.span === 'tall') parts.push('md:row-span-2')
+    if (p.span === 'wide') parts.push('col-span-2', 'md:col-span-2')
+    if (p.span === 'tall') parts.push('md:row-span-2')
     return parts.join(' ')
   }
 
@@ -184,16 +109,10 @@ export default function Gallery() {
         <div className="absolute inset-0 bg-[url('/images/drive/GC_0362.jpg')] bg-cover bg-center opacity-10 z-[1]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-900/30 to-brand-900 z-[2]" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <FadeIn>
-            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The Collection</p>
-          </FadeIn>
-          <FadeIn delay={150}>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-cream font-light">Gallery</h1>
-          </FadeIn>
+          <FadeIn><p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The Collection</p></FadeIn>
+          <FadeIn delay={150}><h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-cream font-light">Gallery</h1></FadeIn>
           <FadeIn delay={300}>
-            <p className="mt-6 text-brand-300 text-lg max-w-xl mx-auto font-light">
-              Enjoy the little things, for one day you may look back and realize they were the big things.
-            </p>
+            <p className="mt-6 text-brand-300 text-lg max-w-xl mx-auto font-light">Enjoy the little things, for one day you may look back and realize they were the big things.</p>
           </FadeIn>
         </div>
       </section>
@@ -207,14 +126,10 @@ export default function Gallery() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 auto-rows-[160px] md:auto-rows-[240px] grid-flow-dense">
             {photos.map((photo, i) => (
-              <FadeIn
-                key={`${photo.src}-${i}`}
-                delay={i * 60}
-                className={getSpanClass(i)}
-              >
+              <FadeIn key={`${photo.src}-${i}`} delay={i * 60} className={getSpanClass(i)}>
                 {photo.isBanner ? (
                   <div
-                    onClick={() => setLightbox(i)}
+                    onClick={() => setLbIdx(i)}
                     className="group relative w-full h-full overflow-hidden border-2 border-gold-500/40 bg-brand-900 cursor-pointer flex flex-col justify-between p-6 md:p-8"
                   >
                     <div className="absolute inset-0 z-0">
@@ -232,13 +147,11 @@ export default function Gallery() {
                   </div>
                 ) : (
                   <button
-                    onClick={() => setLightbox(i)}
-                    className="group relative w-full h-full overflow-hidden cursor-pointer block text-left border-0 p-0 bg-transparent"
+                    onClick={() => setLbIdx(i)}
+                    className="group relative w-full h-full overflow-hidden border-0 p-0 bg-transparent cursor-pointer"
                   >
                     <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      loading="lazy"
+                      src={photo.src} alt={photo.alt} loading="lazy"
                       className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${photo.objectPos ? '' : 'object-[center_30%]'}`}
                       style={photo.objectPos ? { objectPosition: photo.objectPos } : undefined}
                     />
@@ -253,14 +166,34 @@ export default function Gallery() {
         </div>
       </section>
 
-      <div className="px-6 pb-16">
-        <div className="mx-auto max-w-7xl">
-          <FadeIn><SectionDivider /></FadeIn>
-        </div>
-      </div>
+      <div className="px-6 pb-16"><div className="mx-auto max-w-7xl"><FadeIn><SectionDivider /></FadeIn></div></div>
 
-      {lightbox !== null && (
-        <Lightbox index={lightbox} onClose={close} onPrev={prev} onNext={next} />
+      {lbIdx !== null && createPortal(
+        <div
+          className="fixed inset-0 z-[9999] bg-brand-900/95 flex items-center justify-center"
+          onClick={close}
+          onKeyDown={(e) => { if (e.key === 'Escape') close(); if (e.key === 'ArrowRight') next(); if (e.key === 'ArrowLeft') prev(); }}
+          tabIndex={0}
+          ref={(el) => el?.focus()}
+        >
+          <button onClick={close} className="absolute top-4 right-4 w-12 h-12 rounded-full bg-brand-800/80 text-brand-400 hover:text-cream hover:bg-brand-700 flex items-center justify-center z-10 border-0 cursor-pointer">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+
+          <button onClick={(e) => { e.stopPropagation(); prev() }} className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-brand-800/80 text-brand-400 hover:text-cream hover:bg-brand-700 flex items-center justify-center z-10 border-0 cursor-pointer">
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+          </button>
+
+          <button onClick={(e) => { e.stopPropagation(); next() }} className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-brand-800/80 text-brand-400 hover:text-cream hover:bg-brand-700 flex items-center justify-center z-10 border-0 cursor-pointer">
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+          </button>
+
+          <div className="max-w-[90vw] max-h-[90vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+            <img key={lbIdx} src={photos[lbIdx].src} alt={photos[lbIdx].alt} className="max-w-full max-h-[80vh] w-auto h-auto object-contain block" />
+            <p className="text-brand-400 text-sm mt-4 tracking-wider font-light">{photos[lbIdx].alt}<span className="text-brand-500 ml-3">{lbIdx + 1} / {photos.length}</span></p>
+          </div>
+        </div>,
+        document.body
       )}
     </>
   )
