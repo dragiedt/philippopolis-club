@@ -19,7 +19,7 @@ export default function Contact() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 cigar-wrapper">
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 cigar-wrapper">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Contact</p>
@@ -28,6 +28,12 @@ export default function Contact() {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream font-light leading-tight max-w-3xl">
               Begin a conversation.
             </h1>
+          </FadeIn>
+          <FadeIn delay={300}>
+            <p className="mt-6 text-brand-300 text-lg max-w-xl font-light italic">
+              "The doors will be opened to those who are bold enough to knock."<br />
+              <span className="text-brand-400 text-sm not-italic tracking-wider">- Tony Gaskins</span>
+            </p>
           </FadeIn>
         </div>
       </section>
