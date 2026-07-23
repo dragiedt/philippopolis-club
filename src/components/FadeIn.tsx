@@ -5,6 +5,7 @@ interface FadeInProps {
   className?: string
   delay?: number
   direction?: 'up' | 'down' | 'left' | 'right' | 'none'
+  triggerChild?: boolean
 }
 
 const directionStyles = {
@@ -15,7 +16,7 @@ const directionStyles = {
   none: '',
 }
 
-export default function FadeIn({ children, className = '', delay = 0, direction = 'up' }: FadeInProps) {
+export default function FadeIn({ children, className = '', delay = 0, direction = 'up', triggerChild = false }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -28,6 +29,10 @@ export default function FadeIn({ children, className = '', delay = 0, direction 
           el.style.transitionDelay = `${delay}ms`
           el.classList.add('opacity-100', 'translate-x-0', 'translate-y-0')
           el.classList.remove('opacity-0', ...directionStyles[direction].split(' ').filter(Boolean))
+          if (triggerChild) {
+            const img = el.querySelector('[data-banner]')
+            if (img) img.classList.add('banner-visible')
+          }
           observer.unobserve(el)
         }
       },
@@ -36,7 +41,7 @@ export default function FadeIn({ children, className = '', delay = 0, direction 
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [delay, direction])
+  }, [delay, direction, triggerChild])
 
   return (
     <div

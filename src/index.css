@@ -147,6 +147,21 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Cigar textures ────────────────────────────────────────── */
 
+/* Banner reveal: fade + slow zoom */
+@keyframes banner-reveal {
+  from { opacity: 0; transform: scale(1.06); }
+  to   { opacity: 0.22; transform: scale(1); }
+}
+
+[data-banner] {
+  opacity: 0;
+  transform: scale(1.06);
+}
+
+[data-banner].banner-visible {
+  animation: banner-reveal 1.8s ease-out forwards;
+}
+
 /* Tobacco leaf vein — light cream sections */
 .tobacco-leaf {
   position: relative;

@@ -186,9 +186,11 @@ export default function Events() {
       </section>
 
       {/* Photo Banner */}
-      <section className="relative h-64 md:h-80 overflow-hidden">
-        <img src="/images/events-banner.jpg" alt="" className="w-full h-full object-cover opacity-8" />
-        <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream" />
+      <section className="relative h-64 md:h-80 overflow-hidden bg-cream">
+        <FadeIn triggerChild direction="none">
+          <img src="/images/events-banner.jpg" alt="" data-banner className="w-full h-full object-cover" />
+        </FadeIn>
+        <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream pointer-events-none" />
       </section>
 
       {/* Past Events */}
