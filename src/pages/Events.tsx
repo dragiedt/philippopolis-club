@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 
@@ -10,6 +10,7 @@ const upcomingEvents = [
     type: 'Invitation',
     highlighted: true,
     image: '/images/ouatip-logo.png',
+    countdownTo: '2026-10-17T18:00:00+03:00',
   },
   {
     date: 'September 2026',
@@ -75,6 +76,49 @@ const pastEvents = [
     type: 'Members Only',
   },
 ]
+
+function Countdown({ to }: { to: string }) {
+  const [remaining, setRemaining] = useState(() => {
+    const diff = new Date(to).getTime() - Date.now()
+    return diff > 0 ? diff : 0
+  })
+
+  useEffect(() => {
+    if (remaining <= 0) return
+    const timer = setInterval(() => {
+      const diff = new Date(to).getTime() - Date.now()
+      setRemaining(diff > 0 ? diff : 0)
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [to])
+
+  if (remaining <= 0) return null
+
+  const days = Math.floor(remaining / (1000 * 60 * 60 * 24))
+  const hours = Math.floor((remaining / (1000 * 60 * 60)) % 24)
+  const minutes = Math.floor((remaining / (1000 * 60)) % 60)
+  const seconds = Math.floor((remaining / 1000) % 60)
+
+  const units = [
+    { value: days, label: 'Days' },
+    { value: hours, label: 'Hours' },
+    { value: minutes, label: 'Min' },
+    { value: seconds, label: 'Sec' },
+  ]
+
+  return (
+    <div className="flex gap-3 md:gap-4 mt-6">
+      {units.map(({ value, label }) => (
+        <div key={label} className="flex flex-col items-center">
+          <span className="font-display text-2xl md:text-3xl text-gold-500 tabular-nums leading-none">
+            {String(value).padStart(2, '0')}
+          </span>
+          <span className="text-brand-400 text-[10px] tracking-widest uppercase mt-1">{label}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default function Events() {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -152,6 +196,7 @@ export default function Events() {
                         <div className="flex-1">
                           <h3 className="font-display text-2xl md:text-3xl text-cream mb-3 gold-shimmer">{event.title}</h3>
                           <p className="text-brand-300 leading-relaxed">{event.description}</p>
+                          {event.countdownTo && <Countdown to={event.countdownTo} />}
                         </div>
                         <div className="md:w-32 shrink-0">
                           <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-gold-500/50 text-gold-500">
