@@ -59,6 +59,7 @@ const photos = [
   { src: '/images/drive/GC_0815.jpg', alt: 'Members portrait', span: 'tall' },
   { src: '/images/drive/GC_0819.jpg', alt: 'The veranda', span: 'normal' },
   { src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal' },
+  { src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal', banner: 'Fly Me to the Moon · 2025' },
 ]
 
 export default function Gallery() {
@@ -131,26 +132,36 @@ export default function Gallery() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 auto-rows-[160px] md:auto-rows-[240px]">
             {photos.map((photo, i) => (
               <FadeIn
-                key={photo.src}
+                key={`${photo.src}-${i}`}
                 delay={i * 60}
                 className={getSpanClass(i)}
               >
-                <button
-                  onClick={() => setLightbox(i)}
-                  className="group relative w-full h-full overflow-hidden cursor-pointer"
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    className="w-full h-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/40 transition-all duration-500 flex items-end">
-                    <span className="text-cream text-sm tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 p-4 font-light">
-                      {photo.alt}
-                    </span>
+                {photo.banner ? (
+                  <div className="group relative w-full h-full bg-brand-900 overflow-hidden flex items-center justify-center p-6">
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-800/50 to-brand-900" />
+                    <div className="relative text-center">
+                      <p className="text-gold-500 text-[10px] tracking-[0.3em] uppercase mb-2">Event</p>
+                      <h3 className="font-display text-lg md:text-xl text-cream leading-snug">{photo.banner}</h3>
+                    </div>
                   </div>
-                </button>
+                ) : (
+                  <button
+                    onClick={() => setLightbox(i)}
+                    className="group relative w-full h-full overflow-hidden cursor-pointer"
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/40 transition-all duration-500 flex items-end">
+                      <span className="text-cream text-sm tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 p-4 font-light">
+                        {photo.alt}
+                      </span>
+                    </div>
+                  </button>
+                )}
               </FadeIn>
             ))}
           </div>
