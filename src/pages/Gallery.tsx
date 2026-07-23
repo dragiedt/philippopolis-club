@@ -65,6 +65,9 @@ const photos = [
   { src: '/images/drive/GC_0408.jpg', alt: 'The courtyard II', span: 'normal' },
   { src: '/images/drive/GC_0553.jpg', alt: 'City lights II', span: 'normal' },
   { src: '/images/drive/GC_0698.jpg', alt: 'The collection', span: 'normal' },
+  { src: '/images/drive/GC_0379.jpg', alt: 'The quiet hour', span: 'normal' },
+  { src: '/images/drive/GC_0460.jpg', alt: 'By candlelight', span: 'normal' },
+  { src: '/images/drive/GC_0778.jpg', alt: 'The selection', span: 'normal' },
 ]
 
 export default function Gallery() {
@@ -128,7 +131,7 @@ export default function Gallery() {
       </section>
 
       {/* Grid */}
-      <section className="relative py-20 px-6 overflow-hidden">
+      <section className="relative py-20 px-6 overflow-hidden tobacco-leaf">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-800/20 rounded-full blur-[120px]" />
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-700/10 rounded-full blur-[100px]" />
