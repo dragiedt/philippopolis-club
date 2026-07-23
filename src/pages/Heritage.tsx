@@ -57,11 +57,6 @@ export default function Heritage() {
         <div className="mx-auto max-w-7xl">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
-              <div className="text-center mb-14">
-                <img src="/images/logo.svg" alt="Gentlemen's Club Philippopolis" className="h-24 md:h-28 w-auto mx-auto" />
-              </div>
-            </FadeIn>
-            <FadeIn>
               <div>
                 <p className="text-brand-600 text-lg leading-relaxed mb-6">
                   Founded upon the seven hills of one of Europe's oldest continuously inhabited cities, our club draws its name — and its temperament — from a place that has watched empires pass.
