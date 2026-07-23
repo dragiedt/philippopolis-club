@@ -76,39 +76,6 @@ const pastEvents = [
   },
 ]
 
-function FacebookEventBanner() {
-  return (
-    <a
-      href="https://fb.me/e/4g45U6Yjw"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block relative overflow-hidden border border-brand-200 hover:border-gold-500/50 transition-all duration-300 bg-brand-900"
-    >
-      <div className="p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
-        <div className="shrink-0 hidden md:flex w-16 h-16 items-center justify-center border border-gold-500/40">
-          <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8 text-gold-500 group-hover:scale-110 transition-transform duration-300">
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
-        <div className="flex-1">
-          <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-2">View on Facebook</p>
-          <h3 className="font-serif text-2xl md:text-3xl text-cream mb-2 gold-shimmer">See our latest event</h3>
-          <p className="text-brand-300 leading-relaxed">Visit our Facebook page for event details, photos, and updates.</p>
-        </div>
-        <div className="shrink-0">
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 text-xs tracking-wider uppercase border border-gold-500/50 text-gold-500 group-hover:bg-gold-500 group-hover:text-brand-900 transition-all duration-300">
-            Open
-            <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5">
-              <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </span>
-        </div>
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-gold-500/0 via-gold-500/0 to-gold-500/5 group-hover:to-gold-500/10 transition-all duration-300 pointer-events-none" />
-    </a>
-  )
-}
-
 export default function Events() {
   const [activeFilter, setActiveFilter] = useState('All')
   const filters = ['All', 'Members Only', 'Invitation', 'Guests']
@@ -156,7 +123,7 @@ export default function Events() {
       </section>
 
       {/* Upcoming */}
-      <section className="py-24 md:py-32 px-6 tobacco-leaf">
+      <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-6 tobacco-leaf">
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <div className="mb-16">
@@ -218,17 +185,8 @@ export default function Events() {
         </div>
       </section>
 
-      {/* Facebook Event Link */}
-      <section className="py-12 px-6 bg-brand-50">
-        <div className="mx-auto max-w-3xl">
-          <FadeIn>
-            <FacebookEventBanner />
-          </FadeIn>
-        </div>
-      </section>
-
       {/* Past Events */}
-      <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm">
+      <section className="pt-8 md:pt-12 pb-24 md:pb-32 px-6 bg-brand-50 tobacco-leaf-warm">
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <SectionDivider className="mb-16" />
