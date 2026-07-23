@@ -186,10 +186,10 @@ export default function Events() {
       </section>
 
       {/* Logo Divider */}
-      <div className="py-20 md:py-28 px-6">
+      <div className="py-10 md:py-14 px-6">
         <div className="mx-auto max-w-5xl flex justify-center">
           <FadeIn>
-            <img src="/images/logo.svg" alt="Gentlemen's Club Philippopolis" className="h-56 md:h-72 w-auto opacity-15" />
+            <img src="/images/logo.svg" alt="Gentlemen's Club Philippopolis" className="h-64 md:h-80 w-auto opacity-25" />
           </FadeIn>
         </div>
       </div>
