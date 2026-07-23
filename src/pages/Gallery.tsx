@@ -3,63 +3,83 @@ import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import SmokeBackground from '../components/SmokeBackground'
 
-const photos = [
+interface GalleryItem {
+  src: string
+  alt: string
+  span: 'normal' | 'wide' | 'tall'
+  isBanner?: boolean
+  bannerTitle?: string
+  bannerSubtitle?: string
+  bannerTag?: string
+  bannerDesc?: string
+}
+
+const photos: GalleryItem[] = [
   { src: '/images/drive/GC_0043.jpg', alt: 'The club interior', span: 'tall' },
   { src: '/images/drive/GC_0064.jpg', alt: 'Evening setting', span: 'normal' },
   { src: '/images/drive/GC_0071.jpg', alt: 'The bar', span: 'normal' },
-  { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere', span: 'wide' },
   { src: '/images/drive/GC_0119.jpg', alt: 'Cigars on display', span: 'normal' },
+  { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere', span: 'wide' },
   { src: '/images/drive/GC_0128.jpg', alt: 'Members gathering', span: 'normal' },
   { src: '/images/drive/GC_0129.jpg', alt: 'The lounge corner', span: 'normal' },
   { src: '/images/drive/GC_0130.jpg', alt: 'Glasses raised', span: 'normal' },
   { src: '/images/drive/GC_0143.jpg', alt: 'The hallway', span: 'normal' },
+  { src: '/images/drive/GC_0217.jpg', alt: 'The humidor shelf', span: 'tall' },
+  { src: '/images/drive/GC_0278.jpg', alt: 'Evening ritual', span: 'wide' },
   { src: '/images/drive/GC_0186.jpg', alt: 'The lounge', span: 'normal' },
   { src: '/images/drive/GC_0213.jpg', alt: 'Amber light', span: 'normal' },
-  { src: '/images/drive/GC_0217.jpg', alt: 'The humidor shelf', span: 'tall' },
   { src: '/images/drive/GC_0230.jpg', alt: 'Fine spirits', span: 'normal' },
-  { src: '/images/drive/GC_0269.jpg', alt: 'The humidor', span: 'normal' },
-  { src: '/images/drive/GC_0273.jpg', alt: 'Smoke and shadow', span: 'normal' },
-  { src: '/images/drive/GC_0278.jpg', alt: 'Evening ritual', span: 'wide' },
-  { src: '/images/drive/GC_0299.jpg', alt: 'The ashtray', span: 'normal' },
   { src: '/images/drive/GC_0318.jpg', alt: 'Cigar selection', span: 'tall' },
+  { src: '/images/drive/GC_0269.jpg', alt: 'The humidor', span: 'normal' },
+  { src: '/images/drive/GC_0396.jpg', alt: 'The salon', span: 'wide' },
+  { src: '/images/drive/GC_0273.jpg', alt: 'Smoke and shadow', span: 'normal' },
+  { src: '/images/drive/GC_0413.jpg', alt: 'By the window', span: 'tall' },
+  { src: '/images/drive/GC_0299.jpg', alt: 'The ashtray', span: 'normal' },
   { src: '/images/drive/GC_0322.jpg', alt: 'The library', span: 'normal' },
   { src: '/images/drive/GC_0362.jpg', alt: 'Cigar ritual', span: 'normal' },
-  { src: '/images/drive/GC_0379.jpg', alt: 'Quiet corner', span: 'normal' },
-  { src: '/images/drive/GC_0382.jpg', alt: 'Leather and wood', span: 'normal' },
-  { src: '/images/drive/GC_0396.jpg', alt: 'The salon', span: 'wide' },
-  { src: '/images/drive/GC_0400.jpg', alt: 'Plovdiv rooftops', span: 'normal' },
-  { src: '/images/drive/GC_0406.jpg', alt: 'The ancient theatre', span: 'normal' },
-  { src: '/images/drive/GC_0408.jpg', alt: 'The courtyard', span: 'normal' },
-  { src: '/images/drive/GC_0411.jpg', alt: 'Evening stroll', span: 'normal' },
-  { src: '/images/drive/GC_0413.jpg', alt: 'By the window', span: 'tall' },
-  { src: '/images/drive/GC_0423.jpg', alt: 'The fireplace', span: 'normal' },
-  { src: '/images/drive/GC_0455.jpg', alt: 'By the fireplace', span: 'normal' },
-  { src: '/images/drive/GC_0460.jpg', alt: 'Candlelight', span: 'normal' },
-  { src: '/images/drive/GC_0466.jpg', alt: 'The doorway', span: 'normal' },
-  { src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style', span: 'normal' },
-  { src: '/images/drive/GC_0534.jpg', alt: 'The terrace', span: 'normal' },
-  { src: '/images/drive/GC_0543.jpg', alt: 'Night air', span: 'normal' },
   { src: '/images/drive/GC_0551.jpg', alt: 'The balcony', span: 'wide' },
-  { src: '/images/drive/GC_0553.jpg', alt: 'City lights', span: 'normal' },
+  { src: '/images/drive/GC_0379.jpg', alt: 'Quiet corner', span: 'normal' },
+  { src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style', span: 'normal' },
   { src: '/images/drive/GC_0592.jpg', alt: 'Conversation & smoke', span: 'tall' },
   { src: '/images/drive/GC_0596.jpg', alt: 'Among friends', span: 'normal' },
   { src: '/images/drive/GC_0597.jpg', alt: 'The toast', span: 'normal' },
   { src: '/images/drive/GC_0665.jpg', alt: 'The cellar', span: 'normal' },
-  { src: '/images/drive/GC_0698.jpg', alt: 'Barrel aged', span: 'normal' },
+  {
+    src: '/images/drive/GC_0700.jpg',
+    alt: 'Fly Me to the Moon 2025 Event Highlights',
+    span: 'wide',
+    isBanner: true,
+    bannerTitle: 'Fly Me to the Moon 2025 Event Highlights',
+    bannerSubtitle: 'Annual Event · 2025',
+    bannerTag: 'Event Highlights',
+    bannerDesc: 'An extraordinary evening of cigar culture, fine spirits, and live fellowship.',
+  },
+  { src: '/images/drive/GC_0382.jpg', alt: 'Leather and wood', span: 'normal' },
   { src: '/images/drive/GC_0700.jpg', alt: 'A toast among friends', span: 'wide' },
+  { src: '/images/drive/GC_0400.jpg', alt: 'Plovdiv rooftops', span: 'normal' },
+  { src: '/images/drive/GC_0406.jpg', alt: 'The ancient theatre', span: 'normal' },
+  { src: '/images/drive/GC_0408.jpg', alt: 'The courtyard', span: 'normal' },
+  { src: '/images/drive/GC_0743.jpg', alt: 'The bottle collection', span: 'tall' },
+  { src: '/images/drive/GC_0411.jpg', alt: 'Evening stroll', span: 'normal' },
+  { src: '/images/drive/GC_0423.jpg', alt: 'The fireplace', span: 'normal' },
+  { src: '/images/drive/GC_0455.jpg', alt: 'By the fireplace', span: 'normal' },
+  { src: '/images/drive/GC_0460.jpg', alt: 'Candlelight', span: 'normal' },
+  { src: '/images/drive/GC_0815.jpg', alt: 'Members portrait', span: 'tall' },
+  { src: '/images/drive/GC_0466.jpg', alt: 'The doorway', span: 'normal' },
+  { src: '/images/drive/GC_0534.jpg', alt: 'The terrace', span: 'normal' },
+  { src: '/images/drive/GC_0543.jpg', alt: 'Night air', span: 'normal' },
+  { src: '/images/drive/GC_0553.jpg', alt: 'City lights', span: 'normal' },
+  { src: '/images/drive/GC_0698.jpg', alt: 'Barrel aged', span: 'normal' },
   { src: '/images/drive/GC_0722.jpg', alt: 'The corner seat', span: 'normal' },
   { src: '/images/drive/GC_0739.jpg', alt: 'Details & craft', span: 'normal' },
   { src: '/images/drive/GC_0741.jpg', alt: 'Old world charm', span: 'normal' },
-  { src: '/images/drive/GC_0743.jpg', alt: 'The bottle collection', span: 'tall' },
   { src: '/images/drive/GC_0756.jpg', alt: 'Reflections', span: 'normal' },
   { src: '/images/drive/GC_0770.jpg', alt: 'The study', span: 'normal' },
   { src: '/images/drive/GC_0773.jpg', alt: 'Evening mood', span: 'normal' },
   { src: '/images/drive/GC_0778.jpg', alt: 'The humidor door', span: 'normal' },
   { src: '/images/drive/GC_0780.jpg', alt: 'Selected leaves', span: 'normal' },
-  { src: '/images/drive/GC_0815.jpg', alt: 'Members portrait', span: 'tall' },
   { src: '/images/drive/GC_0819.jpg', alt: 'The veranda', span: 'normal' },
   { src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal' },
-  { src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal', banner: 'Fly Me to the Moon · 2025' },
 ]
 
 export default function Gallery() {
@@ -129,25 +149,49 @@ export default function Gallery() {
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-700/10 rounded-full blur-[100px]" />
         </div>
         <div className="relative mx-auto max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 auto-rows-[160px] md:auto-rows-[240px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 auto-rows-[160px] md:auto-rows-[240px] grid-flow-dense">
             {photos.map((photo, i) => (
               <FadeIn
                 key={`${photo.src}-${i}`}
                 delay={i * 60}
                 className={getSpanClass(i)}
               >
-                {photo.banner ? (
-                  <div className="group relative w-full h-full bg-brand-900 overflow-hidden flex items-center justify-center p-6">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-800/50 to-brand-900" />
-                    <div className="relative text-center">
-                      <p className="text-gold-500 text-[10px] tracking-[0.3em] uppercase mb-2">Event</p>
-                      <h3 className="font-display text-lg md:text-xl text-cream leading-snug">{photo.banner}</h3>
+                {photo.isBanner ? (
+                  <div
+                    onClick={() => setLightbox(i)}
+                    className="group relative w-full h-full overflow-hidden border-2 border-gold-500/40 bg-brand-900 cursor-pointer flex flex-col justify-between p-6 md:p-8"
+                  >
+                    <div className="absolute inset-0 z-0">
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
+                        className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/85 to-brand-900/70" />
+                    </div>
+                    <div className="relative z-10 flex items-center justify-between gap-2">
+                      <span className="text-gold-500 text-xs tracking-[0.25em] uppercase font-medium">
+                        {photo.bannerSubtitle || 'Annual Event · 2025'}
+                      </span>
+                      <span className="inline-block px-2.5 py-0.5 text-[10px] tracking-wider uppercase border border-gold-500/50 text-gold-500 bg-brand-900/60 backdrop-blur-sm">
+                        {photo.bannerTag || 'Event Highlights'}
+                      </span>
+                    </div>
+                    <div className="relative z-10 mt-auto pt-4">
+                      <h3 className="font-display text-xl sm:text-2xl md:text-3xl text-cream gold-shimmer font-medium mb-2 leading-tight">
+                        {photo.bannerTitle || photo.alt}
+                      </h3>
+                      {photo.bannerDesc && (
+                        <p className="text-brand-300 text-xs md:text-sm font-light leading-relaxed line-clamp-2">
+                          {photo.bannerDesc}
+                        </p>
+                      )}
                     </div>
                   </div>
                 ) : (
                   <button
                     onClick={() => setLightbox(i)}
-                    className="group relative w-full h-full overflow-hidden cursor-pointer"
+                    className="group relative w-full h-full overflow-hidden cursor-pointer block text-left"
                   >
                     <img
                       src={photo.src}
