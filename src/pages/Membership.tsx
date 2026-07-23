@@ -74,6 +74,19 @@ export default function Membership() {
               A membership by invitation only.
             </h1>
           </FadeIn>
+          <FadeIn delay={225}>
+            <div className="flex justify-center mt-6">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gold-500">
+                <path d="M18 4C14.134 4 11 7.134 11 11V13H9V24C9 26.209 10.791 28 13 28H23C25.209 28 27 26.209 27 24V13H25V11C25 7.134 21.866 4 18 4Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                <circle cx="18" cy="18" r="2" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+                <line x1="18" y1="20" x2="18" y2="24" stroke="currentColor" strokeWidth="1.2"/>
+                <line x1="20" y1="22" x2="18" y2="24" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                <line x1="16" y1="22" x2="18" y2="24" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                <path d="M12 16H14" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
+                <path d="M22 16H24" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
+              </svg>
+            </div>
+          </FadeIn>
           <FadeIn delay={300}>
             <p className="mt-6 text-brand-300 text-lg max-w-xl font-light italic">
               "Speak friend and enter."<br />
