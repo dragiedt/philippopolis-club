@@ -64,12 +64,8 @@ export default function Membership() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="/images/membership-hero.jpg" alt="" className="w-full h-full object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-900/50 via-brand-900/40 to-brand-900/80" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 cigar-wrapper">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Membership</p>
           </FadeIn>
