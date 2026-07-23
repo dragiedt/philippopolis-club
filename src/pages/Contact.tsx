@@ -6,6 +6,7 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
+    subject: '',
     message: '',
     referral: '',
   })
@@ -110,6 +111,24 @@ export default function Contact() {
                         value={formData.referral}
                         onChange={(e) => setFormData({ ...formData, referral: e.target.value })}
                       />
+                    </div>
+
+                    <div>
+                      <label htmlFor="subject" className="block text-sm text-brand-600 mb-2 tracking-wider uppercase">
+                        Subject
+                      </label>
+                      <select
+                        id="subject"
+                        required
+                        className="w-full px-4 py-3 border border-brand-200 bg-cream text-brand-900 focus:outline-none focus:border-gold-500 transition-colors appearance-none"
+                        value={formData.subject}
+                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      >
+                        <option value="" disabled>Select an option</option>
+                        <option value="Membership">Membership</option>
+                        <option value="Partnership">Partnership</option>
+                        <option value="Other Inquiry">Other Inquiry</option>
+                      </select>
                     </div>
 
                     <div>
