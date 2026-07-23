@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import SmokeBackground from '../components/SmokeBackground'
@@ -7,6 +7,7 @@ interface GalleryItem {
   src: string
   alt: string
   span: 'normal' | 'wide' | 'tall'
+  objectPos?: string
   isBanner?: boolean
   bannerTitle?: string
   bannerSubtitle?: string
@@ -37,7 +38,7 @@ const photos: GalleryItem[] = [
   { src: '/images/drive/GC_0299.jpg', alt: 'The ashtray', span: 'normal' },
   { src: '/images/drive/GC_0322.jpg', alt: 'The library', span: 'normal' },
   { src: '/images/drive/GC_0362.jpg', alt: 'Cigar ritual', span: 'normal' },
-  { src: '/images/drive/GC_0551.jpg', alt: 'The balcony', span: 'wide' },
+  { src: '/images/drive/GC_0551.jpg', alt: 'The balcony', span: 'wide', objectPos: 'center top' },
   { src: '/images/drive/GC_0379.jpg', alt: 'Quiet corner', span: 'normal' },
   { src: '/images/drive/GC_0528.jpg', alt: 'Arriving in style', span: 'normal' },
   { src: '/images/drive/GC_0592.jpg', alt: 'Conversation & smoke', span: 'tall' },
@@ -86,6 +87,7 @@ const photos: GalleryItem[] = [
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null)
+  const touchRef = useRef<{ x: number; y: number } | null>(null)
 
   const close = useCallback(() => setLightbox(null), [])
 
@@ -111,6 +113,21 @@ export default function Gallery() {
       document.body.style.overflow = ''
     }
   }, [lightbox, close, next, prev])
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+  }, [])
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (!touchRef.current) return
+    const dx = e.changedTouches[0].clientX - touchRef.current.x
+    const dy = e.changedTouches[0].clientY - touchRef.current.y
+    touchRef.current = null
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next()
+      else prev()
+    }
+  }, [next, prev])
 
   const getSpanClass = (i: number) => {
     const photo = photos[i]
@@ -199,7 +216,8 @@ export default function Gallery() {
                       src={photo.src}
                       alt={photo.alt}
                       loading="lazy"
-                      className="w-full h-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105"
+                      className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${photo.objectPos ? '' : 'object-[center_30%]'}`}
+                      style={photo.objectPos ? { objectPosition: photo.objectPos } : undefined}
                     />
                     <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/40 transition-all duration-500 flex items-end">
                       <span className="text-cream text-sm tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 p-4 font-light">
@@ -225,48 +243,52 @@ export default function Gallery() {
       {/* Lightbox */}
       {lightbox !== null && (
         <div
-          className="fixed inset-0 z-[100] bg-brand-900/95 backdrop-blur-sm flex items-center justify-center"
+          className="fixed inset-0 z-[100] bg-brand-900/98 backdrop-blur-md flex items-center justify-center"
           onClick={close}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <button
             onClick={close}
-            className="absolute top-6 right-6 text-brand-400 hover:text-cream transition-colors z-10"
+            className="absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 flex items-center justify-center rounded-full bg-brand-800/80 text-brand-300 hover:text-cream hover:bg-brand-700 transition-colors z-10"
             aria-label="Close"
           >
-            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
 
           <button
             onClick={(e) => { e.stopPropagation(); prev() }}
-            className="absolute left-4 md:left-8 text-brand-400 hover:text-cream transition-colors z-10"
+            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-brand-800/80 text-brand-300 hover:text-cream hover:bg-brand-700 transition-colors z-10"
             aria-label="Previous"
           >
-            <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </button>
 
           <button
             onClick={(e) => { e.stopPropagation(); next() }}
-            className="absolute right-4 md:right-8 text-brand-400 hover:text-cream transition-colors z-10"
+            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-brand-800/80 text-brand-300 hover:text-cream hover:bg-brand-700 transition-colors z-10"
             aria-label="Next"
           >
-            <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </button>
 
-          <div className="max-w-5xl max-h-[85vh] px-16" onClick={(e) => e.stopPropagation()}>
+          <div className="w-full max-w-5xl max-h-[90vh] px-16 md:px-20 flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
             <img
+              key={lightbox}
               src={photos[lightbox].src}
               alt={photos[lightbox].alt}
-              className="max-w-full max-h-[80vh] object-contain mx-auto"
+              className="max-w-full max-h-[82vh] object-contain mx-auto animate-[fadeIn_0.3s_ease-out]"
+              style={{ animation: 'fadeIn 0.3s ease-out' }}
             />
-            <p className="text-brand-400 text-center text-sm mt-4 tracking-wider font-light">
+            <p className="text-brand-300 text-center text-sm mt-4 tracking-wider font-light">
               {photos[lightbox].alt}
-              <span className="text-brand-600 ml-3">{lightbox + 1} / {photos.length}</span>
+              <span className="text-brand-500 ml-3">{lightbox + 1} / {photos.length}</span>
             </p>
           </div>
         </div>
