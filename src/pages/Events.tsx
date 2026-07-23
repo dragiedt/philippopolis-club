@@ -137,7 +137,7 @@ export default function Events() {
           </FadeIn>
           <FadeIn delay={150}>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream font-light leading-tight max-w-3xl">
-              Evenings that linger.
+              Gentlemen, assemble!
             </h1>
           </FadeIn>
           <FadeIn delay={300}>
