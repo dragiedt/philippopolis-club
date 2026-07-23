@@ -64,8 +64,12 @@ export default function Membership() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 cigar-wrapper">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/images/membership-hero.jpg" alt="" className="w-full h-full object-cover opacity-15" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-900/70 via-brand-900/60 to-brand-900" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Membership</p>
           </FadeIn>
@@ -73,6 +77,12 @@ export default function Membership() {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream font-light leading-tight max-w-3xl">
               A membership by invitation only.
             </h1>
+          </FadeIn>
+          <FadeIn delay={300}>
+            <p className="mt-6 text-brand-300 text-lg max-w-xl font-light italic">
+              "Speak friend and enter."<br />
+              <span className="text-brand-400 text-sm not-italic tracking-wider">— A Writing on The Gates of Moria</span>
+            </p>
           </FadeIn>
         </div>
       </section>
