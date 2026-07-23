@@ -130,7 +130,7 @@ export default function Events() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 cigar-wrapper">
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 cigar-wrapper">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Events</p>
@@ -139,6 +139,12 @@ export default function Events() {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream font-light leading-tight max-w-3xl">
               Evenings that linger.
             </h1>
+          </FadeIn>
+          <FadeIn delay={300}>
+            <p className="mt-6 text-brand-300 text-lg max-w-xl font-light italic">
+              "Good company, good wine, and good welcome can make good people."<br />
+              <span className="text-brand-400 text-sm not-italic tracking-wider">- William Shakespeare</span>
+            </p>
           </FadeIn>
         </div>
       </section>
