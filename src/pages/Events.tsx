@@ -186,9 +186,10 @@ export default function Events() {
       </section>
 
       {/* Banner */}
-      <section className="relative h-48 md:h-64 overflow-hidden">
-        <img src="/images/events-banner.jpg" alt="Events banner" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-brand-900/20" />
+      <section className="py-16 px-6 bg-brand-900">
+        <div className="mx-auto max-w-5xl flex justify-center">
+          <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="h-24 md:h-32 w-auto" />
+        </div>
       </section>
 
       {/* Past Events */}
