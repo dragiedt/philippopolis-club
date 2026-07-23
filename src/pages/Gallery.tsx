@@ -85,49 +85,88 @@ const photos: GalleryItem[] = [
   { src: '/images/drive/GC_0597.jpg', alt: 'The toast', span: 'normal' },
 ]
 
-export default function Gallery() {
-  const [lightbox, setLightbox] = useState<number | null>(null)
+function Lightbox({ index, onClose, onPrev, onNext }: {
+  index: number
+  onClose: () => void
+  onPrev: () => void
+  onNext: () => void
+}) {
   const touchRef = useRef<{ x: number; y: number } | null>(null)
 
-  const close = useCallback(() => setLightbox(null), [])
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+      if (e.key === 'ArrowRight') onNext()
+      if (e.key === 'ArrowLeft') onPrev()
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [onClose, onNext, onPrev])
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+  }
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (!touchRef.current) return
+    const dx = e.changedTouches[0].clientX - touchRef.current.x
+    touchRef.current = null
+    if (Math.abs(dx) > 50) {
+      dx < 0 ? onNext() : onPrev()
+    }
+  }
+
+  const photo = photos[index]
+
+  return (
+    <div
+      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(26,20,16,0.97)', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(8px)' }}
+      onClick={onClose}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <button onClick={onClose} style={{ position: 'absolute', top: 16, right: 16, zIndex: 10, width: 48, height: 48, borderRadius: '50%', background: 'rgba(44,36,28,0.8)', border: 'none', color: '#b8a88a', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+
+      <button onClick={(e) => { e.stopPropagation(); onPrev() }} style={{ position: 'absolute', left: 8, top: '50%', transform: 'translateY(-50%)', zIndex: 10, width: 56, height: 56, borderRadius: '50%', background: 'rgba(44,36,28,0.8)', border: 'none', color: '#b8a88a', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+      </button>
+
+      <button onClick={(e) => { e.stopPropagation(); onNext() }} style={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)', zIndex: 10, width: 56, height: 56, borderRadius: '50%', background: 'rgba(44,36,28,0.8)', border: 'none', color: '#b8a88a', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+      </button>
+
+      <div style={{ maxWidth: '90vw', maxHeight: '85vh', textAlign: 'center' }} onClick={(e) => e.stopPropagation()}>
+        <img
+          key={index}
+          src={photo.src}
+          alt={photo.alt}
+          style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain', display: 'block', margin: '0 auto' }}
+        />
+        <p style={{ color: '#b8a88a', fontSize: 14, marginTop: 16, letterSpacing: '0.05em', fontFamily: 'Inter, sans-serif' }}>
+          {photo.alt}
+          <span style={{ color: '#8b7355', marginLeft: 12 }}>{index + 1} / {photos.length}</span>
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export default function Gallery() {
+  const [lightbox, setLightbox] = useState<number | null>(null)
+
+  const close = useCallback(() => setLightbox(null), [])
   const next = useCallback(() => {
     setLightbox((prev) => (prev !== null ? (prev + 1) % photos.length : null))
   }, [])
-
   const prev = useCallback(() => {
     setLightbox((prev) => (prev !== null ? (prev - 1 + photos.length) % photos.length : null))
   }, [])
-
-  useEffect(() => {
-    if (lightbox === null) return
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') close()
-      if (e.key === 'ArrowRight') next()
-      if (e.key === 'ArrowLeft') prev()
-    }
-    document.addEventListener('keydown', handleKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', handleKey)
-      document.body.style.overflow = ''
-    }
-  }, [lightbox, close, next, prev])
-
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    touchRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
-  }, [])
-
-  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
-    if (!touchRef.current) return
-    const dx = e.changedTouches[0].clientX - touchRef.current.x
-    const dy = e.changedTouches[0].clientY - touchRef.current.y
-    touchRef.current = null
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-      if (dx < 0) next()
-      else prev()
-    }
-  }, [next, prev])
 
   const getSpanClass = (i: number) => {
     const photo = photos[i]
@@ -149,9 +188,7 @@ export default function Gallery() {
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The Collection</p>
           </FadeIn>
           <FadeIn delay={150}>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-cream font-light">
-              Gallery
-            </h1>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-cream font-light">Gallery</h1>
           </FadeIn>
           <FadeIn delay={300}>
             <p className="mt-6 text-brand-300 text-lg max-w-xl mx-auto font-light">
@@ -181,36 +218,22 @@ export default function Gallery() {
                     className="group relative w-full h-full overflow-hidden border-2 border-gold-500/40 bg-brand-900 cursor-pointer flex flex-col justify-between p-6 md:p-8"
                   >
                     <div className="absolute inset-0 z-0">
-                      <img
-                        src={photo.src}
-                        alt={photo.alt}
-                        className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700"
-                      />
+                      <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/85 to-brand-900/70" />
                     </div>
                     <div className="relative z-10 flex items-center justify-between gap-2">
-                      <span className="text-gold-500 text-xs tracking-[0.25em] uppercase font-medium">
-                        {photo.bannerSubtitle || 'Annual Event · 2025'}
-                      </span>
-                      <span className="inline-block px-2.5 py-0.5 text-[10px] tracking-wider uppercase border border-gold-500/50 text-gold-500 bg-brand-900/60 backdrop-blur-sm">
-                        {photo.bannerTag || 'Event Highlights'}
-                      </span>
+                      <span className="text-gold-500 text-xs tracking-[0.25em] uppercase font-medium">{photo.bannerSubtitle || 'Annual Event · 2025'}</span>
+                      <span className="inline-block px-2.5 py-0.5 text-[10px] tracking-wider uppercase border border-gold-500/50 text-gold-500 bg-brand-900/60 backdrop-blur-sm">{photo.bannerTag || 'Event Highlights'}</span>
                     </div>
                     <div className="relative z-10 mt-auto pt-4">
-                      <h3 className="font-display text-xl sm:text-2xl md:text-3xl text-cream gold-shimmer font-medium mb-2 leading-tight">
-                        {photo.bannerTitle || photo.alt}
-                      </h3>
-                      {photo.bannerDesc && (
-                        <p className="text-brand-300 text-xs md:text-sm font-light leading-relaxed line-clamp-2">
-                          {photo.bannerDesc}
-                        </p>
-                      )}
+                      <h3 className="font-display text-xl sm:text-2xl md:text-3xl text-cream gold-shimmer font-medium mb-2 leading-tight">{photo.bannerTitle || photo.alt}</h3>
+                      {photo.bannerDesc && <p className="text-brand-300 text-xs md:text-sm font-light leading-relaxed line-clamp-2">{photo.bannerDesc}</p>}
                     </div>
                   </div>
                 ) : (
                   <button
                     onClick={() => setLightbox(i)}
-                    className="group relative w-full h-full overflow-hidden cursor-pointer block text-left"
+                    className="group relative w-full h-full overflow-hidden cursor-pointer block text-left border-0 p-0 bg-transparent"
                   >
                     <img
                       src={photo.src}
@@ -220,9 +243,7 @@ export default function Gallery() {
                       style={photo.objectPos ? { objectPosition: photo.objectPos } : undefined}
                     />
                     <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/40 transition-all duration-500 flex items-end">
-                      <span className="text-cream text-sm tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 p-4 font-light">
-                        {photo.alt}
-                      </span>
+                      <span className="text-cream text-sm tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 p-4 font-light">{photo.alt}</span>
                     </div>
                   </button>
                 )}
@@ -234,64 +255,12 @@ export default function Gallery() {
 
       <div className="px-6 pb-16">
         <div className="mx-auto max-w-7xl">
-          <FadeIn>
-            <SectionDivider />
-          </FadeIn>
+          <FadeIn><SectionDivider /></FadeIn>
         </div>
       </div>
 
-      {/* Lightbox */}
       {lightbox !== null && (
-        <div
-          className="fixed inset-0 z-[100] bg-brand-900/98 backdrop-blur-md flex items-center justify-center"
-          onClick={close}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          <button
-            onClick={close}
-            className="absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 flex items-center justify-center rounded-full bg-brand-800/80 text-brand-300 hover:text-cream hover:bg-brand-700 transition-colors z-10"
-            aria-label="Close"
-          >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-
-          <button
-            onClick={(e) => { e.stopPropagation(); prev() }}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-brand-800/80 text-brand-300 hover:text-cream hover:bg-brand-700 transition-colors z-10"
-            aria-label="Previous"
-          >
-            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-
-          <button
-            onClick={(e) => { e.stopPropagation(); next() }}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-brand-800/80 text-brand-300 hover:text-cream hover:bg-brand-700 transition-colors z-10"
-            aria-label="Next"
-          >
-            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
-
-          <div className="w-full max-w-5xl max-h-[90vh] px-16 md:px-20 flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-            <img
-              key={lightbox}
-              src={photos[lightbox].src}
-              alt={photos[lightbox].alt}
-              className="max-w-full max-h-[82vh] object-contain mx-auto animate-[fadeIn_0.3s_ease-out]"
-              style={{ animation: 'fadeIn 0.3s ease-out' }}
-            />
-            <p className="text-brand-300 text-center text-sm mt-4 tracking-wider font-light">
-              {photos[lightbox].alt}
-              <span className="text-brand-500 ml-3">{lightbox + 1} / {photos.length}</span>
-            </p>
-          </div>
-        </div>
+        <Lightbox index={lightbox} onClose={close} onPrev={prev} onNext={next} />
       )}
     </>
   )
