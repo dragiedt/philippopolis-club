@@ -14,14 +14,14 @@ const upcomingEvents = [
   },
   {
     date: 'September 2026',
-    title: 'The Autumn Selection',
-    description: 'The release of our seasonal humidor selection, paired with single-cask whiskies from our cellar.',
+    title: 'To Be Announced',
+    description: 'Events for the month of September will be announced shortly.',
     type: 'Members Only',
   },
   {
     date: 'August 2026',
-    title: 'Heritage Evening',
-    description: 'An intimate gathering celebrating the history of Plovdiv, with rare vintages and curated cigars.',
+    title: 'To Be Announced',
+    description: 'Events for the month of August will be announced shortly.',
     type: 'Members Only',
   },
 ]
