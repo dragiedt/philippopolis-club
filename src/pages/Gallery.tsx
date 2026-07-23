@@ -80,6 +80,8 @@ const photos: GalleryItem[] = [
   { src: '/images/drive/GC_0780.jpg', alt: 'Selected leaves', span: 'normal' },
   { src: '/images/drive/GC_0819.jpg', alt: 'The veranda', span: 'normal' },
   { src: '/images/drive/GC_0820.jpg', alt: 'Night falls', span: 'normal' },
+  { src: '/images/drive/GC_0278.jpg', alt: 'Evening ritual', span: 'wide' },
+  { src: '/images/drive/GC_0597.jpg', alt: 'The toast', span: 'normal' },
 ]
 
 export default function Gallery() {
