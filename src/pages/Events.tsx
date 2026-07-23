@@ -185,12 +185,20 @@ export default function Events() {
         </div>
       </section>
 
-      {/* Photo Banner */}
-      <section className="relative h-64 md:h-80 overflow-hidden bg-cream">
-        <FadeIn triggerChild direction="none">
-          <img src="/images/events-banner.jpg" alt="" data-banner className="w-full h-full object-cover" />
-        </FadeIn>
-        <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream pointer-events-none" />
+      {/* Facebook Event Embed */}
+      <section className="py-12 px-6 bg-brand-50">
+        <div className="mx-auto max-w-2xl">
+          <FadeIn triggerChild direction="none">
+            <div className="relative w-full overflow-hidden bg-white border border-brand-200" style={{ paddingBottom: '120%' }}>
+              <iframe
+                src="https://www.facebook.com/plugins/event.php?event_id=4g45U6Yjw&width=500"
+                className="absolute inset-0 w-full h-full border-0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; screen-wake-lock"
+              />
+            </div>
+          </FadeIn>
+        </div>
       </section>
 
       {/* Past Events */}
