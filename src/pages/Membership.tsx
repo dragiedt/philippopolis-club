@@ -77,7 +77,7 @@ export default function Membership() {
           <FadeIn delay={300}>
             <p className="mt-6 text-brand-300 text-lg max-w-xl font-light italic">
               "Speak friend and enter."<br />
-              <span className="text-brand-400 text-sm not-italic tracking-wider">- Written on the gates of Moria</span>
+              <span className="text-brand-400 text-sm not-italic tracking-wider">- The gates of Moria</span>
             </p>
           </FadeIn>
         </div>
