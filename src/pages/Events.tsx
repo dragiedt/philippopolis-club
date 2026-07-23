@@ -185,14 +185,11 @@ export default function Events() {
         </div>
       </section>
 
-      {/* Logo Divider */}
-      <div className="py-10 md:py-14 px-6">
-        <div className="mx-auto max-w-5xl flex justify-center">
-          <FadeIn>
-            <img src="/images/logo.svg" alt="Gentlemen's Club Philippopolis" className="h-64 md:h-80 w-auto opacity-25" />
-          </FadeIn>
-        </div>
-      </div>
+      {/* Photo Banner */}
+      <section className="relative h-64 md:h-80 overflow-hidden">
+        <img src="/images/events-banner.jpg" alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-brand-900/10" />
+      </section>
 
       {/* Past Events */}
       <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm">
