@@ -140,7 +140,7 @@ export default function Events() {
                   <div className="relative overflow-hidden border-2 border-gold-500/40 bg-brand-900">
                     {event.image && (
                       <div className="absolute inset-0">
-                        <img src={event.image} alt={event.title} className="w-full h-full object-cover opacity-30" />
+                        <img src={event.image} alt={event.title} className="w-full h-full object-cover opacity-50" />
                         <div className="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/80 to-brand-900/60" />
                       </div>
                     )}
