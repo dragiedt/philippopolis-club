@@ -2,26 +2,16 @@ import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import SmokeEffect from '../components/SmokeEffect'
+import { useLang } from '../i18n/LanguageContext'
 
 const pleasures = [
-  {
-    number: 'I',
-    title: 'The Humidor',
-    description: 'A curated cellar of Habanos and rare New World vitolas, aged in-house and released at the peak of their maturity.',
-  },
-  {
-    number: 'II',
-    title: 'The Cellar',
-    description: 'Single-cask whiskies, vintage cognacs, and a small library of Bulgarian rarities selected to pair with each smoke.',
-  },
-  {
-    number: 'III',
-    title: 'The Company',
-    description: 'A membership drawn from the arts, law, industry and the professions — proposed, seconded, and rarely announced.',
-  },
+  { number: 'I', titleKey: 'home.pleasures.0.title', descKey: 'home.pleasures.0.desc' },
+  { number: 'II', titleKey: 'home.pleasures.1.title', descKey: 'home.pleasures.1.desc' },
+  { number: 'III', titleKey: 'home.pleasures.2.title', descKey: 'home.pleasures.2.desc' },
 ]
 
 export default function Home() {
+  const { t } = useLang()
   return (
     <>
       {/* Hero */}
@@ -39,16 +29,16 @@ export default function Home() {
             <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mb-8 w-24 md:w-40" />
           </FadeIn>
           <FadeIn delay={200}>
-            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-8">Established in Plovdiv</p>
+            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-8">{t('home.hero.tagline')}</p>
           </FadeIn>
           <FadeIn delay={400}>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream font-light leading-tight mb-8 gold-shimmer">
-              Gentlemen's Club<br />Philippopolis
+              {t('home.hero.title')}
             </h1>
           </FadeIn>
           <FadeIn delay={600}>
             <p className="text-brand-300 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-              A members-only society devoted to the quiet pleasures of the cigar, the glass, and considered conversation.
+              {t('home.hero.desc')}
             </p>
           </FadeIn>
           <FadeIn delay={800}>
@@ -57,13 +47,13 @@ export default function Home() {
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-gold-500 text-brand-900 text-sm tracking-widest uppercase font-medium hover:bg-gold-400 transition-colors duration-200"
               >
-                Request Invitation
+                {t('home.hero.cta')}
               </Link>
               <Link
                 to="/heritage"
                 className="inline-flex items-center justify-center px-8 py-3.5 border border-cream/30 text-cream text-sm tracking-widest uppercase hover:bg-cream/10 transition-colors duration-200"
               >
-                The Heritage
+                {t('home.hero.cta2')}
               </Link>
             </div>
           </FadeIn>
@@ -82,18 +72,16 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn direction="left">
               <div>
-                <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The Society</p>
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-900 font-light leading-tight mb-6">
-                  Founded on discretion,<br />furnished by tradition.
-                </h2>
+                <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('home.society.label')}</p>
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-900 font-light leading-tight mb-6" dangerouslySetInnerHTML={{ __html: t('home.society.title') }} />
                 <p className="text-brand-600 text-lg leading-relaxed mb-8">
-                  Behind an unassuming door in the old city of Plovdiv, our members gather beneath low lamps and higher ceilings. There are no screens, no headlines — only leather, walnut, and the slow ceremony of a well-cut cigar.
+                  {t('home.society.desc')}
                 </p>
                 <Link
                   to="/heritage"
                   className="inline-flex items-center text-brand-900 text-sm tracking-widest uppercase font-medium hover:text-gold-600 transition-colors duration-200 group"
                 >
-                  Heritage
+                  {t('home.society.link')}
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                   </svg>
@@ -121,7 +109,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
             <div className="text-center mb-16">
-              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The three pleasures</p>
+              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('home.pleasures.label')}</p>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -129,8 +117,8 @@ export default function Home() {
               <FadeIn key={pleasure.number} delay={index * 150}>
                 <div className="text-center">
                   <span className="font-serif text-5xl text-brand-200 mb-6 block">{pleasure.number}</span>
-                  <h3 className="font-serif text-2xl text-brand-900 mb-4">{pleasure.title}</h3>
-                  <p className="text-brand-600 leading-relaxed">{pleasure.description}</p>
+                  <h3 className="font-serif text-2xl text-brand-900 mb-4">{t(pleasure.titleKey)}</h3>
+                  <p className="text-brand-600 leading-relaxed">{t(pleasure.descKey)}</p>
                 </div>
               </FadeIn>
             ))}
@@ -145,7 +133,7 @@ export default function Home() {
             <div className="relative">
               <span className="absolute -top-8 left-1/2 -translate-x-1/2 font-serif text-6xl text-gold-500/30">"</span>
               <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl text-cream font-light leading-relaxed italic">
-                Some rooms are built for conversation. Ours was built to remember it.
+                {t('home.quote')}
               </blockquote>
             </div>
           </FadeIn>
@@ -169,18 +157,16 @@ export default function Home() {
             </FadeIn>
             <FadeIn direction="right" className="order-1 lg:order-2">
               <div>
-                <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Heritage</p>
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-900 font-light leading-tight mb-6">
-                  From Philippopolis<br />to the present day.
-                </h2>
+                <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('home.heritage.label')}</p>
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-900 font-light leading-tight mb-6" dangerouslySetInnerHTML={{ __html: t('home.heritage.title') }} />
                 <p className="text-brand-600 text-lg leading-relaxed mb-8">
-                  Founded upon the seven hills of one of Europe's oldest continuously inhabited cities, our club draws its name — and its temperament — from a place that has watched empires pass.
+                  {t('home.heritage.desc')}
                 </p>
                 <Link
                   to="/heritage"
                   className="inline-flex items-center text-brand-900 text-sm tracking-widest uppercase font-medium hover:text-gold-600 transition-colors duration-200 group"
                 >
-                  Heritage
+                  {t('home.heritage.link')}
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                   </svg>

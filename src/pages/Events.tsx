@@ -2,83 +2,45 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
+import { useLang } from '../i18n/LanguageContext'
 
 const upcomingEvents = [
   {
-    date: 'October 2026',
-    title: 'Once Upon a Time in Philippopolis',
-    description: 'Our flagship annual event — an unforgettable evening celebrating cigar culture, heritage, and fellowship. Details to be announced.',
-    type: 'Invitation',
+    dateKey: 'event.upcoming.0.date',
+    titleKey: 'event.upcoming.0.title',
+    descKey: 'event.upcoming.0.desc',
+    typeKey: 'event.upcoming.0.type',
     highlighted: true,
     image: '/images/ouatip-logo.png',
     countdownTo: '2026-10-17T18:00:00+03:00',
   },
   {
-    date: 'September 2026',
-    title: 'To Be Announced',
-    description: 'Events for the month of September will be announced shortly.',
-    type: 'Members Only',
+    dateKey: 'event.upcoming.1.date',
+    titleKey: 'event.upcoming.1.title',
+    descKey: 'event.upcoming.1.desc',
+    typeKey: 'event.upcoming.1.type',
   },
   {
-    date: 'August 2026',
-    title: 'To Be Announced',
-    description: 'Events for the month of August will be announced shortly.',
-    type: 'Members Only',
+    dateKey: 'event.upcoming.2.date',
+    titleKey: 'event.upcoming.2.title',
+    descKey: 'event.upcoming.2.desc',
+    typeKey: 'event.upcoming.2.type',
   },
 ]
 
 const pastEvents = [
-  {
-    date: 'July 2026',
-    title: 'Davidoff White Party',
-    description: 'An evening with Hristo Kenansky of Delion, celebrating the Davidoff legacy.',
-    type: 'Invitation',
-  },
-  {
-    date: 'June 2026',
-    title: 'Plasencia Year of the Horse Night',
-    description: 'A special collaboration with Corojo Club, honouring the Plasencia Year of the Horse release.',
-    type: 'Members Only',
-  },
-  {
-    date: 'June 2026',
-    title: 'Rosa Bulgaria Regional Edition',
-    description: 'An exclusive regional edition presentation in partnership with Kaliman Caribe.',
-    type: 'Guests',
-  },
-  {
-    date: 'May 2026',
-    title: "Bucanero's Cigar Night",
-    description: 'An evening dedicated to the Bucanero brand and its distinguished portfolio.',
-    type: 'Invitation',
-  },
-  {
-    date: 'May 2026',
-    title: 'Special Guest Rob Diedrich',
-    description: 'Blackened Whisky and Cigars — an evening with Rob Diedrich exploring the pairing of peated spirits and full-bodied cigars.',
-    type: 'Guests',
-  },
-  {
-    date: 'April 2026',
-    title: 'San Luis Rey Night',
-    description: 'A night dedicated to the San Luis Rey marque, in collaboration with KD Leaf.',
-    type: 'Invitation',
-  },
-  {
-    date: 'April 2026',
-    title: 'Partagás Maduro Night',
-    description: 'A Partagás Maduro evening with Kaliman Caribe and special guest Yordan "Yuri" Kostadinov.',
-    type: 'Members Only',
-  },
-  {
-    date: 'March 2026',
-    title: 'Artista Cigars Night',
-    description: 'An Artista Cigars showcase in collaboration with Leaf Brothers.',
-    type: 'Members Only',
-  },
+  { dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', descKey: 'event.past.0.desc', typeKey: 'event.past.0.type' },
+  { dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', descKey: 'event.past.1.desc', typeKey: 'event.past.1.type' },
+  { dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', descKey: 'event.past.2.desc', typeKey: 'event.past.2.type' },
+  { dateKey: 'event.past.3.date', titleKey: 'event.past.3.title', descKey: 'event.past.3.desc', typeKey: 'event.past.3.type' },
+  { dateKey: 'event.past.4.date', titleKey: 'event.past.4.title', descKey: 'event.past.4.desc', typeKey: 'event.past.4.type' },
+  { dateKey: 'event.past.5.date', titleKey: 'event.past.5.title', descKey: 'event.past.5.desc', typeKey: 'event.past.5.type' },
+  { dateKey: 'event.past.6.date', titleKey: 'event.past.6.title', descKey: 'event.past.6.desc', typeKey: 'event.past.6.type' },
+  { dateKey: 'event.past.7.date', titleKey: 'event.past.7.title', descKey: 'event.past.7.desc', typeKey: 'event.past.7.type' },
 ]
 
 function Countdown({ to }: { to: string }) {
+  const { t } = useLang()
   const [remaining, setRemaining] = useState(() => {
     const diff = new Date(to).getTime() - Date.now()
     return diff > 0 ? diff : 0
@@ -101,10 +63,10 @@ function Countdown({ to }: { to: string }) {
   const seconds = Math.floor((remaining / 1000) % 60)
 
   const units = [
-    { value: days, label: 'Days' },
-    { value: hours, label: 'Hours' },
-    { value: minutes, label: 'Min' },
-    { value: seconds, label: 'Sec' },
+    { value: days, label: t('countdown.days') },
+    { value: hours, label: t('countdown.hours') },
+    { value: minutes, label: t('countdown.min') },
+    { value: seconds, label: t('countdown.sec') },
   ]
 
   return (
@@ -122,10 +84,11 @@ function Countdown({ to }: { to: string }) {
 }
 
 export default function Events() {
-  const [activeFilter, setActiveFilter] = useState('All')
-  const filters = ['All', 'Members Only', 'Invitation', 'Guests']
-  const filteredUpcoming = activeFilter === 'All' ? upcomingEvents : upcomingEvents.filter(e => e.type === activeFilter)
-  const filteredPast = activeFilter === 'All' ? pastEvents : pastEvents.filter(e => e.type === activeFilter)
+  const { t } = useLang()
+  const [activeFilter, setActiveFilter] = useState('events.filter.all')
+  const filters = ['events.filter.all', 'events.filter.members', 'events.filter.invitation', 'events.filter.guests']
+  const filteredUpcoming = activeFilter === 'events.filter.all' ? upcomingEvents : upcomingEvents.filter(e => t(e.typeKey) === t(activeFilter))
+  const filteredPast = activeFilter === 'events.filter.all' ? pastEvents : pastEvents.filter(e => t(e.typeKey) === t(activeFilter))
 
   return (
     <>
@@ -133,17 +96,17 @@ export default function Events() {
       <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 cigar-wrapper">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
-            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Events</p>
+            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('events.hero.label')}</p>
           </FadeIn>
           <FadeIn delay={150}>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream font-light leading-tight max-w-3xl">
-              Gentlemen, assemble!
+              {t('events.hero.title')}
             </h1>
           </FadeIn>
           <FadeIn delay={300}>
             <p className="mt-6 text-brand-300 text-lg max-w-xl font-light italic">
-              "Good company, good wine, and good welcome can make good people."<br />
-              <span className="text-brand-400 text-sm not-italic tracking-wider">- William Shakespeare</span>
+              {t('events.hero.quote')}<br />
+              <span className="text-brand-400 text-sm not-italic tracking-wider">{t('events.hero.quoteAttr')}</span>
             </p>
           </FadeIn>
         </div>
@@ -153,7 +116,7 @@ export default function Events() {
       <section className="py-8 px-6 border-b border-brand-200">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <span className="text-brand-500 text-xs tracking-[0.2em] uppercase shrink-0">Event Type</span>
+            <span className="text-brand-500 text-xs tracking-[0.2em] uppercase shrink-0">{t('events.filter.label')}</span>
             <div className="flex flex-wrap gap-3">
               {filters.map((filter) => (
                 <button
@@ -165,7 +128,7 @@ export default function Events() {
                       : 'bg-transparent text-brand-600 border-brand-300 hover:border-brand-900 hover:text-brand-900'
                   }`}
                 >
-                  {filter}
+                  {t(filter)}
                 </button>
               ))}
             </div>
@@ -177,7 +140,9 @@ export default function Events() {
       <section className="py-8 px-6 bg-brand-50 border-b border-brand-200">
         <div className="mx-auto max-w-5xl">
           <p className="text-brand-600 leading-relaxed">
-            The events organized by Gentlemen's Club Philippopolis are essential to our private society. More information about our mission can be found in the <Link to="/heritage" className="text-gold-500 hover:text-gold-600 underline underline-offset-2 transition-colors">Heritage</Link> section of the website.
+            {t('events.info').split('<link>').map((part, i) =>
+              i % 2 === 0 ? part : <Link key={i} to="/heritage" className="text-gold-500 hover:text-gold-600 underline underline-offset-2 transition-colors">{part}</Link>
+            )}
           </p>
         </div>
       </section>
@@ -187,9 +152,9 @@ export default function Events() {
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <div className="mb-16">
-              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Upcoming</p>
+              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('events.upcoming.label')}</p>
               <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
-                Mark your calendar.
+                {t('events.upcoming.title')}
               </h2>
             </div>
           </FadeIn>
@@ -207,16 +172,16 @@ export default function Events() {
                     <div className="relative p-8 md:p-10">
                       <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
                         <div className="md:w-40 shrink-0">
-                          <span className="text-gold-500 text-sm tracking-wider uppercase">{event.date}</span>
+                          <span className="text-gold-500 text-sm tracking-wider uppercase">{t(event.dateKey)}</span>
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-display text-2xl md:text-3xl text-cream mb-3 gold-shimmer">{event.title}</h3>
-                          <p className="text-brand-300 leading-relaxed">{event.description}</p>
+                          <h3 className="font-display text-2xl md:text-3xl text-cream mb-3 gold-shimmer">{t(event.titleKey)}</h3>
+                          <p className="text-brand-300 leading-relaxed">{t(event.descKey)}</p>
                           {event.countdownTo && <Countdown to={event.countdownTo} />}
                         </div>
                         <div className="md:w-32 shrink-0">
                           <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-gold-500/50 text-gold-500">
-                            {event.type}
+                            {t(event.typeKey)}
                           </span>
                         </div>
                       </div>
@@ -226,15 +191,15 @@ export default function Events() {
                   <div className="group p-8 border border-brand-200 hover:border-gold-500/50 transition-colors duration-300">
                     <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                       <div className="md:w-40 shrink-0">
-                        <span className="text-gold-500 text-sm tracking-wider uppercase">{event.date}</span>
+                        <span className="text-gold-500 text-sm tracking-wider uppercase">{t(event.dateKey)}</span>
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
-                        <p className="text-brand-600 leading-relaxed">{event.description}</p>
+                        <h3 className="font-serif text-2xl text-brand-900 mb-2">{t(event.titleKey)}</h3>
+                        <p className="text-brand-600 leading-relaxed">{t(event.descKey)}</p>
                       </div>
                       <div className="md:w-32 shrink-0">
                         <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
-                          {event.type}
+                          {t(event.typeKey)}
                         </span>
                       </div>
                     </div>
@@ -254,9 +219,9 @@ export default function Events() {
           </FadeIn>
           <FadeIn>
             <div className="mb-16">
-              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Past Events</p>
+              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('events.past.label')}</p>
               <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
-                A glimpse of evenings past.
+                {t('events.past.title')}
               </h2>
             </div>
           </FadeIn>
@@ -266,15 +231,15 @@ export default function Events() {
                 <div className="p-8 bg-cream border border-brand-200">
                   <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
                     <div className="md:w-40 shrink-0">
-                      <span className="text-brand-500 text-sm tracking-wider uppercase">{event.date}</span>
+                      <span className="text-brand-500 text-sm tracking-wider uppercase">{t(event.dateKey)}</span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-serif text-2xl text-brand-900 mb-2">{event.title}</h3>
-                      <p className="text-brand-600 leading-relaxed">{event.description}</p>
+                      <h3 className="font-serif text-2xl text-brand-900 mb-2">{t(event.titleKey)}</h3>
+                      <p className="text-brand-600 leading-relaxed">{t(event.descKey)}</p>
                     </div>
                     <div className="md:w-32 shrink-0">
                       <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
-                        {event.type}
+                        {t(event.typeKey)}
                       </span>
                     </div>
                   </div>
@@ -290,8 +255,7 @@ export default function Events() {
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <p className="text-brand-500 text-sm leading-relaxed">
-              All events are held at the club or by invitation at select venues in Plovdiv.
-              Details are shared with members directly. For inquiries about attending, please contact us.
+              {t('events.note')}
             </p>
           </FadeIn>
         </div>

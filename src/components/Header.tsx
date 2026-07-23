@@ -1,18 +1,20 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
+import { useLang } from '../i18n/LanguageContext'
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Heritage', href: '/heritage' },
-  { name: 'Membership', href: '/membership' },
-  { name: 'Events', href: '/events' },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'nav.home', href: '/' },
+  { name: 'nav.heritage', href: '/heritage' },
+  { name: 'nav.membership', href: '/membership' },
+  { name: 'nav.events', href: '/events' },
+  { name: 'nav.gallery', href: '/gallery' },
+  { name: 'nav.contact', href: '/contact' },
 ]
 
 export default function Header() {
   const location = useLocation()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { t, lang, setLang } = useLang()
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md header-border">
@@ -33,21 +35,35 @@ export default function Header() {
                     : 'text-brand-600 hover:text-brand-900'
                 }`}
               >
-                {item.name}
+                {t(item.name)}
               </Link>
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => setLang(lang === 'en' ? 'bg' : 'en')}
+              className="text-xs tracking-widest uppercase text-brand-600 hover:text-brand-900 transition-colors duration-200 font-medium"
+            >
+              {lang === 'en' ? 'BG' : 'EN'}
+            </button>
             <Link
               to="/contact"
               className="inline-flex items-center px-6 py-2.5 bg-brand-900 text-cream text-sm tracking-widest uppercase hover:bg-brand-800 transition-colors duration-200"
             >
-              Inquire
+              {t('nav.inquire')}
             </Link>
           </div>
 
           <div className="flex items-center gap-3 md:hidden">
+            <button
+              type="button"
+              onClick={() => setLang(lang === 'en' ? 'bg' : 'en')}
+              className="text-brand-900 hover:text-brand-600 transition-colors text-xs tracking-widest uppercase font-medium"
+            >
+              {lang === 'en' ? 'BG' : 'EN'}
+            </button>
             <a href="https://www.facebook.com/profile.php?id=100088984060770" target="_blank" rel="noopener noreferrer" className="text-brand-900 hover:text-brand-600 transition-colors">
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
@@ -83,7 +99,7 @@ export default function Header() {
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {item.name}
+                {t(item.name)}
               </Link>
             ))}
             <Link
@@ -91,7 +107,7 @@ export default function Header() {
               className="mt-4 block w-full text-center px-6 py-2.5 bg-brand-900 text-cream text-sm tracking-widest uppercase"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Inquire
+              {t('nav.inquire')}
             </Link>
           </div>
         )}

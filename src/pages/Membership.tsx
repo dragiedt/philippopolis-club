@@ -1,38 +1,39 @@
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
+import { useLang } from '../i18n/LanguageContext'
 
 const tiers = [
   {
-    name: 'Member',
-    description: 'Full access to the club\'s facilities, events, and humidor.',
+    nameKey: 'membership.tier.0.name',
+    descKey: 'membership.tier.0.desc',
     features: [
-      'Access to the lounge and humidor',
-      'Invitation to members-only events',
-      'Personal humidor locker',
-      'Bar privileges at member rates',
+      'membership.tier.0.feature.0',
+      'membership.tier.0.feature.1',
+      'membership.tier.0.feature.2',
+      'membership.tier.0.feature.3',
     ],
   },
   {
-    name: 'Patron',
-    description: 'Enhanced privileges for those who wish to support the club\'s cultural mission.',
+    nameKey: 'membership.tier.1.name',
+    descKey: 'membership.tier.1.desc',
     features: [
-      'All Member benefits',
-      'Priority access to rare releases',
-      'Private dining room access',
-      'Guest privileges (2 per visit)',
-      'Complimentary pairing events',
+      'membership.tier.1.feature.0',
+      'membership.tier.1.feature.1',
+      'membership.tier.1.feature.2',
+      'membership.tier.1.feature.3',
+      'membership.tier.1.feature.4',
     ],
   },
   {
-    name: 'Honorary',
-    description: 'Bestowed upon distinguished individuals who embody the spirit of the club.',
+    nameKey: 'membership.tier.2.name',
+    descKey: 'membership.tier.2.desc',
     features: [
-      'All Patron benefits',
-      'Lifetime membership',
-      'Dedicated humidor compartment',
-      'Unlimited guest privileges',
-      'Private event hosting',
+      'membership.tier.2.feature.0',
+      'membership.tier.2.feature.1',
+      'membership.tier.2.feature.2',
+      'membership.tier.2.feature.3',
+      'membership.tier.2.feature.4',
     ],
   },
 ]
@@ -40,44 +41,45 @@ const tiers = [
 const process = [
   {
     step: '01',
-    title: 'Inquiry',
-    description: 'Express your interest through our contact form. All inquiries are handled with the utmost discretion.',
+    titleKey: 'membership.step.0.title',
+    descKey: 'membership.step.0.desc',
   },
   {
     step: '02',
-    title: 'Introduction',
-    description: 'A current member must propose your candidacy. If you do not know a member, we can facilitate an introduction.',
+    titleKey: 'membership.step.1.title',
+    descKey: 'membership.step.1.desc',
   },
   {
     step: '03',
-    title: 'Review',
-    description: 'The committee reviews all candidates. We seek individuals of character who share our appreciation for tradition.',
+    titleKey: 'membership.step.2.title',
+    descKey: 'membership.step.2.desc',
   },
   {
     step: '04',
-    title: 'Invitation',
-    description: 'Selected candidates receive a formal invitation to visit the club and meet the committee.',
+    titleKey: 'membership.step.3.title',
+    descKey: 'membership.step.3.desc',
   },
 ]
 
 export default function Membership() {
+  const { t } = useLang()
   return (
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 cigar-wrapper">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
-            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Membership</p>
+            <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('membership.hero.label')}</p>
           </FadeIn>
           <FadeIn delay={150}>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream font-light leading-tight max-w-3xl">
-              A membership by invitation only.
+              {t('membership.hero.title')}
             </h1>
           </FadeIn>
           <FadeIn delay={300}>
             <p className="mt-6 text-brand-300 text-lg max-w-xl font-light italic">
-              "Speak friend and enter."<br />
-              <span className="text-brand-400 text-sm not-italic tracking-wider">- The gates of Moria</span>
+              {t('membership.hero.quote')}<br />
+              <span className="text-brand-400 text-sm not-italic tracking-wider">{t('membership.hero.quoteAttr')}</span>
             </p>
           </FadeIn>
         </div>
@@ -88,7 +90,7 @@ export default function Membership() {
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <p className="text-brand-600 text-lg leading-relaxed">
-              Gentlemen's Club Philippopolis is a private society. Membership is by invitation only, proposed by an existing member and approved by the committee. We welcome those who share our appreciation for fellowship and follow the way of the leaf.
+              {t('membership.intro')}
             </p>
           </FadeIn>
         </div>
@@ -99,9 +101,9 @@ export default function Membership() {
         <div className="mx-auto max-w-7xl">
           <FadeIn>
             <div className="text-center mb-16">
-              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">Membership Tiers</p>
+              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('membership.tiers.label')}</p>
               <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
-                Choose your level of engagement.
+                {t('membership.tiers.title')}
               </h2>
             </div>
           </FadeIn>
@@ -117,18 +119,18 @@ export default function Membership() {
                 >
                   {index === 1 && (
                     <span className="text-gold-500 text-xs tracking-[0.2em] uppercase font-medium">
-                      Most Popular
+                      {t('membership.tiers.popular')}
                     </span>
                   )}
-                  <h3 className="font-serif text-2xl text-brand-900 mt-4 mb-2">{tier.name}</h3>
-                  <p className="text-brand-600 text-sm mb-6">{tier.description}</p>
+                  <h3 className="font-serif text-2xl text-brand-900 mt-4 mb-2">{t(tier.nameKey)}</h3>
+                  <p className="text-brand-600 text-sm mb-6">{t(tier.descKey)}</p>
                   <ul className="space-y-3">
-                    {tier.features.map((feature, featureIndex) => (
+                    {tier.features.map((featureKey, featureIndex) => (
                       <li key={featureIndex} className="flex items-start gap-3 text-sm text-brand-600">
                         <svg className="w-4 h-4 text-gold-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
-                        {feature}
+                        {t(featureKey)}
                       </li>
                     ))}
                   </ul>
@@ -147,9 +149,9 @@ export default function Membership() {
           </FadeIn>
           <FadeIn>
             <div className="text-center mb-16">
-              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The Process</p>
+              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('membership.process.label')}</p>
               <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
-                How to become a member.
+                {t('membership.process.title')}
               </h2>
             </div>
           </FadeIn>
@@ -159,8 +161,8 @@ export default function Membership() {
                 <div className="flex gap-6">
                   <span className="font-serif text-4xl text-brand-200 shrink-0">{step.step}</span>
                   <div>
-                    <h3 className="font-serif text-xl text-brand-900 mb-2">{step.title}</h3>
-                    <p className="text-brand-600 leading-relaxed">{step.description}</p>
+                    <h3 className="font-serif text-xl text-brand-900 mb-2">{t(step.titleKey)}</h3>
+                    <p className="text-brand-600 leading-relaxed">{t(step.descKey)}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -174,16 +176,16 @@ export default function Membership() {
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <h2 className="font-serif text-3xl md:text-4xl text-cream font-light mb-6">
-              Interested in joining?
+              {t('membership.cta.title')}
             </h2>
             <p className="text-brand-300 text-lg mb-8">
-              We welcome inquiries from those who share our values. All correspondence is handled with strict confidence.
+              {t('membership.cta.desc')}
             </p>
             <Link
               to="/contact"
               className="inline-flex items-center px-8 py-3.5 bg-gold-500 text-brand-900 text-sm tracking-widest uppercase font-medium hover:bg-gold-400 transition-colors duration-200"
             >
-              Begin Inquiry
+              {t('membership.cta.button')}
             </Link>
           </FadeIn>
         </div>

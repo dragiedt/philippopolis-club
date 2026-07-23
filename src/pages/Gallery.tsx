@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import SmokeBackground from '../components/SmokeBackground'
+import { useLang } from '../i18n/LanguageContext'
 
 interface GalleryItem {
   src: string
@@ -87,6 +88,7 @@ const photos: GalleryItem[] = [
 ]
 
 export default function Gallery() {
+  const { t } = useLang()
   const [lbIdx, setLbIdx] = useState<number | null>(null)
 
   const close = useCallback(() => setLbIdx(null), [])
@@ -109,10 +111,10 @@ export default function Gallery() {
         <div className="absolute inset-0 bg-[url('/images/drive/GC_0362.jpg')] bg-cover bg-center opacity-10 z-[1]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-900/30 to-brand-900 z-[2]" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <FadeIn><p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">The Collection</p></FadeIn>
-          <FadeIn delay={150}><h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-cream font-light">Gallery</h1></FadeIn>
+          <FadeIn><p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('gallery.hero.label')}</p></FadeIn>
+          <FadeIn delay={150}><h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-cream font-light">{t('gallery.hero.title')}</h1></FadeIn>
           <FadeIn delay={300}>
-            <p className="mt-6 text-brand-300 text-lg max-w-xl mx-auto font-light">Enjoy the little things, for one day you may look back and realize they were the big things.</p>
+            <p className="mt-6 text-brand-300 text-lg max-w-xl mx-auto font-light">{t('gallery.hero.desc')}</p>
           </FadeIn>
         </div>
       </section>
@@ -133,16 +135,16 @@ export default function Gallery() {
                     className="group relative w-full h-full overflow-hidden border-2 border-gold-500/40 bg-brand-900 cursor-pointer flex flex-col justify-between p-6 md:p-8"
                   >
                     <div className="absolute inset-0 z-0">
-                      <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700" />
+                      <img src={photo.src} alt={t('gallery.alt.' + i)} className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/85 to-brand-900/70" />
                     </div>
                     <div className="relative z-10 flex items-center justify-between gap-2">
-                      <span className="text-gold-500 text-xs tracking-[0.25em] uppercase font-medium">{photo.bannerSubtitle || 'Annual Event · 2025'}</span>
-                      <span className="inline-block px-2.5 py-0.5 text-[10px] tracking-wider uppercase border border-gold-500/50 text-gold-500 bg-brand-900/60 backdrop-blur-sm">{photo.bannerTag || 'Event Highlights'}</span>
+                      <span className="text-gold-500 text-xs tracking-[0.25em] uppercase font-medium">{t('gallery.banner.subtitle')}</span>
+                      <span className="inline-block px-2.5 py-0.5 text-[10px] tracking-wider uppercase border border-gold-500/50 text-gold-500 bg-brand-900/60 backdrop-blur-sm">{t('gallery.banner.tag')}</span>
                     </div>
                     <div className="relative z-10 mt-auto pt-4">
-                      <h3 className="font-display text-xl sm:text-2xl md:text-3xl text-cream gold-shimmer font-medium mb-2 leading-tight">{photo.bannerTitle || photo.alt}</h3>
-                      {photo.bannerDesc && <p className="text-brand-300 text-xs md:text-sm font-light leading-relaxed line-clamp-2">{photo.bannerDesc}</p>}
+                      <h3 className="font-display text-xl sm:text-2xl md:text-3xl text-cream gold-shimmer font-medium mb-2 leading-tight">{t('gallery.banner.title')}</h3>
+                      <p className="text-brand-300 text-xs md:text-sm font-light leading-relaxed line-clamp-2">{t('gallery.banner.desc')}</p>
                     </div>
                   </div>
                 ) : (
@@ -151,12 +153,12 @@ export default function Gallery() {
                     className="group relative w-full h-full overflow-hidden border-0 p-0 bg-transparent cursor-pointer"
                   >
                     <img
-                      src={photo.src} alt={photo.alt} loading="lazy"
+                      src={photo.src} alt={t('gallery.alt.' + i)} loading="lazy"
                       className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${photo.objectPos ? '' : 'object-[center_30%]'}`}
                       style={photo.objectPos ? { objectPosition: photo.objectPos } : undefined}
                     />
                     <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/40 transition-all duration-500 flex items-end">
-                      <span className="text-cream text-sm tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 p-4 font-light">{photo.alt}</span>
+                      <span className="text-cream text-sm tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 p-4 font-light">{t('gallery.alt.' + i)}</span>
                     </div>
                   </button>
                 )}
@@ -189,8 +191,8 @@ export default function Gallery() {
           </button>
 
           <div className="max-w-[90vw] max-h-[90vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-            <img key={lbIdx} src={photos[lbIdx].src} alt={photos[lbIdx].alt} className="max-w-full max-h-[80vh] w-auto h-auto object-contain block" />
-            <p className="text-brand-400 text-sm mt-4 tracking-wider font-light">{photos[lbIdx].alt}<span className="text-brand-500 ml-3">{lbIdx + 1} / {photos.length}</span></p>
+            <img key={lbIdx} src={photos[lbIdx].src} alt={t('gallery.alt.' + lbIdx)} className="max-w-full max-h-[80vh] w-auto h-auto object-contain block" />
+            <p className="text-brand-400 text-sm mt-4 tracking-wider font-light">{t('gallery.alt.' + lbIdx)}<span className="text-brand-500 ml-3">{lbIdx + 1} / {photos.length}</span></p>
           </div>
         </div>,
         document.body
