@@ -4,10 +4,12 @@ import FadeIn from '../components/FadeIn'
 
 const upcomingEvents = [
   {
-    date: 'August 2026',
-    title: 'Heritage Evening',
-    description: 'An intimate gathering celebrating the history of Plovdiv, with rare vintages and curated cigars.',
-    type: 'Members Only',
+    date: 'October 2026',
+    title: 'Once Upon a Time in Philippopolis',
+    description: 'Our flagship annual event — an unforgettable evening celebrating cigar culture, heritage, and fellowship. Details to be announced.',
+    type: 'Invitation',
+    highlighted: true,
+    image: '/images/ouatip-logo.png',
   },
   {
     date: 'September 2026',
@@ -16,12 +18,10 @@ const upcomingEvents = [
     type: 'Members Only',
   },
   {
-    date: 'October 2026',
-    title: 'Once Upon a Time in Philippopolis',
-    description: 'Our flagship annual event — an unforgettable evening celebrating cigar culture, heritage, and fellowship. Details to be announced.',
-    type: 'Invitation',
-    highlighted: true,
-    image: '/images/ouatip-logo.png',
+    date: 'August 2026',
+    title: 'Heritage Evening',
+    description: 'An intimate gathering celebrating the history of Plovdiv, with rare vintages and curated cigars.',
+    type: 'Members Only',
   },
 ]
 
