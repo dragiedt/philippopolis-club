@@ -40,7 +40,7 @@ export default function Heritage() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-900 cigar-wrapper overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <img src="/images/logo-light.svg" alt="" className="w-64 md:w-96 opacity-5" />
+          <img src="/images/logo-light.svg" alt="" className="w-80 md:w-[28rem] opacity-10" />
         </div>
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
@@ -59,8 +59,8 @@ export default function Heritage() {
         <div className="mx-auto max-w-7xl">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
-              <div className="text-center mb-12">
-                <img src="/images/logo.svg" alt="Gentlemen's Club Philippopolis" className="h-16 md:h-20 w-auto mx-auto opacity-30" />
+              <div className="text-center mb-14">
+                <img src="/images/logo.svg" alt="Gentlemen's Club Philippopolis" className="h-24 md:h-28 w-auto mx-auto" />
               </div>
             </FadeIn>
             <FadeIn>
