@@ -92,7 +92,7 @@ export default function Home() {
               <div className="relative">
                 <div className="aspect-[4/5] bg-brand-200 overflow-hidden">
                   <img
-                    src="/images/drive/GC_0299.jpg"
+                    src="/images/home-feature.jpg"
                     alt="An evening at the club"
                     className="w-full h-full object-cover"
                   />
