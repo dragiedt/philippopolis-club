@@ -51,6 +51,11 @@ export default function Heritage() {
               {t('heritage.hero.title')}
             </h1>
           </FadeIn>
+          <FadeIn delay={300}>
+            <p className="mt-6 text-brand-300 text-lg font-light italic">
+              {t('heritage.hero.subtitle')}
+            </p>
+          </FadeIn>
         </div>
       </section>
 
