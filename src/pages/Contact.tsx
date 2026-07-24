@@ -63,7 +63,7 @@ export default function Contact() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label htmlFor="name" className="block text-sm text-brand-600 mb-2 tracking-wider uppercase">
-                        {t('contact.form.name')}
+                        {t('contact.form.name')} <span className="text-gold-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -77,7 +77,7 @@ export default function Contact() {
 
                     <div>
                       <label htmlFor="email" className="block text-sm text-brand-600 mb-2 tracking-wider uppercase">
-                        {t('contact.form.email')}
+                        {t('contact.form.email')} <span className="text-gold-500">*</span>
                       </label>
                       <input
                         type="email"
@@ -118,7 +118,7 @@ export default function Contact() {
 
                     <div>
                       <label htmlFor="subject" className="block text-sm text-brand-600 mb-2 tracking-wider uppercase">
-                        {t('contact.form.subject')}
+                        {t('contact.form.subject')} <span className="text-gold-500">*</span>
                       </label>
                       <select
                         id="subject"
@@ -136,7 +136,7 @@ export default function Contact() {
 
                     <div>
                       <label htmlFor="message" className="block text-sm text-brand-600 mb-2 tracking-wider uppercase">
-                        {t('contact.form.message')}
+                        {t('contact.form.message')} <span className="text-gold-500">*</span>
                       </label>
                       <textarea
                         id="message"
