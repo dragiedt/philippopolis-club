@@ -152,7 +152,6 @@ export default function Contact() {
                       type="submit"
                       className="w-full px-8 py-3.5 bg-brand-900 text-cream text-sm tracking-widest uppercase font-medium hover:bg-brand-800 transition-colors duration-200"
                     >
-                      Submit Inquiry
                       {t('contact.form.submit')}
                     </button>
 
