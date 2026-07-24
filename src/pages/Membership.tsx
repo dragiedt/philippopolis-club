@@ -66,8 +66,9 @@ export default function Membership() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 cigar-wrapper">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 cigar-wrapper overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/membership-hero.jpg')] bg-cover bg-center opacity-[0.12]" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('membership.hero.label')}</p>
           </FadeIn>
