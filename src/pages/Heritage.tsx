@@ -53,7 +53,8 @@ export default function Heritage() {
           </FadeIn>
           <FadeIn delay={300}>
             <p className="mt-6 text-brand-300 text-lg font-light italic">
-              {t('heritage.hero.subtitle')}
+              {t('heritage.hero.subtitle')}<br />
+              <span className="text-brand-400 text-sm not-italic tracking-wider">{t('heritage.hero.subtitleAttr')}</span>
             </p>
           </FadeIn>
         </div>

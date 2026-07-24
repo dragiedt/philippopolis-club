@@ -35,7 +35,8 @@ export default {
 
   'heritage.hero.label': 'Heritage',
   'heritage.hero.title': 'From Philippopolis to the present day.',
-  'heritage.hero.subtitle': '\u2014 Sapere aude \u2014',
+  'heritage.hero.subtitle': 'Sapere aude',
+  'heritage.hero.subtitleAttr': '— Horace',
 
   'heritage.story.p1': 'Founded upon the seven hills of one of Europe\'s oldest continuously inhabited cities, our club draws its name — and its temperament — from a place that has watched empires pass.',
   'heritage.story.p2': 'Philippopolis, now known as Plovdiv, has been a crossroads of civilizations for millennia. Thracian tribes first settled these hills, followed by Macedonians, Romans, Byzantines, Ottomans, and Bulgarians. Each has left its mark on the city\'s character.',
