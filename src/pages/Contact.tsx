@@ -171,7 +171,7 @@ export default function Contact() {
                     <h3 className="font-serif text-2xl text-brand-900 mb-4">{t('contact.details.meetings')}</h3>
                     <p className="text-brand-600">{t('contact.details.meetingsDay')}</p>
                     <p className="text-brand-600 mt-2">{t('contact.details.meetingsLocation')}</p>
-                    <p className="text-brand-500 text-sm mt-2">{t('contact.details.meetingsNote')}</p>
+                    <p className="text-brand-600 mt-2">{t('contact.details.meetingsNote')}</p>
                   </div>
 
                   <div>

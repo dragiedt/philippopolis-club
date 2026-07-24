@@ -26,7 +26,7 @@ export default {
   'home.pleasures.2.title': 'The Company',
   'home.pleasures.2.desc': 'A membership drawn from the arts, law, industry and the professions — proposed, seconded, and rarely announced.',
 
-  'home.quote': 'The Club was started for the convenience of those who are not averse to comfortable chairs and the latest periodicals. — Arthur Conan Doyle',
+  'home.quote': 'The Club was started for the convenience of those who are not averse to comfortable chairs and the latest periodicals. — Sir Arthur Conan Doyle',
 
   'home.heritage.label': 'Heritage',
   'home.heritage.title': 'From Philippopolis<br />to the present day.',
@@ -57,7 +57,7 @@ export default {
   'heritage.principle.2.title': 'Fellowship',
   'heritage.principle.2.desc': 'A membership drawn from the arts, law, industry and the professions — united not by profession, but by principle.',
 
-  'heritage.quote': 'The Club was started for the convenience of those who are not averse to comfortable chairs and the latest periodicals. — Arthur Conan Doyle',
+  'heritage.quote': 'The Club was started for the convenience of those who are not averse to comfortable chairs and the latest periodicals. — Sir Arthur Conan Doyle',
 
   'heritage.milestone.0.year': 'Ancient',
   'heritage.milestone.0.title': 'Philippopolis',
@@ -291,7 +291,7 @@ export default {
   'contact.details.timeDesc': 'Regular meetings start at 19:30.',
   'contact.details.membersOnly': 'Members Only',
   'contact.details.membersOnlyDesc': 'Regular meetings and events are open to members only. Guest access is only possible through member invitation.',
-  'contact.details.quote': '"The Club was started for the convenience of those who are not averse to comfortable chairs and the latest periodicals." — Arthur Conan Doyle',
+  'contact.details.quote': '"The Club was started for the convenience of those who are not averse to comfortable chairs and the latest periodicals." — Sir Arthur Conan Doyle',
 
   'footer.desc': 'A private society devoted to the quiet pleasures of the cigar, the glass, and considered conversation. Est. Plovdiv, Bulgaria.',
   'footer.motto': 'Discretion. Craft. Fellowship.',
