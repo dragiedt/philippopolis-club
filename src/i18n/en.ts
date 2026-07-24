@@ -15,8 +15,8 @@ export default {
 
   'home.society.label': 'The Society',
   'home.society.title': 'Founded on discretion,<br />furnished by tradition.',
-  'home.society.desc': 'Gentlemen\'s Club Philippopolis was established by a small circle of cigar aficionados. It all began as a gathering of friends from all walks of life united by a shared appreciation for fine cigars, thoughtful conversation, and timeless traditions.',
-  'home.society.link': 'Membership',
+  'home.society.desc': 'Behind an unassuming door in the old city of Plovdiv, our members gather beneath low lamps and higher ceilings. There are no screens, no headlines — only leather, walnut, and the slow ceremony of a well-cut cigar.',
+  'home.society.link': 'Heritage',
 
   'home.pleasures.label': 'The three pleasures',
   'home.pleasures.0.title': 'The Humidor',
@@ -28,10 +28,10 @@ export default {
 
   'home.quote': 'The Club was started for the convenience of those who are not averse to comfortable chairs and the latest periodicals. — Sir Arthur Conan Doyle',
 
-  'home.heritage.label': 'Heritage',
-  'home.heritage.title': 'From Philippopolis<br />to the present day.',
-  'home.heritage.desc': 'Founded upon the seven hills of one of Europe\'s oldest continuously inhabited cities, our club draws its name — and its temperament — from a place that has watched empires pass.',
-  'home.heritage.link': 'Heritage',
+  'home.heritage.label': 'Membership',
+  'home.heritage.title': 'A private society.<br />Membership by invitation.',
+  'home.heritage.desc': 'Gentlemen\'s Club Philippopolis is a private society. Membership is by invitation only, proposed by an existing member and approved by the committee. We welcome those who share our appreciation for fellowship and follow the way of the leaf.',
+  'home.heritage.link': 'Membership',
 
   'heritage.hero.label': 'Heritage',
   'heritage.hero.title': 'From Philippopolis to the present day.',

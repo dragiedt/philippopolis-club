@@ -50,7 +50,7 @@ export default function Home() {
                 {t('home.hero.cta')}
               </Link>
                 <Link
-                  to="/membership"
+                  to="/heritage"
                 className="inline-flex items-center justify-center px-8 py-3.5 border border-cream/30 text-cream text-sm tracking-widest uppercase hover:bg-cream/10 transition-colors duration-200"
               >
                 {t('home.hero.cta2')}
@@ -163,7 +163,7 @@ export default function Home() {
                   {t('home.heritage.desc')}
                 </p>
                 <Link
-                  to="/heritage"
+                  to="/membership"
                   className="inline-flex items-center text-brand-900 text-sm tracking-widest uppercase font-medium hover:text-gold-600 transition-colors duration-200 group"
                 >
                   {t('home.heritage.link')}
