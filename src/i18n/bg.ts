@@ -35,7 +35,7 @@ export default {
 
   'heritage.hero.label': 'История',
   'heritage.hero.title': 'От Филипопол до наши дни.',
-  'heritage.hero.subtitle': 'Sapere aude',
+  'heritage.hero.subtitle': '\u201ESapere aude\u201C',
   'heritage.hero.subtitleAttr': '— Horace',
 
   'heritage.story.p1': 'Основан върху седемте хълма на един от най-старите непрекъснато обитавани градове в Европа, нашият клуб черпи името си — и характера си — от място, което е станало свидетел на преминаването на империи.',

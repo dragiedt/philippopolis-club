@@ -35,7 +35,7 @@ export default {
 
   'heritage.hero.label': 'Heritage',
   'heritage.hero.title': 'From Philippopolis to the present day.',
-  'heritage.hero.subtitle': 'Sapere aude',
+  'heritage.hero.subtitle': '"Sapere aude"',
   'heritage.hero.subtitleAttr': '— Horace',
 
   'heritage.story.p1': 'Founded upon the seven hills of one of Europe\'s oldest continuously inhabited cities, our club draws its name — and its temperament — from a place that has watched empires pass.',
