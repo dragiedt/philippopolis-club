@@ -15,8 +15,8 @@ export default {
 
   'home.society.label': 'The Society',
   'home.society.title': 'Founded on discretion,<br />furnished by tradition.',
-  'home.society.desc': 'Behind an unassuming door in the old city of Plovdiv, our members gather beneath low lamps and higher ceilings. There are no screens, no headlines — only leather, walnut, and the slow ceremony of a well-cut cigar.',
-  'home.society.link': 'Heritage',
+  'home.society.desc': 'Gentlemen\'s Club Philippopolis was established by a small circle of cigar aficionados. It all began as a gathering of friends from all walks of life united by a shared appreciation for fine cigars, thoughtful conversation, and timeless traditions.',
+  'home.society.link': 'Membership',
 
   'home.pleasures.label': 'The three pleasures',
   'home.pleasures.0.title': 'The Humidor',

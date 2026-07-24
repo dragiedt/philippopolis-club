@@ -49,8 +49,8 @@ export default function Home() {
               >
                 {t('home.hero.cta')}
               </Link>
-              <Link
-                to="/heritage"
+                <Link
+                  to="/membership"
                 className="inline-flex items-center justify-center px-8 py-3.5 border border-cream/30 text-cream text-sm tracking-widest uppercase hover:bg-cream/10 transition-colors duration-200"
               >
                 {t('home.hero.cta2')}
