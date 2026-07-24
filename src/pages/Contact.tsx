@@ -168,25 +168,21 @@ export default function Contact() {
               <div className="lg:pl-8">
                 <div className="sticky top-32 space-y-12">
                   <div>
-                    <h3 className="font-serif text-2xl text-brand-900 mb-4">{t('contact.details.house')}</h3>
-                    <address className="not-italic text-brand-600 space-y-2">
-                      <p>{t('contact.details.address1')}</p>
-                      <p>{t('contact.details.address2')}</p>
-                    </address>
+                    <h3 className="font-serif text-2xl text-brand-900 mb-4">{t('contact.details.meetings')}</h3>
+                    <p className="text-gold-500 font-serif text-lg">{t('contact.details.meetingsDay')}</p>
+                    <p className="text-brand-600 mt-2">{t('contact.details.meetingsLocation')}</p>
+                    <p className="text-brand-500 text-sm mt-2">{t('contact.details.meetingsNote')}</p>
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-2xl text-brand-900 mb-4">{t('contact.details.hours')}</h3>
-                    <p className="text-brand-600">{t('contact.details.hoursDesc')}</p>
-                    <p className="text-brand-500 text-sm mt-2">
-                      {t('contact.details.hoursNote')}
-                    </p>
+                    <h3 className="font-serif text-2xl text-brand-900 mb-4">{t('contact.details.time')}</h3>
+                    <p className="text-brand-600">{t('contact.details.timeDesc')}</p>
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-2xl text-brand-900 mb-4">{t('contact.details.confidentiality')}</h3>
+                    <h3 className="font-serif text-2xl text-brand-900 mb-4">{t('contact.details.membersOnly')}</h3>
                     <p className="text-brand-600 leading-relaxed">
-                      {t('contact.details.confidentialityDesc')}
+                      {t('contact.details.membersOnlyDesc')}
                     </p>
                   </div>
 
