@@ -55,11 +55,22 @@ export default function Footer() {
 
           <div>
             <h4 className="font-serif text-cream text-lg mb-4">{t('footer.houseTitle')}</h4>
-            <address className="not-italic text-brand-400 text-sm space-y-2">
-              <p>{t('footer.address1')}</p>
-              <p>{t('footer.address2')}</p>
-              <p className="text-brand-500 mt-4">{t('footer.hours')}</p>
-            </address>
+            <div className="text-brand-400 text-sm space-y-4">
+              <div>
+                <p className="text-cream/80 tracking-wider uppercase text-xs mb-1">{t('contact.details.meetings')}</p>
+                <p>{t('contact.details.meetingsDay')}</p>
+                <p>{t('contact.details.meetingsLocation')}</p>
+                <p className="text-brand-500 text-xs mt-1">{t('contact.details.meetingsNote')}</p>
+              </div>
+              <div>
+                <p className="text-cream/80 tracking-wider uppercase text-xs mb-1">{t('contact.details.time')}</p>
+                <p>{t('contact.details.timeDesc')}</p>
+              </div>
+              <div>
+                <p className="text-cream/80 tracking-wider uppercase text-xs mb-1">{t('contact.details.membersOnly')}</p>
+                <p>{t('contact.details.membersOnlyDesc')}</p>
+              </div>
+            </div>
           </div>
         </div>
 
