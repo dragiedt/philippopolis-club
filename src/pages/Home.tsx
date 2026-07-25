@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
@@ -27,6 +28,14 @@ const previewGallery = [
 
 export default function Home() {
   const { t } = useLang()
+  const galleryRef = useRef<HTMLDivElement>(null)
+
+  const scrollGallery = (direction: 'left' | 'right') => {
+    if (!galleryRef.current) return
+    const amount = direction === 'left' ? -300 : 300
+    galleryRef.current.scrollBy({ left: amount, behavior: 'smooth' })
+  }
+
   return (
     <>
       {/* Hero */}
@@ -179,6 +188,28 @@ export default function Home() {
               </Link>
             </div>
           </FadeIn>
+
+          {/* Featured Event Banner */}
+          <FadeIn>
+            <Link to="/events" className="group block relative overflow-hidden border-2 border-gold-500/40 mb-8">
+              <div className="absolute inset-0">
+                <img src="/images/ouatip-logo.png" alt="OUATIP" className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/80 to-brand-900/60" />
+              </div>
+              <div className="relative p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6">
+                <div className="flex-1">
+                  <span className="text-gold-500 text-xs tracking-[0.2em] uppercase">{t('event.upcoming.0.date')}</span>
+                  <h3 className="font-display text-2xl md:text-3xl text-cream mt-2 mb-2 gold-shimmer">{t('event.upcoming.0.title')}</h3>
+                  <p className="text-brand-300 text-sm leading-relaxed max-w-xl">{t('event.upcoming.0.desc')}</p>
+                </div>
+                <div className="shrink-0">
+                  <span className="inline-block px-4 py-1.5 text-xs tracking-wider uppercase border border-gold-500/50 text-gold-500">{t('event.upcoming.0.type')}</span>
+                </div>
+              </div>
+            </Link>
+          </FadeIn>
+
+          {/* Past Event Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {previewEvents.map((event, index) => (
               <FadeIn key={index} delay={index * 120}>
@@ -218,18 +249,40 @@ export default function Home() {
                 <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('home.gallery.label')}</p>
                 <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">{t('home.gallery.title')}</h2>
               </div>
-              <Link
-                to="/gallery"
-                className="hidden md:inline-flex items-center text-brand-900 text-sm tracking-widest uppercase hover:text-gold-600 transition-colors duration-200 group"
-              >
-                {t('home.gallery.link')}
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                </svg>
-              </Link>
+              <div className="flex items-center gap-4">
+                <div className="hidden md:flex items-center gap-2">
+                  <button
+                    onClick={() => scrollGallery('left')}
+                    className="w-10 h-10 flex items-center justify-center border border-brand-300 text-brand-600 hover:border-brand-900 hover:text-brand-900 transition-colors duration-200"
+                    aria-label="Scroll left"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => scrollGallery('right')}
+                    className="w-10 h-10 flex items-center justify-center border border-brand-300 text-brand-600 hover:border-brand-900 hover:text-brand-900 transition-colors duration-200"
+                    aria-label="Scroll right"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
+                </div>
+                <Link
+                  to="/gallery"
+                  className="hidden md:inline-flex items-center text-brand-900 text-sm tracking-widest uppercase hover:text-gold-600 transition-colors duration-200 group"
+                >
+                  {t('home.gallery.link')}
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </FadeIn>
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory" style={{ scrollbarWidth: 'none' }}>
+          <div ref={galleryRef} className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory" style={{ scrollbarWidth: 'none' }}>
             {previewGallery.map((photo, index) => (
               <FadeIn key={index} delay={index * 80}>
                 <Link
