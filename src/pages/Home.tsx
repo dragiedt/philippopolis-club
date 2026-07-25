@@ -18,7 +18,7 @@ const previewEvents = [
 ]
 
 const previewGallery = [
-  { src: '/images/drive/GC_0213.jpg', alt: 'Amber light' },
+  { src: '/images/drive/GC_0130.jpg', alt: 'Glasses raised' },
   { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere' },
   { src: '/images/drive/GC_0278.jpg', alt: 'Evening ritual' },
   { src: '/images/drive/GC_0396.jpg', alt: 'The salon' },
@@ -157,7 +157,7 @@ export default function Home() {
       {/* Events Preview */}
       <section className="relative py-24 md:py-32 px-6 bg-brand-900 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/images/SHB_8024.jpg" alt="" className="w-full h-full object-cover opacity-10" />
+          <img src="/images/SHB_8024.jpg" alt="" className="w-full h-full object-cover opacity-5" />
         </div>
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
