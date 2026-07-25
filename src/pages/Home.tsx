@@ -179,8 +179,8 @@ export default function Home() {
           <FadeIn>
             <Link to="/events" className="group block relative overflow-hidden border-2 border-gold-500/40 mb-8">
               <div className="absolute inset-0">
-                <img src="/images/ouatip-logo.png" alt="OUATIP" className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/80 to-brand-900/60" />
+                <img src="/images/ouatip-logo.png" alt="OUATIP" className="w-full h-full object-cover opacity-70 group-hover:opacity-80 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 via-brand-900/50 to-brand-900/30" />
               </div>
               <div className="relative p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6">
                 <div className="flex-1">
@@ -227,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Preview */}
-      <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm gold-hairline-top">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-16 px-6 bg-brand-50 tobacco-leaf-warm gold-hairline-top">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
             <div className="flex items-end justify-between mb-10">
@@ -303,6 +303,11 @@ export default function Home() {
           </FadeIn>
         </div>
       </section>
+
+      {/* Divider */}
+      <div className="bg-brand-50 tobacco-leaf-warm">
+        <SectionDivider />
+      </div>
 
       {/* Heritage Preview */}
       <section className="py-24 md:py-32 px-6 tobacco-leaf">
