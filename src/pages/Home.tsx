@@ -154,20 +154,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quote */}
-      <section className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper vignette">
-        <div className="mx-auto max-w-4xl text-center">
-          <FadeIn>
-            <div className="relative">
-              <span className="absolute -top-8 left-1/2 -translate-x-1/2 font-serif text-6xl text-gold-500/30">"</span>
-              <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl text-cream font-light leading-relaxed italic">
-                {t('home.quote')}
-              </blockquote>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* Events Preview */}
       <section className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper">
         <div className="mx-auto max-w-7xl">
