@@ -155,8 +155,11 @@ export default function Home() {
       </section>
 
       {/* Events Preview */}
-      <section className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper">
-        <div className="mx-auto max-w-7xl">
+      <section className="relative py-24 md:py-32 px-6 bg-brand-900 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/images/SHB_8024.jpg" alt="" className="w-full h-full object-cover opacity-10" />
+        </div>
+        <div className="relative mx-auto max-w-7xl">
           <FadeIn>
             <div className="flex items-end justify-between mb-12">
               <div>
