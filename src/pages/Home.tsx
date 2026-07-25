@@ -10,6 +10,21 @@ const pleasures = [
   { number: 'III', titleKey: 'home.pleasures.2.title', descKey: 'home.pleasures.2.desc' },
 ]
 
+const previewEvents = [
+  { date: 'July 2026', title: 'Davidoff White Party', type: 'Invitation', dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', typeKey: 'event.past.0.type' },
+  { date: 'June 2026', title: 'Plasencia Year of the Horse', type: 'Members Only', dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', typeKey: 'event.past.1.type' },
+  { date: 'June 2026', title: 'Rosa Bulgaria Regional Edition', type: 'Guests', dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', typeKey: 'event.past.2.type' },
+]
+
+const previewGallery = [
+  { src: '/images/drive/GC_0043.jpg', alt: 'The club interior' },
+  { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere' },
+  { src: '/images/drive/GC_0278.jpg', alt: 'Evening ritual' },
+  { src: '/images/drive/GC_0396.jpg', alt: 'The salon' },
+  { src: '/images/drive/GC_0551.jpg', alt: 'The balcony' },
+  { src: '/images/drive/GC_0592.jpg', alt: 'Conversation & smoke' },
+]
+
 export default function Home() {
   const { t } = useLang()
   return (
@@ -139,6 +154,112 @@ export default function Home() {
               <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl text-cream font-light leading-relaxed italic">
                 {t('home.quote')}
               </blockquote>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Events Preview */}
+      <section className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper">
+        <div className="mx-auto max-w-7xl">
+          <FadeIn>
+            <div className="flex items-end justify-between mb-12">
+              <div>
+                <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('home.events.label')}</p>
+                <h2 className="font-serif text-3xl md:text-4xl text-cream font-light">{t('home.events.title')}</h2>
+              </div>
+              <Link
+                to="/events"
+                className="hidden md:inline-flex items-center text-cream/70 text-sm tracking-widest uppercase hover:text-gold-500 transition-colors duration-200 group"
+              >
+                {t('home.events.link')}
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {previewEvents.map((event, index) => (
+              <FadeIn key={index} delay={index * 120}>
+                <Link
+                  to="/events"
+                  className="group block p-6 border border-cream/10 hover:border-gold-500/40 transition-all duration-300"
+                >
+                  <span className="text-gold-500 text-xs tracking-[0.2em] uppercase">{t(event.dateKey)}</span>
+                  <h3 className="font-serif text-xl text-cream mt-3 mb-3 group-hover:text-gold-500 transition-colors duration-200">{t(event.titleKey)}</h3>
+                  <span className="inline-block px-3 py-1 text-[10px] tracking-wider uppercase border border-cream/20 text-cream/50">{t(event.typeKey)}</span>
+                </Link>
+              </FadeIn>
+            ))}
+          </div>
+          <FadeIn>
+            <div className="mt-10 md:hidden text-center">
+              <Link
+                to="/events"
+                className="inline-flex items-center text-cream/70 text-sm tracking-widest uppercase hover:text-gold-500 transition-colors duration-200 group"
+              >
+                {t('home.events.link')}
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Gallery Preview */}
+      <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm gold-hairline-top">
+        <div className="mx-auto max-w-7xl">
+          <FadeIn>
+            <div className="flex items-end justify-between mb-10">
+              <div>
+                <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('home.gallery.label')}</p>
+                <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">{t('home.gallery.title')}</h2>
+              </div>
+              <Link
+                to="/gallery"
+                className="hidden md:inline-flex items-center text-brand-900 text-sm tracking-widest uppercase hover:text-gold-600 transition-colors duration-200 group"
+              >
+                {t('home.gallery.link')}
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </FadeIn>
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory" style={{ scrollbarWidth: 'none' }}>
+            {previewGallery.map((photo, index) => (
+              <FadeIn key={index} delay={index * 80}>
+                <Link
+                  to="/gallery"
+                  className="group relative block shrink-0 w-64 md:w-72 aspect-[3/4] overflow-hidden snap-start"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <p className="text-cream text-sm tracking-wider">{photo.alt}</p>
+                  </div>
+                </Link>
+              </FadeIn>
+            ))}
+          </div>
+          <FadeIn>
+            <div className="mt-10 text-center md:hidden">
+              <Link
+                to="/gallery"
+                className="inline-flex items-center text-brand-900 text-sm tracking-widest uppercase hover:text-gold-600 transition-colors duration-200 group"
+              >
+                {t('home.gallery.link')}
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </Link>
             </div>
           </FadeIn>
         </div>

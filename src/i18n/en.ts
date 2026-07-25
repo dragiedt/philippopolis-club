@@ -33,6 +33,14 @@ export default {
   'home.heritage.desc': 'Gentlemen\'s Club Philippopolis is a private society. Membership is by invitation only, proposed by an existing member and approved by the committee. We welcome those who share our appreciation for fellowship and follow the way of the leaf.',
   'home.heritage.link': 'Membership',
 
+  'home.events.label': 'From the Calendar',
+  'home.events.title': 'Recent evenings.',
+  'home.events.link': 'View All Events',
+
+  'home.gallery.label': 'From the Collection',
+  'home.gallery.title': 'Moments captured.',
+  'home.gallery.link': 'View Gallery',
+
   'heritage.hero.label': 'Heritage',
   'heritage.hero.title': 'From Philippopolis to the present day.',
   'heritage.hero.subtitle': '"Sapere aude"',

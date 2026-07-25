@@ -33,6 +33,14 @@ export default {
   'home.heritage.desc': 'Gentlemen\'s Club Philippopolis е частно общество. Членството е само по покана, предложено от съществуващ член и одобрено от комитета. Приветстваме онези, които споделят нашата оценка за fellowship и следват пътя на листа.',
   'home.heritage.link': 'Членство',
 
+  'home.events.label': 'От календара',
+  'home.events.title': 'Скорошни вечери.',
+  'home.events.link': 'Всички събития',
+
+  'home.gallery.label': 'От колекцията',
+  'home.gallery.title': 'Уловени моменти.',
+  'home.gallery.link': 'Виж галерията',
+
   'heritage.hero.label': 'История',
   'heritage.hero.title': 'От Филипопол до наши дни.',
   'heritage.hero.subtitle': '\u201ESapere aude\u201C',
