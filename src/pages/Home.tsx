@@ -182,7 +182,7 @@ export default function Home() {
               <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold-500/60 z-10" />
               <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold-500/60 z-10" />
               <div className="absolute inset-0">
-                <img src="/images/ouatip-logo.png" alt="OUATIP" className="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700" />
+                <img src="/images/SHB_8024.jpg" alt="Once Upon a Time in Philippopolis" className="w-full h-full object-cover opacity-60 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-900/70 via-brand-900/30 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-transparent to-brand-900/20" />
               </div>
