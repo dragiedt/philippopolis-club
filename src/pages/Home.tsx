@@ -15,13 +15,17 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center bg-brand-900 cigar-wrapper">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40 scale-105"
-          style={{
-            backgroundImage: `url('/images/photo_168.jpg')`,
-          }}
-        />
+      <section className="relative h-screen flex items-center justify-center bg-brand-900 overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40 scale-105"
+          poster="/images/photo_168.jpg"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/60 via-brand-900/40 to-brand-900/80" />
         <SmokeEffect />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
