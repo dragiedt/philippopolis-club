@@ -18,7 +18,7 @@ const previewEvents = [
 ]
 
 const previewGallery = [
-  { src: '/images/drive/GC_0043.jpg', alt: 'The club interior' },
+  { src: '/images/drive/GC_0213.jpg', alt: 'Amber light' },
   { src: '/images/drive/GC_0110.jpg', alt: 'Evening atmosphere' },
   { src: '/images/drive/GC_0278.jpg', alt: 'Evening ritual' },
   { src: '/images/drive/GC_0396.jpg', alt: 'The salon' },
