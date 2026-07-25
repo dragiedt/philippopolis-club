@@ -152,7 +152,7 @@ export default function Home() {
               <div className="relative">
                 <div className="aspect-[4/3] bg-brand-200 overflow-hidden">
                   <img
-                    src="/images/drive/GC_0406.jpg"
+                    src="/images/photo_167.jpg"
                     alt="Ancient theatre of Philippopolis"
                     className="w-full h-full object-cover"
                   />

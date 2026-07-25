@@ -13,9 +13,9 @@ export default {
   'home.hero.cta': 'Request Invitation',
   'home.hero.cta2': 'The Heritage',
 
-  'home.society.label': 'The Society',
-  'home.society.title': 'Founded on discretion,<br />furnished by tradition.',
-  'home.society.desc': 'Behind an unassuming door in the old city of Plovdiv, our members gather beneath low lamps and higher ceilings. There are no screens, no headlines — only leather, walnut, and the slow ceremony of a well-cut cigar.',
+  'home.society.label': 'Welcome to the club!',
+  'home.society.title': 'Founded upon the seven hills<br />of one of Europe\'s oldest cities.',
+  'home.society.desc': 'Our club draws its name — and its temperament — from a place that has watched empires pass. Established by a small circle of cigar aficionado friends from all walks of life united by their passion for fine cigars, thoughtful conversation, and timeless traditions.',
   'home.society.link': 'Heritage',
 
   'home.pleasures.label': 'The three pleasures',
