@@ -12,7 +12,7 @@ const pleasures = [
 ]
 
 const previewEvents = [
-  { date: 'July 2026', title: 'Davidoff White Party', type: 'Invitation', dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', typeKey: 'event.past.0.type' },
+  { date: 'July 2026', title: 'Davidoff White Party', type: 'Invitation', dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', typeKey: 'event.past.0.type', image: '/images/davidoff-hero.jpg' },
   { date: 'June 2026', title: 'Plasencia Year of the Horse', type: 'Members Only', dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', typeKey: 'event.past.1.type', image: '/images/plasencia-hero.jpg' },
   { date: 'June 2026', title: 'Rosa Bulgaria Regional Edition', type: 'Guests', dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', typeKey: 'event.past.2.type', image: '/images/rosa-bulgaria-hero.jpg' },
 ]
@@ -223,7 +223,7 @@ export default function Home() {
                 >
                   {event.image && (
                     <div className="absolute inset-0">
-                      <img src={event.image} alt="" className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
+                      <img src={event.image} alt="" className="w-full h-full object-cover opacity-75 group-hover:opacity-90 transition-opacity duration-500" />
                       <div className="absolute inset-0 bg-brand-900/70" />
                     </div>
                   )}
