@@ -35,7 +35,7 @@ export default {
   'home.heritage.link': 'Membership',
 
   'home.events.label': 'EVENT CALENDAR',
-  'home.events.title': 'Recent evenings.',
+  'home.events.title': 'Upcoming events and recent evenings.',
   'home.events.link': 'View All Events',
 
   'home.gallery.label': 'The Gentlemen Gallery',

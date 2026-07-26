@@ -35,7 +35,7 @@ export default {
   'home.heritage.link': 'Членство',
 
   'home.events.label': 'СЪБИТИЯ',
-  'home.events.title': 'Скорошни вечери.',
+  'home.events.title': 'Предстоящи събития и скорошни вечери.',
   'home.events.link': 'Всички събития',
 
   'home.gallery.label': 'Галерията на джентълмените',
