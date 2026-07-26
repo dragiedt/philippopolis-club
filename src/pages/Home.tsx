@@ -13,8 +13,8 @@ const pleasures = [
 
 const previewEvents = [
   { date: 'July 2026', title: 'Davidoff White Party', type: 'Invitation', dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', typeKey: 'event.past.0.type' },
-  { date: 'June 2026', title: 'Plasencia Year of the Horse', type: 'Members Only', dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', typeKey: 'event.past.1.type' },
-  { date: 'June 2026', title: 'Rosa Bulgaria Regional Edition', type: 'Guests', dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', typeKey: 'event.past.2.type' },
+  { date: 'June 2026', title: 'Plasencia Year of the Horse', type: 'Members Only', dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', typeKey: 'event.past.1.type', image: '/images/plasencia-hero.jpg' },
+  { date: 'June 2026', title: 'Rosa Bulgaria Regional Edition', type: 'Guests', dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', typeKey: 'event.past.2.type', image: '/images/rosa-bulgaria-hero.jpg' },
 ]
 
 const previewGallery = [
@@ -219,11 +219,19 @@ export default function Home() {
               <FadeIn key={index} delay={index * 120}>
                 <Link
                   to="/events"
-                  className="group block p-6 border border-cream/10 hover:border-gold-500/40 transition-all duration-300"
+                  className="group block relative p-6 border border-cream/10 hover:border-gold-500/40 transition-all duration-300 overflow-hidden"
                 >
-                  <span className="text-gold-500 text-xs tracking-[0.2em] uppercase">{t(event.dateKey)}</span>
-                  <h3 className="font-serif text-xl text-cream mt-3 mb-3 group-hover:text-gold-500 transition-colors duration-200">{t(event.titleKey)}</h3>
-                  <span className="inline-block px-3 py-1 text-[10px] tracking-wider uppercase border border-cream/20 text-cream/50">{t(event.typeKey)}</span>
+                  {event.image && (
+                    <div className="absolute inset-0">
+                      <img src={event.image} alt="" className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-brand-900/70" />
+                    </div>
+                  )}
+                  <div className="relative">
+                    <span className="text-gold-500 text-xs tracking-[0.2em] uppercase">{t(event.dateKey)}</span>
+                    <h3 className="font-serif text-xl text-cream mt-3 mb-3 group-hover:text-gold-500 transition-colors duration-200">{t(event.titleKey)}</h3>
+                    <span className="inline-block px-3 py-1 text-[10px] tracking-wider uppercase border border-cream/20 text-cream/50">{t(event.typeKey)}</span>
+                  </div>
                 </Link>
               </FadeIn>
             ))}
