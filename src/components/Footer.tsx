@@ -16,8 +16,8 @@ export default function Footer() {
   return (
     <footer className="bg-brand-900 text-brand-300 cigar-wrapper">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
             <div className="mb-6">
               <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="h-16 w-auto" />
             </div>
@@ -41,9 +41,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="md:pl-12">
             <h4 className="font-serif text-cream text-lg mb-4">{t('footer.navTitle')}</h4>
-            <ul className="flex flex-wrap gap-x-4 gap-y-2 md:block md:space-y-3">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 md:block md:space-y-3">
               {navItems.map((item) => (
                 <li key={item.name}>
                   <Link
@@ -55,26 +55,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div>
-            <h4 className="font-serif text-cream text-lg mb-4">{t('footer.houseTitle')}</h4>
-            <div className="text-brand-400 text-sm space-y-4">
-              <div>
-                <p className="text-cream/80 tracking-wider uppercase text-xs mb-1">{t('contact.details.meetings')}</p>
-                <p>{t('contact.details.meetingsDay')}</p>
-                <p>{t('contact.details.meetingsLocation')}</p>
-                <p className="text-brand-500 text-xs mt-1">{t('contact.details.meetingsNote')}</p>
-              </div>
-              <div>
-                <p className="text-cream/80 tracking-wider uppercase text-xs mb-1">{t('contact.details.time')}</p>
-                <p>{t('contact.details.timeDesc')}</p>
-              </div>
-              <div>
-                <p className="text-cream/80 tracking-wider uppercase text-xs mb-1">{t('contact.details.membersOnly')}</p>
-                <p>{t('contact.details.membersOnlyDesc')}</p>
-              </div>
-            </div>
           </div>
         </div>
 
