@@ -93,8 +93,12 @@ export default function Events() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 cigar-wrapper">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/images/SHB_8024.jpg" alt="" className="w-full h-full object-cover opacity-12" />
+        </div>
+        <div className="absolute inset-0 bg-brand-900/60" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('events.hero.label')}</p>
           </FadeIn>
