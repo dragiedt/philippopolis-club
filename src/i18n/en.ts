@@ -16,6 +16,7 @@ export default {
   'home.society.label': 'Welcome to the club!',
   'home.society.title': 'Founded upon the seven hills<br />of one of Europe\'s oldest cities.',
   'home.society.desc': 'Our club draws its name — and its temperament — from a place that has watched empires pass. Established by a small circle of cigar aficionado friends from all walks of life united by their passion for fine cigars, thoughtful conversation, and timeless traditions.',
+  'home.society.quote': 'The Club was started for the convenience of those who are not averse to comfortable chairs and the latest periodicals. — Sir Arthur Conan Doyle',
   'home.society.link': 'Heritage',
 
   'home.pleasures.label': 'The three pleasures',
