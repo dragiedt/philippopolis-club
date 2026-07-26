@@ -189,7 +189,7 @@ export default function Home() {
 
           {/* Featured Event Banner */}
           <FadeIn>
-            <Link to="/events" className="group block relative overflow-hidden mb-8">
+            <a href="https://fb.me/e/4g45U6Yjw" target="_blank" rel="noopener noreferrer" className="group block relative overflow-hidden mb-8">
               {/* Gold corner accent */}
               <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold-500/60 z-10" />
               <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold-500/60 z-10" />
@@ -210,7 +210,7 @@ export default function Home() {
                   <span className="inline-block px-4 py-1.5 text-xs tracking-wider uppercase border border-gold-500/50 text-gold-500 group-hover:bg-gold-500/10 transition-colors duration-300">{t('event.upcoming.0.type')}</span>
                 </div>
               </div>
-            </Link>
+            </a>
           </FadeIn>
 
           {/* Past Event Cards */}
