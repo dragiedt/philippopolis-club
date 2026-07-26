@@ -89,6 +89,7 @@ export default {
   'membership.tiers.label': 'Membership Tiers',
   'membership.tiers.title': 'Choose your level of engagement.',
   'membership.tiers.popular': 'Most Popular',
+  'membership.inquire': 'Inquire',
 
   'membership.tier.0.name': 'Member',
   'membership.tier.0.desc': 'Full access to the club\'s regular meetings, events, and exclusive benefits.',
@@ -100,9 +101,9 @@ export default {
   'membership.tier.0.feature.5': 'Presentations directly by cigar manufacturers and distributors',
   'membership.tier.0.feature.6': 'Complimentary cigars and drinks for certain events',
   'membership.tier.0.feature.7': 'Limited club merchandise',
-  'membership.tier.0.feature.8': 'Reduced price for the club\'s big annual event',
+  'membership.tier.0.feature.8': 'Discounted ticket for the club\'s big annual event',
 
-  'membership.tier.1.name': 'Patron',
+  'membership.tier.1.name': 'Partner',
   'membership.tier.1.desc': 'Enhanced privileges for those who wish to support the club\'s cultural mission.',
   'membership.tier.1.feature.0': 'All Member benefits',
   'membership.tier.1.feature.1': 'Priority access to rare releases',

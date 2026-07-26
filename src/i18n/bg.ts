@@ -89,6 +89,7 @@ export default {
   'membership.tiers.label': 'Членски нива',
   'membership.tiers.title': 'Изберете своето ниво на ангажираност.',
   'membership.tiers.popular': 'Най-популярно',
+  'membership.inquire': 'Запитване',
 
   'membership.tier.0.name': 'Член',
   'membership.tier.0.desc': 'Пълен достъп до редовните срещи на клуба, събития и изключителни предимства.',
@@ -100,9 +101,9 @@ export default {
   'membership.tier.0.feature.5': 'Презентации директно от производители и дистрибутори на пури',
   'membership.tier.0.feature.6': 'Безплатни пури и напитки за определени събития',
   'membership.tier.0.feature.7': 'Ограничени клубни merchandise артикули',
-  'membership.tier.0.feature.8': 'Намалена цена за голямото годишно събитие на клуба',
+  'membership.tier.0.feature.8': 'Намалена цена за билет за голямото годишно събитие на клуба',
 
-  'membership.tier.1.name': 'Патрон',
+  'membership.tier.1.name': 'Партньор',
   'membership.tier.1.desc': 'Разширени привилегии за онези, които желаят да подкрепят културната мисия на клуба.',
   'membership.tier.1.feature.0': 'Всички предимства на Член',
   'membership.tier.1.feature.1': 'Приоритетен достъп до редки издания',

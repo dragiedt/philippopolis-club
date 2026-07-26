@@ -119,18 +119,7 @@ export default function Membership() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tiers.map((tier, index) => (
               <FadeIn key={index} delay={index * 150}>
-                <div
-                  className={`p-8 border h-full cigar-band-top ${
-                    index === 1
-                      ? 'border-gold-500 bg-cream shadow-lg'
-                      : 'border-brand-200 bg-cream'
-                  }`}
-                >
-                  {index === 1 && (
-                    <span className="text-gold-500 text-xs tracking-[0.2em] uppercase font-medium">
-                      {t('membership.tiers.popular')}
-                    </span>
-                  )}
+                <div className="p-8 border border-brand-200 bg-cream h-full cigar-band-top">
                   <h3 className="font-serif text-2xl text-brand-900 mt-4 mb-2">{t(tier.nameKey)}</h3>
                   <p className="text-brand-600 text-sm mb-6">{t(tier.descKey)}</p>
                   <ul className="space-y-3">
@@ -143,6 +132,14 @@ export default function Membership() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-8">
+                    <Link
+                      to="/contact"
+                      className="block w-full text-center px-6 py-3 border border-brand-900 text-brand-900 text-sm tracking-widest uppercase hover:bg-brand-900 hover:text-cream transition-colors duration-200"
+                    >
+                      {t('membership.inquire')}
+                    </Link>
+                  </div>
                 </div>
               </FadeIn>
             ))}
