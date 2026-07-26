@@ -98,6 +98,9 @@ export default function Membership() {
       <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
+            <img src="/images/membership-intro.jpg" alt="" className="w-full max-w-md mx-auto mb-8 object-cover" loading="lazy" />
+          </FadeIn>
+          <FadeIn>
             <p className="text-brand-600 text-lg leading-relaxed">
               {t('membership.intro')}
             </p>

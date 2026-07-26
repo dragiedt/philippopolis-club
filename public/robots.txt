@@ -1,4 +1,20 @@
 User-agent: *
 Allow: /
 
+# AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-Searchbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://www.gentlemensclubphilippopolis.com/sitemap.xml
