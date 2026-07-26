@@ -18,13 +18,10 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
-            <div className="flex items-start gap-4 mb-6">
-              <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="h-14 w-auto shrink-0 mt-0.5" />
-              <p className="text-brand-500 text-xs tracking-wider uppercase leading-relaxed pt-2">
-                {t('footer.motto')}
-              </p>
+            <div className="mb-6">
+              <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="h-14 w-auto mx-auto lg:mx-0" />
             </div>
-            <p className="text-brand-400 text-sm leading-relaxed max-w-md">
+            <p className="text-brand-400 text-sm leading-relaxed max-w-md text-justify">
               {t('footer.desc')}
             </p>
             <div className="flex items-center gap-4 mt-5">

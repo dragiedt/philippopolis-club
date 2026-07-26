@@ -13,6 +13,11 @@ const tiers = [
       'membership.tier.0.feature.1',
       'membership.tier.0.feature.2',
       'membership.tier.0.feature.3',
+      'membership.tier.0.feature.4',
+      'membership.tier.0.feature.5',
+      'membership.tier.0.feature.6',
+      'membership.tier.0.feature.7',
+      'membership.tier.0.feature.8',
     ],
   },
   {
