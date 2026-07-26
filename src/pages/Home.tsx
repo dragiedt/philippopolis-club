@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
@@ -28,6 +28,8 @@ const previewGallery = [
 
 export default function Home() {
   const { t } = useLang()
+
+  useEffect(() => { document.title = 'Gentlemen\'s Club Philippopolis' }, [])
   const galleryRef = useRef<HTMLDivElement>(null)
 
   const scrollGallery = (direction: 'left' | 'right') => {

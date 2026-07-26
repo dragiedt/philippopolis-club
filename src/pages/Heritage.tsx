@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import { useLang } from '../i18n/LanguageContext'
@@ -37,6 +38,8 @@ const values = [
 
 export default function Heritage() {
   const { t } = useLang()
+
+  useEffect(() => { document.title = 'Heritage | Gentlemen\'s Club Philippopolis' }, [])
   return (
     <>
       {/* Hero */}

@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
@@ -89,6 +89,8 @@ const photos: GalleryItem[] = [
 
 export default function Gallery() {
   const { t } = useLang()
+
+  useEffect(() => { document.title = 'Gallery | Gentlemen\'s Club Philippopolis' }, [])
   const [lbIdx, setLbIdx] = useState<number | null>(null)
 
   const close = useCallback(() => setLbIdx(null), [])

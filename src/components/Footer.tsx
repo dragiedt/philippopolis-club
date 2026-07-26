@@ -43,7 +43,7 @@ export default function Footer() {
 
           <div>
             <h4 className="font-serif text-cream text-lg mb-4">{t('footer.navTitle')}</h4>
-            <ul className="space-y-3">
+            <ul className="flex flex-wrap gap-x-4 gap-y-2 md:block md:space-y-3">
               {navItems.map((item) => (
                 <li key={item.name}>
                   <Link

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
@@ -63,6 +64,8 @@ const process = [
 
 export default function Membership() {
   const { t } = useLang()
+
+  useEffect(() => { document.title = 'Membership | Gentlemen\'s Club Philippopolis' }, [])
   return (
     <>
       {/* Hero */}

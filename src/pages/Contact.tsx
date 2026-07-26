@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import FadeIn from '../components/FadeIn'
 import { useLang } from '../i18n/LanguageContext'
 
 export default function Contact() {
   const { t } = useLang()
+
+  useEffect(() => { document.title = 'Contact | Gentlemen\'s Club Philippopolis' }, [])
   const [formData, setFormData] = useState({
     name: '',
     email: '',
