@@ -114,6 +114,15 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                   </svg>
                 </Link>
+
+                <div className="hidden lg:flex items-center gap-4 mt-12" aria-hidden="true">
+                  <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold-500/40 to-gold-500/60" />
+                  <div className="relative w-14 h-14 flex items-center justify-center">
+                    <div className="absolute inset-0 border border-gold-500/30 rotate-45" />
+                    <img src="/images/logo-light.svg" alt="" className="w-7 h-7 opacity-60" />
+                  </div>
+                  <div className="flex-1 h-px bg-gradient-to-l from-transparent via-gold-500/40 to-gold-500/60" />
+                </div>
               </div>
             </FadeIn>
             <FadeIn direction="right">
