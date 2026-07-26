@@ -140,7 +140,7 @@ export default {
   'events.filter.invitation': 'Invitation',
   'events.filter.guests': 'Guests',
 
-  'events.info': 'The events organized by Gentlemen\'s Club Philippopolis are essential to our private society. More information about our mission can be found in the <link>Heritage</link> section of the website.',
+  'events.info': 'Each event organized by Gentlemen\'s Club Philippopolis turns into an unforgettable experience where new ideas flourish and powerful friendships are forged. More information about our organisation can be found in the <link>Heritage</link> section of the website.',
 
   'events.upcoming.label': 'Upcoming',
   'events.upcoming.title': 'Mark your calendar.',
