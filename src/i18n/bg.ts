@@ -203,7 +203,8 @@ export default {
 
   'gallery.hero.label': 'Колекцията',
   'gallery.hero.title': 'Галерия',
-  'gallery.hero.desc': 'Наслаждавайте се на малките неща, защото един ден може да погледнете назад и да осъзнаете, че те са били големите неща.',
+  'gallery.hero.desc': '„Да вървиш с приятел в тъмното е по-добре, отколкото да вървиш сам в светлината."',
+  'gallery.hero.quoteAttr': '— Хелен Келър',
 
   'gallery.banner.title': 'Fly Me to the Moon 2025 — Акценти от събитието',
   'gallery.banner.subtitle': 'Годишно събитие · 2025',

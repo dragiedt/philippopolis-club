@@ -203,7 +203,8 @@ export default {
 
   'gallery.hero.label': 'The Collection',
   'gallery.hero.title': 'Gallery',
-  'gallery.hero.desc': 'Enjoy the little things, for one day you may look back and realize they were the big things.',
+  'gallery.hero.desc': '"Walking with a friend in the dark is better than walking alone in the light."',
+  'gallery.hero.quoteAttr': '— Helen Keller',
 
   'gallery.banner.title': 'Fly Me to the Moon 2025 Event Highlights',
   'gallery.banner.subtitle': 'Annual Event · 2025',

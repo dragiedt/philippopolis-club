@@ -114,7 +114,10 @@ export default function Gallery() {
           <FadeIn><p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('gallery.hero.label')}</p></FadeIn>
           <FadeIn delay={150}><h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-cream font-light">{t('gallery.hero.title')}</h1></FadeIn>
           <FadeIn delay={300}>
-            <p className="mt-6 text-brand-300 text-lg max-w-xl mx-auto font-light">{t('gallery.hero.desc')}</p>
+            <p className="mt-6 text-brand-300 text-lg max-w-xl mx-auto font-light italic">
+              {t('gallery.hero.desc')}<br />
+              <span className="text-brand-400 text-sm not-italic tracking-wider">{t('gallery.hero.quoteAttr')}</span>
+            </p>
           </FadeIn>
         </div>
       </section>
