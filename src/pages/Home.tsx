@@ -105,12 +105,6 @@ export default function Home() {
                 <p className="text-brand-600 text-lg leading-relaxed mb-8">
                   {t('home.society.desc')}
                 </p>
-                <div className="relative pl-8 mb-8 border-l border-gold-500/40">
-                  <span className="absolute -top-2 left-2 font-serif text-3xl text-gold-500/30 leading-none">"</span>
-                  <blockquote className="font-serif text-base md:text-lg text-brand-500 italic leading-relaxed">
-                    {t('home.society.quote')}
-                  </blockquote>
-                </div>
                 <Link
                   to="/heritage"
                   className="inline-flex items-center text-brand-900 text-sm tracking-widest uppercase font-medium hover:text-gold-600 transition-colors duration-200 group"
@@ -161,7 +155,7 @@ export default function Home() {
       </section>
 
       {/* Events Preview */}
-      <section className="relative py-24 md:py-32 px-6 bg-brand-900 overflow-hidden">
+      <section className="relative py-16 md:py-20 px-6 bg-brand-900 overflow-hidden">
         <div className="absolute inset-0">
           <img src="/images/SHB_8024.jpg" alt="" className="w-full h-full object-cover opacity-5" />
         </div>
