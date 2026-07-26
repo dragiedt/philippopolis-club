@@ -19,7 +19,7 @@ export default {
   'home.society.quote': 'The Club was started for the convenience of those who are not averse to comfortable chairs and the latest periodicals. — Sir Arthur Conan Doyle',
   'home.society.link': 'Heritage',
 
-  'home.pleasures.label': 'The three pleasures',
+  'home.pleasures.label': 'The Three Pleasures of the Gentlemen',
   'home.pleasures.0.title': 'The Humidor',
   'home.pleasures.0.desc': 'A curated cellar of Habanos and rare New World vitolas, aged in-house and released at the peak of their maturity.',
   'home.pleasures.1.title': 'The Cellar',
@@ -38,8 +38,8 @@ export default {
   'home.events.title': 'Recent evenings.',
   'home.events.link': 'View All Events',
 
-  'home.gallery.label': 'From the Collection',
-  'home.gallery.title': 'Moments captured.',
+  'home.gallery.label': 'The Gentlemen Gallery',
+  'home.gallery.title': 'Holy Smokes!',
   'home.gallery.link': 'View Gallery',
 
   'heritage.hero.label': 'Heritage',

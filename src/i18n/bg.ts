@@ -19,7 +19,7 @@ export default {
   'home.society.quote': 'Клубът е създаден за удобство на онези, които не възразяват срещу удобни столове и най-новите списания. — Сър Артър Конан Дойл',
   'home.society.link': 'История',
 
-  'home.pleasures.label': 'Трите удоволствия',
+  'home.pleasures.label': 'Трите удоволствия на джентълмените',
   'home.pleasures.0.title': 'Пурарият',
   'home.pleasures.0.desc': 'Внимателно подбрана колекция от Habanos и редки Новосветски витоли, отлежали на място и предлагани в пика на своята зрялост.',
   'home.pleasures.1.title': 'Избата',
@@ -38,8 +38,8 @@ export default {
   'home.events.title': 'Скорошни вечери.',
   'home.events.link': 'Всички събития',
 
-  'home.gallery.label': 'От колекцията',
-  'home.gallery.title': 'Уловени моменти.',
+  'home.gallery.label': 'Галерията на джентълмените',
+  'home.gallery.title': 'Свети димове!',
   'home.gallery.link': 'Виж галерията',
 
   'heritage.hero.label': 'История',
