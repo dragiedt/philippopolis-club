@@ -16,16 +16,16 @@ export default function Footer() {
   return (
     <footer className="bg-brand-900 text-brand-300 cigar-wrapper">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
-            <div className="mb-6">
-              <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="h-16 w-auto" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-5">
+            <div className="flex items-start gap-4 mb-6">
+              <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="h-14 w-auto shrink-0 mt-0.5" />
+              <p className="text-brand-500 text-xs tracking-wider uppercase leading-relaxed pt-2">
+                {t('footer.motto')}
+              </p>
             </div>
             <p className="text-brand-400 text-sm leading-relaxed max-w-md">
               {t('footer.desc')}
-            </p>
-            <p className="text-brand-500 text-xs mt-4 tracking-wider uppercase">
-              {t('footer.motto')}
             </p>
             <div className="flex items-center gap-4 mt-5">
               <a href="https://www.facebook.com/profile.php?id=100088984060770" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:text-cream transition-colors">
@@ -41,7 +41,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="md:pl-12">
+          <div className="lg:col-span-3 lg:pl-4">
             <h4 className="font-serif text-cream text-lg mb-4">{t('footer.navTitle')}</h4>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 md:block md:space-y-3">
               {navItems.map((item) => (
@@ -55,6 +55,25 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="lg:col-span-4 lg:pl-4">
+            <div className="text-brand-400 text-sm space-y-4">
+              <div>
+                <p className="text-cream/80 tracking-wider uppercase text-xs mb-1">{t('contact.details.meetings')}</p>
+                <p>{t('contact.details.meetingsDay')}</p>
+                <p>{t('contact.details.meetingsLocation')}</p>
+                <p className="text-brand-500 text-xs mt-1">{t('contact.details.meetingsNote')}</p>
+              </div>
+              <div>
+                <p className="text-cream/80 tracking-wider uppercase text-xs mb-1">{t('contact.details.time')}</p>
+                <p>{t('contact.details.timeDesc')}</p>
+              </div>
+              <div>
+                <p className="text-cream/80 tracking-wider uppercase text-xs mb-1">{t('contact.details.membersOnly')}</p>
+                <p>{t('contact.details.membersOnlyDesc')}</p>
+              </div>
+            </div>
           </div>
         </div>
 
