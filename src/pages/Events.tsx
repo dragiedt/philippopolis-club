@@ -95,7 +95,7 @@ export default function Events() {
       {/* Hero */}
       <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('/images/SHB_8024.jpg')] bg-cover bg-center opacity-[0.06]" />
+          <div className="absolute inset-0 bg-[url('/images/SHB_8024.jpg')] bg-cover bg-center opacity-[0.12]" />
         </div>
         <div className="absolute inset-0 bg-brand-900/60" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
