@@ -30,6 +30,7 @@ const tiers = [
       'membership.tier.1.feature.3',
       'membership.tier.1.feature.4',
       'membership.tier.1.feature.5',
+      'membership.tier.1.feature.6',
     ],
   },
   {

@@ -111,6 +111,7 @@ export default {
   'membership.tier.1.feature.3': 'Dedicated audience for your promotional events',
   'membership.tier.1.feature.4': 'Direct insights and feedback on your portfolio from a discerning clientele',
   'membership.tier.1.feature.5': 'A direct sales channel for members to purchase the partner\'s products',
+  'membership.tier.1.feature.6': 'Personal introductions to specific club members, key local business figures, or venue owners within your network',
 
   'membership.tier.2.name': 'Honorary',
   'membership.tier.2.desc': 'Bestowed upon distinguished individuals who embody the spirit of the club.',
