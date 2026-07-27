@@ -129,7 +129,7 @@ export default function Membership() {
             {tiers.map((tier, index) => (
               <FadeIn key={index} delay={index * 150}>
                 <div className="relative overflow-hidden p-8 border border-brand-200 bg-cream h-full cigar-band-top">
-                  <div className="absolute inset-0 bg-[url('/images/logo-light.svg')] bg-center bg-no-repeat bg-[length:60%_auto] opacity-[0.04] pointer-events-none" />
+                  <div className="absolute inset-0 bg-[url('/images/logo.svg')] bg-center bg-no-repeat bg-[length:50%_auto] opacity-10 pointer-events-none" />
                   <div className="relative z-10">
                     <h3 className="font-serif text-2xl text-brand-900 mt-4 mb-2">{t(tier.nameKey)}</h3>
                     <p className="text-brand-600 text-sm mb-6">{t(tier.descKey)}</p>
