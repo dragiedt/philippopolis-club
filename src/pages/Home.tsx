@@ -29,7 +29,7 @@ const previewGallery = [
 export default function Home() {
   const { t } = useLang()
 
-  useEffect(() => { document.title = 'Gentlemen\'s Club Philippopolis' }, [])
+  useEffect(() => { document.title = 'Gentlemen\'s Club Philippopolis | Private Cigar Club in Plovdiv' }, [])
   const galleryRef = useRef<HTMLDivElement>(null)
 
   const scrollGallery = (direction: 'left' | 'right') => {
