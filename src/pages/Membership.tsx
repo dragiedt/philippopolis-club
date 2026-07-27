@@ -41,6 +41,11 @@ const tiers = [
       'membership.tier.2.feature.2',
       'membership.tier.2.feature.3',
       'membership.tier.2.feature.4',
+      'membership.tier.2.feature.5',
+      'membership.tier.2.feature.6',
+      'membership.tier.2.feature.7',
+      'membership.tier.2.feature.8',
+      'membership.tier.2.feature.9',
     ],
   },
 ]
@@ -136,14 +141,20 @@ export default function Membership() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-8">
-                    <Link
-                      to="/contact"
-                      className="block w-full text-center px-6 py-3 border border-brand-900 text-brand-900 text-sm tracking-widest uppercase hover:bg-brand-900 hover:text-cream transition-colors duration-200"
-                    >
-                      {t('membership.inquire')}
-                    </Link>
-                  </div>
+                  {index === 2 ? (
+                    <div className="mt-8">
+                      <p className="text-brand-500 text-xs leading-relaxed italic text-center">{t('membership.honoraryNote')}</p>
+                    </div>
+                  ) : (
+                    <div className="mt-8">
+                      <Link
+                        to="/contact"
+                        className="block w-full text-center px-6 py-3 border border-brand-900 text-brand-900 text-sm tracking-widest uppercase hover:bg-brand-900 hover:text-cream transition-colors duration-200"
+                      >
+                        {t('membership.inquire')}
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </FadeIn>
             ))}
