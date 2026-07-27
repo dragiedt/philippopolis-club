@@ -128,10 +128,12 @@ export default function Membership() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tiers.map((tier, index) => (
               <FadeIn key={index} delay={index * 150}>
-                <div className="p-8 border border-brand-200 bg-cream h-full cigar-band-top">
-                  <h3 className="font-serif text-2xl text-brand-900 mt-4 mb-2">{t(tier.nameKey)}</h3>
-                  <p className="text-brand-600 text-sm mb-6">{t(tier.descKey)}</p>
-                  <ul className="space-y-3">
+                <div className="relative overflow-hidden p-8 border border-brand-200 bg-cream h-full cigar-band-top">
+                  <div className="absolute inset-0 bg-[url('/images/logo-light.svg')] bg-center bg-no-repeat bg-[length:60%_auto] opacity-[0.04] pointer-events-none" />
+                  <div className="relative z-10">
+                    <h3 className="font-serif text-2xl text-brand-900 mt-4 mb-2">{t(tier.nameKey)}</h3>
+                    <p className="text-brand-600 text-sm mb-6">{t(tier.descKey)}</p>
+                    <ul className="space-y-3">
                     {tier.features.map((featureKey, featureIndex) => (
                       <li key={featureIndex} className="flex items-start gap-3 text-sm text-brand-600">
                         <svg className="w-4 h-4 text-gold-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -155,6 +157,7 @@ export default function Membership() {
                       </Link>
                     </div>
                   )}
+                  </div>
                 </div>
               </FadeIn>
             ))}
