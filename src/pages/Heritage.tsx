@@ -114,6 +114,16 @@ export default function Heritage() {
         </div>
       </section>
 
+      {/* Coat of Arms */}
+      <section className="py-12 px-6">
+        <div className="mx-auto max-w-4xl text-center">
+          <FadeIn>
+            <img src="/images/logo.svg" alt="Club coat of arms" className="mx-auto w-32 md:w-40 mb-4" />
+            <p className="text-gold-500 text-xs tracking-[0.4em] uppercase font-medium">Gentlemen's Club Philippopolis Coat of Arms</p>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Timeline */}
       <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm">
         <div className="mx-auto max-w-4xl">

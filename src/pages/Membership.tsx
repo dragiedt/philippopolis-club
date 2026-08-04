@@ -105,6 +105,9 @@ export default function Membership() {
       <section className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
+            <SectionDivider className="mb-12" />
+          </FadeIn>
+          <FadeIn>
             <img src="/images/membership-intro.jpg" alt="" className="w-full max-w-md mx-auto mb-8 object-cover" loading="lazy" />
           </FadeIn>
           <FadeIn>
@@ -167,7 +170,7 @@ export default function Membership() {
       </section>
 
       {/* Process */}
-      <section className="py-24 md:py-32 px-6 tobacco-leaf">
+      <section className="pt-12 md:pt-16 pb-24 md:pb-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <SectionDivider className="mb-16" />

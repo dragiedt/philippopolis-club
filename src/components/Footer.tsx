@@ -21,7 +21,7 @@ export default function Footer() {
             <div className="mb-6">
               <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="h-14 w-auto mx-auto lg:mx-0" />
             </div>
-            <p className="text-brand-400 text-sm leading-relaxed max-w-md text-justify">
+            <p className="text-brand-400 text-sm leading-relaxed max-w-md lg:text-right">
               {t('footer.desc')}
             </p>
             <div className="flex items-center gap-4 mt-5">
