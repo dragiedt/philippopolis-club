@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
+import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
 const milestones = [
@@ -39,7 +39,7 @@ const values = [
 export default function Heritage() {
   const { t } = useLang()
 
-  useEffect(() => { document.title = 'Heritage | Gentlemen\'s Club Philippopolis' }, [])
+  usePageMeta({ title: t('seo.heritage.title'), description: t('seo.heritage.desc'), path: '/heritage' })
   return (
     <>
       {/* Hero */}

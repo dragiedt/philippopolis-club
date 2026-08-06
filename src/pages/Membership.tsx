@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
+import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
 const tiers = [
@@ -77,7 +77,7 @@ const process = [
 export default function Membership() {
   const { t } = useLang()
 
-  useEffect(() => { document.title = 'Membership | Gentlemen\'s Club Philippopolis' }, [])
+  usePageMeta({ title: t('seo.membership.title'), description: t('seo.membership.desc'), path: '/membership' })
   return (
     <>
       {/* Hero */}

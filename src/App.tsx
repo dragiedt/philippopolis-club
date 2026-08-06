@@ -6,6 +6,7 @@ import Membership from './pages/Membership'
 import Events from './pages/Events'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
+import Faq from './pages/Faq'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<Faq />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import FadeIn from '../components/FadeIn'
+import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
 export default function Contact() {
   const { t } = useLang()
 
-  useEffect(() => { document.title = 'Contact | Gentlemen\'s Club Philippopolis' }, [])
+  usePageMeta({ title: t('seo.contact.title'), description: t('seo.contact.desc'), path: '/contact' })
   const [formData, setFormData] = useState({
     name: '',
     email: '',

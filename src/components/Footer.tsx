@@ -11,6 +11,7 @@ export default function Footer() {
     { name: 'nav.events', href: '/events' },
     { name: 'nav.gallery', href: '/gallery' },
     { name: 'nav.contact', href: '/contact' },
+    { name: 'nav.faq', href: '/faq' },
   ]
 
   return (

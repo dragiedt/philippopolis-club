@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
+import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
 const upcomingEvents = [
@@ -85,6 +86,7 @@ function Countdown({ to }: { to: string }) {
 
 export default function Events() {
   const { t } = useLang()
+  usePageMeta({ title: t('seo.events.title'), description: t('seo.events.desc'), path: '/events' })
   const [activeFilter, setActiveFilter] = useState('events.filter.all')
   const filters = ['events.filter.all', 'events.filter.members', 'events.filter.invitation', 'events.filter.guests']
   const filteredUpcoming = activeFilter === 'events.filter.all' ? upcomingEvents : upcomingEvents.filter(e => t(e.typeKey) === t(activeFilter))

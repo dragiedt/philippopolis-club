@@ -1,8 +1,9 @@
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import SmokeEffect from '../components/SmokeEffect'
+import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
 const pleasures = [
@@ -29,7 +30,7 @@ const previewGallery = [
 export default function Home() {
   const { t } = useLang()
 
-  useEffect(() => { document.title = 'Gentlemen\'s Club Philippopolis | Private Cigar Club in Plovdiv' }, [])
+  usePageMeta({ title: t('seo.home.title'), description: t('seo.home.desc'), path: '/' })
   const galleryRef = useRef<HTMLDivElement>(null)
 
   const scrollGallery = (direction: 'left' | 'right') => {

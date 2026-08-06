@@ -1,8 +1,9 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import SmokeBackground from '../components/SmokeBackground'
+import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
 interface GalleryItem {
@@ -90,7 +91,7 @@ const photos: GalleryItem[] = [
 export default function Gallery() {
   const { t } = useLang()
 
-  useEffect(() => { document.title = 'Gallery | Gentlemen\'s Club Philippopolis' }, [])
+  usePageMeta({ title: t('seo.gallery.title'), description: t('seo.gallery.desc'), path: '/gallery' })
   const [lbIdx, setLbIdx] = useState<number | null>(null)
 
   const close = useCallback(() => setLbIdx(null), [])
