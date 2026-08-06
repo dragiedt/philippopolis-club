@@ -57,7 +57,7 @@ export default function Home() {
         <SmokeEffect />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <FadeIn delay={100}>
-            <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mb-3 md:mb-4 w-20 md:w-24" />
+            <img src="/images/logo-light.svg" alt="Gentlemen's Club Philippopolis" className="mx-auto mb-3 md:mb-4 w-32 md:w-[9.6rem]" />
           </FadeIn>
           <FadeIn delay={200}>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-8">{t('home.hero.tagline')}</p>
