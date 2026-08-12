@@ -8,20 +8,26 @@ import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import Faq from './pages/Faq'
 
-export default function App() {
+export function AppRoutes() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/heritage" element={<Heritage />} />
-          <Route path="/membership" element={<Membership />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<Faq />} />
-        </Route>
-      </Routes>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/heritage" element={<Heritage />} />
+        <Route path="/membership" element={<Membership />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<Faq />} />
+      </Route>
+    </Routes>
+  )
+}
+
+export default function App({ basename = '/' }: { basename?: string }) {
+  return (
+    <BrowserRouter basename={basename}>
+      <AppRoutes />
     </BrowserRouter>
   )
 }

@@ -1,8 +1,8 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react'
 import en from './en'
 import bg from './bg'
 
-type Lang = 'en' | 'bg'
+export type Lang = 'en' | 'bg'
 
 interface LangCtx {
   lang: Lang
@@ -18,8 +18,20 @@ export function useLang() {
 
 const dict: Record<Lang, Record<string, string>> = { en, bg }
 
-export function LangProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('en')
+export function detectLang(): Lang {
+  if (typeof window !== 'undefined') {
+    if (window.location.pathname.startsWith('/bg/') || window.location.pathname === '/bg') return 'bg'
+  }
+  return 'en'
+}
+
+interface LangProviderProps {
+  children: ReactNode
+  initialLang?: Lang
+}
+
+export function LangProvider({ children, initialLang }: LangProviderProps) {
+  const [lang, setLang] = useState<Lang>(initialLang ?? detectLang())
   const t = useCallback(
     (key: string) => {
       const v = dict[lang]?.[key]
@@ -27,6 +39,11 @@ export function LangProvider({ children }: { children: ReactNode }) {
     },
     [lang]
   )
+
+  useEffect(() => {
+    document.documentElement.lang = lang
+  }, [lang])
+
   return (
     <Ctx.Provider value={{ lang, setLang, t }}>{children}</Ctx.Provider>
   )

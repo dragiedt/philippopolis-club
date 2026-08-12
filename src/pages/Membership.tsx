@@ -102,7 +102,7 @@ export default function Membership() {
       </section>
 
       {/* Introduction */}
-      <section className="py-24 md:py-32 px-6 tobacco-leaf">
+      <section className="pt-12 md:pt-16 pb-24 md:pb-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <SectionDivider className="mb-12" />

@@ -3,41 +3,33 @@ import FadeIn from '../components/FadeIn'
 import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
-const milestones = [
-  {
-    yearKey: 'heritage.milestone.0.year',
-    titleKey: 'heritage.milestone.0.title',
-    descKey: 'heritage.milestone.0.desc',
-  },
-  {
-    yearKey: 'heritage.milestone.1.year',
-    titleKey: 'heritage.milestone.1.title',
-    descKey: 'heritage.milestone.1.desc',
-  },
-  {
-    yearKey: 'heritage.milestone.2.year',
-    titleKey: 'heritage.milestone.2.title',
-    descKey: 'heritage.milestone.2.desc',
-  },
+const codeItems = [
+  { titleKey: 'heritage.code.0.title', descKey: 'heritage.code.0.desc' },
+  { titleKey: 'heritage.code.1.title', descKey: 'heritage.code.1.desc' },
+  { titleKey: 'heritage.code.2.title', descKey: 'heritage.code.2.desc' },
+  { titleKey: 'heritage.code.3.title', descKey: 'heritage.code.3.desc' },
+  { titleKey: 'heritage.code.4.title', descKey: 'heritage.code.4.desc' },
+  { titleKey: 'heritage.code.5.title', descKey: 'heritage.code.5.desc' },
+  { titleKey: 'heritage.code.6.title', descKey: 'heritage.code.6.desc' },
 ]
 
-const values = [
+const storySections = [
   {
-    titleKey: 'heritage.principle.0.title',
-    descKey: 'heritage.principle.0.desc',
+    titleKey: 'heritage.story.heading.1',
+    paragraphKeys: ['heritage.story.s1.p1', 'heritage.story.s1.p2'],
   },
   {
-    titleKey: 'heritage.principle.1.title',
-    descKey: 'heritage.principle.1.desc',
+    titleKey: 'heritage.story.heading.2',
+    paragraphKeys: ['heritage.story.s2.p1', 'heritage.story.s2.p2'],
   },
   {
-    titleKey: 'heritage.principle.2.title',
-    descKey: 'heritage.principle.2.desc',
+    titleKey: 'heritage.story.heading.3',
+    paragraphKeys: ['heritage.story.s3.p1', 'heritage.story.s3.p2', 'heritage.story.s3.p3', 'heritage.story.s3.p4'],
   },
 ]
 
 export default function Heritage() {
-  const { t } = useLang()
+  const { lang, t } = useLang()
 
   usePageMeta({ title: t('seo.heritage.title'), description: t('seo.heritage.desc'), path: '/heritage' })
   return (
@@ -64,109 +56,122 @@ export default function Heritage() {
       </section>
 
       {/* Story */}
-      <section className="py-24 md:py-32 px-6 tobacco-leaf">
+      <section className="pt-24 md:pt-32 pb-8 md:pb-10 px-6 tobacco-leaf">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-4xl mx-auto">
-            <FadeIn>
-              <div>
-                <p className="text-brand-600 text-lg leading-relaxed mb-6">
-                  {t('heritage.story.p1')}
-                </p>
-                <p className="text-brand-600 text-lg leading-relaxed mb-6">
-                  {t('heritage.story.p2')}
-                </p>
-                <p className="text-brand-600 text-lg leading-relaxed">
-                  {t('heritage.story.p3')}
-                </p>
-                <div className="mt-8 aspect-[16/9] overflow-hidden">
-                  <img
-                    src="/images/drive/photo_167.jpg"
-                    alt="Gentlemen's Club Philippopolis"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </FadeIn>
+            {lang === 'bg' ? (
+              <>
+                <FadeIn>
+                  <div>
+                    <h2 className="font-serif text-2xl md:text-3xl text-brand-900 font-light mb-6">{t('heritage.story.heading.0')}</h2>
+                    <p className="text-brand-600 text-lg leading-relaxed mb-6">
+                      {t('heritage.story.s0.p1')}
+                    </p>
+                    <div className="mt-8 aspect-[16/9] overflow-hidden">
+                      <img
+                        src="/images/drive/photo_167.jpg"
+                        alt="Gentlemen's Club Philippopolis"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </FadeIn>
+                <FadeIn>
+                  <div className="mt-16 space-y-6">
+                    {storySections.map((section) => (
+                      <div key={section.titleKey}>
+                        <h2 className="font-serif text-2xl md:text-3xl text-brand-900 font-light mb-6">{t(section.titleKey)}</h2>
+                        {section.paragraphKeys.map((key) => (
+                          <p key={key} className="text-brand-600 text-lg leading-relaxed mb-4">
+                            {t(key)}
+                          </p>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </FadeIn>
+              </>
+            ) : (
+              <>
+                <FadeIn>
+                  <div>
+                    <p className="text-brand-600 text-lg leading-relaxed mb-6">
+                      {t('heritage.story.p1')}
+                    </p>
+                    <p className="text-brand-600 text-lg leading-relaxed">
+                      {t('heritage.story.p3')}
+                    </p>
+                    <div className="mt-8 aspect-[16/9] overflow-hidden">
+                      <img
+                        src="/images/drive/photo_167.jpg"
+                        alt="Gentlemen's Club Philippopolis"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </FadeIn>
+                <FadeIn>
+                  <div className="mt-16 space-y-6">
+                    <p className="text-brand-600 text-lg leading-relaxed">
+                      {t('heritage.story.p4')}
+                    </p>
+                    <p className="text-brand-600 text-lg leading-relaxed">
+                      {t('heritage.story.p5')}
+                    </p>
+                    <p className="text-brand-600 text-lg leading-relaxed">
+                      {t('heritage.story.p6')}
+                    </p>
+                    <p className="text-brand-600 text-lg leading-relaxed">
+                      {t('heritage.story.p7')}
+                    </p>
+                    <p className="text-brand-600 text-lg leading-relaxed">
+                      {t('heritage.story.p8')}
+                    </p>
+                    <p className="text-brand-600 text-lg leading-relaxed">
+                      {t('heritage.story.p9')}
+                    </p>
+                  </div>
+                </FadeIn>
+              </>
+            )}
           </div>
-
-          <FadeIn>
-            <div className="mt-16 space-y-6">
-              <p className="text-brand-600 text-lg leading-relaxed">
-                {t('heritage.story.p4')}
-              </p>
-              <p className="text-brand-600 text-lg leading-relaxed">
-                {t('heritage.story.p5')}
-              </p>
-              <p className="text-brand-600 text-lg leading-relaxed">
-                {t('heritage.story.p6')}
-              </p>
-              <p className="text-brand-600 text-lg leading-relaxed">
-                {t('heritage.story.p7')}
-              </p>
-              <p className="text-brand-600 text-lg leading-relaxed">
-                {t('heritage.story.p8')}
-              </p>
-              <p className="text-brand-600 text-lg leading-relaxed">
-                {t('heritage.story.p9')}
-              </p>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
       {/* Coat of Arms */}
-      <section className="py-12 px-6">
+      <section className="pt-0 pb-12 px-6">
         <div className="mx-auto max-w-4xl text-center">
           <FadeIn>
-            <img src="/images/logo.svg" alt="Club coat of arms" className="mx-auto w-32 md:w-40 mb-4" />
+            <img src="/images/logo.svg" alt="Club coat of arms" className="mx-auto w-44 md:w-60 mb-4" />
             <p className="text-gold-500 text-xs tracking-[0.4em] uppercase font-medium">Gentlemen's Club Philippopolis Coat of Arms</p>
           </FadeIn>
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* The Code */}
       <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm">
         <div className="mx-auto max-w-4xl">
           <FadeIn>
             <SectionDivider className="mb-16" />
           </FadeIn>
-          <div className="space-y-16">
-            {milestones.map((milestone, index) => (
-              <FadeIn key={index} delay={index * 150}>
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                  <div className="md:col-span-3">
-                    <span className="text-gold-500 text-sm tracking-[0.3em] uppercase font-medium">
-                      {t(milestone.yearKey)}
-                    </span>
-                  </div>
-                  <div className="md:col-span-9">
-                    <h3 className="font-serif text-2xl md:text-3xl text-brand-900 mb-4">{t(milestone.titleKey)}</h3>
-                    <p className="text-brand-600 leading-relaxed">{t(milestone.descKey)}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-24 md:py-32 px-6 tobacco-leaf">
-        <div className="mx-auto max-w-7xl">
           <FadeIn>
             <div className="text-center mb-16">
-              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('heritage.principles.label')}</p>
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
-                {t('heritage.principles.title')}
+              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('heritage.code.label')}</p>
+              <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light max-w-3xl mx-auto">
+                {t('heritage.code.intro')}
               </h2>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {values.map((value, index) => (
-              <FadeIn key={index} delay={index * 150}>
-                <div className="text-center">
-                  <h3 className="font-serif text-2xl text-brand-900 mb-4">{t(value.titleKey)}</h3>
-                  <p className="text-brand-600 leading-relaxed">{t(value.descKey)}</p>
+          <div className="space-y-12">
+            {codeItems.map((item, index) => (
+              <FadeIn key={index} delay={index * 100}>
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                  <div className="md:col-span-4">
+                    <h3 className="font-serif text-2xl text-brand-900">{t(item.titleKey)}</h3>
+                  </div>
+                  <div className="md:col-span-8">
+                    <p className="text-brand-600 leading-relaxed">{t(item.descKey)}</p>
+                  </div>
                 </div>
               </FadeIn>
             ))}

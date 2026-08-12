@@ -14,7 +14,19 @@ const navigation = [
 export default function Header() {
   const location = useLocation()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { t, lang, setLang } = useLang()
+  const { t, lang } = useLang()
+
+  const pathWithoutBase = location.pathname.replace(/^\/bg/, '') || '/'
+
+  const toggleLanguage = () => {
+    const currentPath = location.pathname
+    if (lang === 'bg') {
+      const enPath = currentPath.replace(/^\/bg/, '') || '/'
+      window.location.href = `https://philippopolis.club${enPath}`
+    } else {
+      window.location.href = `https://philippopolis.club/bg${currentPath}`
+    }
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md header-border">
@@ -30,7 +42,7 @@ export default function Header() {
                 key={item.name}
                 to={item.href}
                 className={`text-sm tracking-widest uppercase transition-colors duration-200 ${
-                  location.pathname === item.href
+                  pathWithoutBase === item.href
                     ? 'text-brand-900 font-medium'
                     : 'text-brand-600 hover:text-brand-900'
                 }`}
@@ -43,7 +55,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-4">
             <button
               type="button"
-              onClick={() => setLang(lang === 'en' ? 'bg' : 'en')}
+              onClick={toggleLanguage}
               className="relative flex items-center w-14 h-7 rounded-full border border-brand-300 bg-cream transition-colors duration-200 cursor-pointer"
             >
               <span className={`relative z-10 w-7 text-center text-[9px] tracking-widest font-medium transition-colors duration-200 ${lang === 'en' ? 'text-cream' : 'text-brand-400'}`}>EN</span>
@@ -65,7 +77,7 @@ export default function Header() {
           <div className="flex items-center gap-3 md:hidden">
             <button
               type="button"
-              onClick={() => setLang(lang === 'en' ? 'bg' : 'en')}
+              onClick={toggleLanguage}
               className="relative flex items-center w-12 h-6 rounded-full border border-brand-300 bg-cream transition-colors duration-200 cursor-pointer"
             >
               <span className={`relative z-10 w-6 text-center text-[8px] tracking-widest font-medium transition-colors duration-200 ${lang === 'en' ? 'text-cream' : 'text-brand-400'}`}>EN</span>
@@ -105,7 +117,7 @@ export default function Header() {
                 key={item.name}
                 to={item.href}
                 className={`block py-3 text-sm tracking-widest uppercase ${
-                  location.pathname === item.href
+                  pathWithoutBase === item.href
                     ? 'text-brand-900 font-medium'
                     : 'text-brand-600'
                 }`}

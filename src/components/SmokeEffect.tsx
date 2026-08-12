@@ -9,6 +9,8 @@ interface Particle {
   opacity: number
   life: number
   maxLife: number
+  swaySpeed: number
+  swayOffset: number
 }
 
 export default function SmokeEffect() {
@@ -31,47 +33,58 @@ export default function SmokeEffect() {
     resize()
 
     const spawn = () => {
-      if (particles.length >= 20) return
-      const centerX = canvas.offsetWidth * 0.5
+      if (particles.length >= 18) return
+      const width = canvas.offsetWidth
+      const height = canvas.offsetHeight
+      // Spawn near bottom center-ish, slightly randomized
+      const spawnX = width * 0.5 + (Math.random() - 0.5) * (width * 0.4)
       particles.push({
-        x: centerX + (Math.random() - 0.5) * 6,
-        y: canvas.offsetHeight * 0.92,
-        size: 12 + Math.random() * 10,
-        speedX: (Math.random() - 0.5) * 0.06,
-        speedY: -(0.5 + Math.random() * 0.3),
+        x: spawnX,
+        y: height + 20,
+        size: 25 + Math.random() * 20,
+        speedX: (Math.random() - 0.5) * 0.04,
+        speedY: -(0.25 + Math.random() * 0.2),
         opacity: 0,
         life: 0,
-        maxLife: 180 + Math.random() * 120,
+        maxLife: 300 + Math.random() * 200,
+        swaySpeed: 0.003 + Math.random() * 0.003,
+        swayOffset: Math.random() * Math.PI * 2,
       })
     }
 
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
+      const w = canvas.offsetWidth
+      const h = canvas.offsetHeight
+      ctx.clearRect(0, 0, w, h)
 
-      if (Math.random() < 0.15) spawn()
+      if (Math.random() < 0.08) spawn()
 
       particles = particles.filter((p) => {
         p.life++
-        p.x += p.speedX + Math.sin(p.life * 0.006) * 0.08
+        p.x += p.speedX + Math.sin(p.life * p.swaySpeed + p.swayOffset) * 0.12
         p.y += p.speedY
-        p.size += 0.15
+        p.size += 0.18
 
         const progress = p.life / p.maxLife
-        if (progress < 0.1) {
-          p.opacity = progress / 0.1
-        } else if (progress > 0.5) {
-          p.opacity = 1 - (progress - 0.5) / 0.5
+        // Very smooth bell curve fade for delicate appearance
+        if (progress < 0.2) {
+          p.opacity = progress / 0.2
+        } else if (progress > 0.6) {
+          p.opacity = 1 - (progress - 0.6) / 0.4
         } else {
           p.opacity = 1
         }
-        p.opacity *= 0.06
+        // Ultra subtle max opacity
+        p.opacity *= 0.028
 
-        if (p.life >= p.maxLife) return false
+        if (p.life >= p.maxLife || p.y < -p.size) return false
 
         const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size)
-        gradient.addColorStop(0, `rgba(160, 175, 200, ${p.opacity})`)
-        gradient.addColorStop(0.4, `rgba(140, 155, 180, ${p.opacity * 0.5})`)
-        gradient.addColorStop(1, `rgba(120, 135, 160, 0)`)
+        // Soft warm wispy cigar smoke palette
+        gradient.addColorStop(0, `rgba(225, 215, 195, ${p.opacity})`)
+        gradient.addColorStop(0.35, `rgba(190, 185, 175, ${p.opacity * 0.6})`)
+        gradient.addColorStop(0.7, `rgba(160, 155, 145, ${p.opacity * 0.2})`)
+        gradient.addColorStop(1, `rgba(140, 135, 125, 0)`)
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
@@ -96,7 +109,7 @@ export default function SmokeEffect() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-80 z-0"
       aria-hidden="true"
     />
   )
