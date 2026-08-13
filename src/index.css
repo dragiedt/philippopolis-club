@@ -30,6 +30,7 @@ html {
 html[lang="bg"] {
   --font-display: "Playfair Display", "Georgia", serif;
   --font-serif: "Playfair Display", "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Literata", "Inter", system-ui, sans-serif;
 }
 
 body {
