@@ -18,6 +18,8 @@ const languages = [
   { code: 'bg', dict: bg, base: 'https://philippopolis.club/bg', basename: '/bg' },
 ]
 
+const IMAGE_BASE = 'https://philippopolis.club'
+
 const routes = [
   { path: '/', titleKey: 'seo.home.title', descKey: 'seo.home.desc' },
   { path: '/heritage', titleKey: 'seo.heritage.title', descKey: 'seo.heritage.desc' },
@@ -94,8 +96,8 @@ function buildOrgSchema(lang, dict, base) {
     name: "Gentlemen's Club Philippopolis",
     description: dict['seo.home.desc'],
     url: base,
-    logo: `${base}/images/logo.svg`,
-    image: `${base}/images/drive/photo_167.jpg`,
+    logo: `${IMAGE_BASE}/images/logo.svg`,
+    image: `${IMAGE_BASE}/images/drive/photo_167.jpg`,
     telephone: '+358-88-262-780',
     address: {
       '@type': 'PostalAddress',
@@ -167,7 +169,7 @@ function buildEventsSchema(dict, base) {
         },
       }
       if (e.countdownTo) event.startDate = e.countdownTo
-      if (e.image) event.image = `${base}${e.image}`
+      if (e.image) event.image = `${IMAGE_BASE}${e.image}`
       return event
     }),
   }
@@ -201,7 +203,7 @@ for (const route of routes) {
     html = setMeta(html, 'property', 'og:title', title)
     html = setMeta(html, 'property', 'og:description', desc)
     html = setMeta(html, 'property', 'og:url', url)
-    html = setMeta(html, 'property', 'og:image', `${base}/images/drive/photo_167.jpg`)
+    html = setMeta(html, 'property', 'og:image', `${IMAGE_BASE}/images/drive/photo_167.jpg`)
     html = setMeta(html, 'property', 'og:image:alt', title)
     html = setMeta(html, 'property', 'og:locale', code === 'bg' ? 'bg_BG' : 'en_US')
     html = removeOgLocaleAlternate(html)

@@ -10,6 +10,7 @@ interface PageMeta {
 
 const EN_BASE = 'https://philippopolis.club'
 const BG_BASE = 'https://philippopolis.club/bg'
+const IMAGE_BASE = 'https://philippopolis.club'
 
 function setMeta(selector: string, attr: 'name' | 'property', value: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${selector}"]`)
@@ -55,7 +56,7 @@ export default function usePageMeta({ title, description, path, image = '/images
     setMeta('og:title', 'property', title)
     setMeta('og:description', 'property', description)
     setMeta('og:url', 'property', url)
-    setMeta('og:image', 'property', `${base}${image}`)
+    setMeta('og:image', 'property', `${IMAGE_BASE}${image}`)
     setMeta('og:image:alt', 'property', title)
     setMeta('og:locale', 'property', lang === 'bg' ? 'bg_BG' : 'en_US')
 
