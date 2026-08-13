@@ -24,7 +24,7 @@ export default {
   'nav.faq': 'FAQ',
 
   'home.hero.tagline': 'Established in Plovdiv',
-  'home.hero.title': 'Private Cigar Club in Plovdiv',
+  'home.hero.title': 'Gentlemen\'s Club Philippopolis',
   'home.hero.desc': 'A members-only society devoted to the quiet pleasures of the cigar, the glass, and considered conversation.',
   'home.hero.cta': 'Request Invitation',
   'home.hero.cta2': 'The Heritage',

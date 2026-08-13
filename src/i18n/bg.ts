@@ -24,7 +24,7 @@ export default {
   'nav.faq': 'ЧЗВ',
 
   'home.hero.tagline': 'Основан в Пловдив',
-  'home.hero.title': 'Частен клуб за пури в Пловдив',
+  'home.hero.title': 'Gentlemen\'s Club Philippopolis',
   'home.hero.desc': 'Клуб за ценители, посветен на изкуството на хубавата пура, доброто питие и стойностния разговор.',
   'home.hero.cta': 'Заяви покана',
   'home.hero.cta2': 'Нашата история',
@@ -55,7 +55,7 @@ export default {
   'home.events.link': 'Всички събития',
 
   'home.gallery.label': 'Галерията на джентълмените',
-  'home.gallery.title': 'Свети димове!',
+  'home.gallery.title': 'Срещи с аромат на пура',
   'home.gallery.link': 'Виж галерията',
 
   'heritage.hero.label': 'История',
