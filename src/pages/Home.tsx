@@ -15,6 +15,7 @@ const previewEvents = [
   { date: 'July 2026', title: 'Dinner with Alto Salento Cigar Club in Italy', type: 'Guests', dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', typeKey: 'event.past.0.type', image: '/images/alto-salento-hero.jpg' },
   { date: 'July 2026', title: 'Davidoff White Party', type: 'Invitation', dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', typeKey: 'event.past.1.type', image: '/images/davidoff-hero.jpg' },
   { date: 'June 2026', title: 'Plasencia Year of the Horse', type: 'Members Only', dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', typeKey: 'event.past.2.type', image: '/images/plasencia-hero.jpg' },
+  { date: 'June 2026', title: 'Rosa Bulgaria Regional Edition', type: 'Guests', dateKey: 'event.past.3.date', titleKey: 'event.past.3.title', typeKey: 'event.past.3.type', image: '/images/rosa-bulgaria-hero.jpg' },
 ]
 
 const previewGallery = [
@@ -216,6 +217,32 @@ export default function Home() {
                 </svg>
               </Link>
             </div>
+          </FadeIn>
+
+          {/* Featured Event Banner */}
+          <FadeIn>
+            <a href="https://fb.me/e/4g45U6Yjw" target="_blank" rel="noopener noreferrer" className="group block relative overflow-hidden mb-8">
+              {/* Gold corner accent */}
+              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold-500/60 z-10" />
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold-500/60 z-10" />
+              <div className="absolute inset-0">
+                <img src="/images/ouatip-logo.png" alt="OUATIP" className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-900/70 via-brand-900/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-transparent to-brand-900/20" />
+              </div>
+              {/* Gold shimmer bottom edge */}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/60 to-transparent" />
+              <div className="relative p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6">
+                <div className="flex-1">
+                  <span className="text-gold-500 text-xs tracking-[0.2em] uppercase">{t('event.upcoming.0.date')}</span>
+                  <h3 className="font-display text-2xl md:text-3xl text-cream mt-2 mb-2 gold-shimmer">{t('event.upcoming.0.title')}</h3>
+                  <p className="text-brand-200 text-sm leading-relaxed max-w-xl">{t('event.upcoming.0.desc')}</p>
+                </div>
+                <div className="shrink-0">
+                  <span className="inline-block px-4 py-1.5 text-xs tracking-wider uppercase border border-gold-500/50 text-gold-500 group-hover:bg-gold-500/10 transition-colors duration-300">{t('event.upcoming.0.type')}</span>
+                </div>
+              </div>
+            </a>
           </FadeIn>
 
           {/* Event Cards */}
