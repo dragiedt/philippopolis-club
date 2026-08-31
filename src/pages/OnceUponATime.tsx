@@ -9,7 +9,7 @@ const highlights = [
   { icon: '📰', image: '/images/cigar-journal-logo-social.jpg', titleKey: 'ouatip.highlight.1.title', descKey: 'ouatip.highlight.1.desc' },
   { icon: '📖', titleKey: 'ouatip.highlight.2.title', descKey: 'ouatip.highlight.2.desc' },
   { icon: '🎵', image: '/images/jazz-band.jpg', titleKey: 'ouatip.highlight.3.title', descKey: 'ouatip.highlight.3.desc' },
-  { icon: '🎨', titleKey: 'ouatip.highlight.4.title', descKey: 'ouatip.highlight.4.desc' },
+  { icon: '🎨', image: '/images/young-artists.png', titleKey: 'ouatip.highlight.4.title', descKey: 'ouatip.highlight.4.desc' },
   { icon: '🚗', titleKey: 'ouatip.highlight.5.title', descKey: 'ouatip.highlight.5.desc' },
 ]
 
