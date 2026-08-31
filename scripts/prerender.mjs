@@ -27,12 +27,14 @@ const routes = [
   { path: '/events', titleKey: 'seo.events.title', descKey: 'seo.events.desc' },
   { path: '/gallery', titleKey: 'seo.gallery.title', descKey: 'seo.gallery.desc' },
   { path: '/contact', titleKey: 'seo.contact.title', descKey: 'seo.contact.desc' },
+  { path: '/once-upon-a-time-in-philippopolis', titleKey: 'seo.ouatip.title', descKey: 'seo.ouatip.desc', image: '/images/ouatip-logo.png' },
   { path: '/faq', titleKey: 'seo.faq.title', descKey: 'seo.faq.desc' },
 ]
 
 function priorityFor(path) {
   if (path === '/') return '1.0'
   if (path === '/events') return '0.9'
+  if (path === '/once-upon-a-time-in-philippopolis') return '0.9'
   if (path === '/heritage' || path === '/membership') return '0.8'
   if (path === '/gallery') return '0.7'
   if (path === '/contact') return '0.6'
@@ -203,7 +205,7 @@ for (const route of routes) {
     html = setMeta(html, 'property', 'og:title', title)
     html = setMeta(html, 'property', 'og:description', desc)
     html = setMeta(html, 'property', 'og:url', url)
-    html = setMeta(html, 'property', 'og:image', `${IMAGE_BASE}/images/drive/photo_167.jpg`)
+    html = setMeta(html, 'property', 'og:image', `${IMAGE_BASE}${route.image || '/images/drive/photo_167.jpg'}`)
     html = setMeta(html, 'property', 'og:image:alt', title)
     html = setMeta(html, 'property', 'og:locale', code === 'bg' ? 'bg_BG' : 'en_US')
     html = removeOgLocaleAlternate(html)

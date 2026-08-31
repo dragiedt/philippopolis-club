@@ -367,4 +367,65 @@ export default {
   'faq.cta.title': 'Still have questions?',
   'faq.cta.desc': 'Reach out to us directly — all inquiries are handled with the utmost discretion.',
   'faq.cta.button': 'Contact Us',
+
+  'seo.ouatip.title': 'Once Upon a Time in Philippopolis | Gentlemen\'s Club Philippopolis',
+  'seo.ouatip.desc': 'The exclusive annual event of Gentlemen\'s Club Philippopolis — an unforgettable autumn evening of premium cigars, heritage, jazz, and fellowship in early XXth-century Plovdiv. October 17, 2026.',
+
+  'ouatip.hero.label': 'Annual Event · October 17, 2026',
+  'ouatip.hero.title': 'Once Upon a Time in Philippopolis',
+  'ouatip.hero.subtitle': 'An unforgettable autumn evening filled with nostalgia, exceptional style, and the aroma of premium cigars.',
+  'ouatip.hero.date': 'October 17, 2026 · Plovdiv, Bulgaria',
+  'ouatip.hero.cta': 'Reserve Your Place',
+
+  'ouatip.intro.p1': 'The exclusive annual event of Gentlemen\'s Club Philippopolis is back — grander than ever! On October 17th, we will immerse ourselves in the atmosphere of early XXth-century Plovdiv — that remarkable city which was once the beating heart of Bulgarian industry!',
+  'ouatip.intro.p2': 'An unforgettable autumn evening awaits us, filled with nostalgia, exceptional style, and the aroma of premium cigars!',
+
+  'ouatip.highlights.label': 'What Awaits You',
+  'ouatip.highlights.title': 'An Evening Like No Other',
+
+  'ouatip.highlight.0.title': 'All Cigar Importers & European Clubs',
+  'ouatip.highlight.0.desc': '"Once Upon a Time in Philippopolis" will feature all cigar importers and many cigar clubs in Bulgaria! Meet cigar enthusiasts and clubs from all over Europe, as well as key figures from the industry — even more international guests this year!',
+  'ouatip.highlight.1.title': 'Cigar Journal as Media Partner',
+  'ouatip.highlight.1.desc': 'Unprecedented for Bulgaria, the media partner for the event will be one of the most famous cigar magazines in the world — Cigar Journal!',
+  'ouatip.highlight.2.title': 'The Forgotten Cigar Factory of Plovdiv',
+  'ouatip.highlight.2.desc': 'For the first time, only for our guests, the former long-standing director of the Historical Museum of Plovdiv, Dr. Stefan Shivachev, will reveal the forgotten chronicles of the first and only cigar factory in Bulgaria, founded right here in our ancient city!',
+  'ouatip.highlight.3.title': 'Live Jazz by Dr. Petar Salchev',
+  'ouatip.highlight.3.desc': 'On stage, we will welcome the virtuoso jazz musician Dr. Petar Salchev alongside The Golden Swing Band — a combination that always guarantees an excellent mood!',
+  'ouatip.highlight.4.title': 'Young Plovdiv Artists Exhibition',
+  'ouatip.highlight.4.desc': 'For the first time at such an event, there will be a group exhibition of young and talented artists from Plovdiv, whom Gentlemen\'s Club Philippopolis will present to the general public to promote and showcase their artistic abilities!',
+  'ouatip.highlight.5.title': 'Retro Car Exhibition by Auto Museum Markovo',
+  'ouatip.highlight.5.desc': 'Another visual spectacle awaits us right outside the venue! The retro car exhibition by "Markovo" Auto Museum returns for a consecutive year to remind us of "that nostalgic Plovdiv" with its stylish aesthetic!',
+
+  'ouatip.food': 'During the event, we will also enjoy culinary delights prepared by the chefs of Etra Hall, alongside premium whiskey from our partners GlenAllachie Single Malt Whiskey and Appleton Estate Jamaica Rum!',
+
+  'ouatip.info.label': 'Practical Information',
+  'ouatip.info.title': 'Everything You Need to Know',
+
+  'ouatip.info.price.title': 'Ticket Price',
+  'ouatip.info.price.desc': 'The ticket price is €125 and includes admission to the event, the entertainment program and exhibitions, a selection of alcoholic and non-alcoholic beverages, cigars from various importers, catering, and many other surprises! Stay tuned for more details in the months leading up to the event!',
+
+  'ouatip.info.dresscode.title': 'Dress Code',
+  'ouatip.info.dresscode.desc': 'The dress code for the event is strictly formal!',
+
+  'ouatip.info.limited.title': 'Limited Availability',
+  'ouatip.info.limited.desc': 'Places for "Once Upon a Time in Philippopolis" are very limited and usually sell out within a few weeks of its announcement!',
+
+  'ouatip.info.hotels.title': 'Hotel Partners',
+  'ouatip.info.hotels.radisson': 'Radisson Hotel Plovdiv',
+  'ouatip.info.hotels.flavia': 'Villa Flavia Heritage Boutique Hotel',
+
+  'ouatip.payment.label': 'Payment',
+  'ouatip.payment.title': 'Bank Transfer Details',
+  'ouatip.payment.entity': 'Entity',
+  'ouatip.payment.entityName': 'GENTLEMEN\'S CLUB PHILIPPOPOLIS',
+  'ouatip.payment.bank': 'Bank',
+  'ouatip.payment.bankName': 'DSK Bank',
+  'ouatip.payment.amount': 'Amount',
+  'ouatip.payment.reason': 'Reason',
+  'ouatip.payment.reasonDesc': 'Envelope + First and Last Name',
+
+  'ouatip.contact.label': 'Get in Touch',
+  'ouatip.contact.desc': 'For inquiries and reservations, please reach out to us via phone, email, or social media.',
+
+  'ouatip.back': 'Back to Events',
 }

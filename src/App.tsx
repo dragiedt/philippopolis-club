@@ -6,6 +6,7 @@ import Membership from './pages/Membership'
 import Events from './pages/Events'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
+import OnceUponATime from './pages/OnceUponATime'
 import Faq from './pages/Faq'
 
 export function AppRoutes() {
@@ -18,6 +19,7 @@ export function AppRoutes() {
         <Route path="/events" element={<Events />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/once-upon-a-time-in-philippopolis" element={<OnceUponATime />} />
         <Route path="/faq" element={<Faq />} />
       </Route>
     </Routes>
