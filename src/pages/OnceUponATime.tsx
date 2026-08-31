@@ -78,12 +78,12 @@ export default function OnceUponATime() {
             />
           </FadeIn>
           <FadeIn>
-            <p className="text-brand-600 text-lg md:text-xl leading-relaxed mb-6">
+            <p className="text-center text-brand-600 text-lg md:text-xl leading-relaxed mb-6">
               {t('ouatip.intro.p1')}
             </p>
           </FadeIn>
           <FadeIn delay={100}>
-            <p className="text-brand-600 text-lg md:text-xl leading-relaxed">
+            <p className="text-center text-brand-600 text-lg md:text-xl leading-relaxed">
               {t('ouatip.intro.p2')}
             </p>
           </FadeIn>
