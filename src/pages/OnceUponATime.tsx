@@ -6,7 +6,7 @@ import { useLang } from '../i18n/LanguageContext'
 
 const highlights = [
   { icon: '🇮🇹', image: '/images/All_cigars_collection_image_2400_x_2400_550x.webp', titleKey: 'ouatip.highlight.0.title', descKey: 'ouatip.highlight.0.desc' },
-  { icon: '📰', titleKey: 'ouatip.highlight.1.title', descKey: 'ouatip.highlight.1.desc' },
+  { icon: '📰', image: '/images/cigar-journal-logo-social.jpg', titleKey: 'ouatip.highlight.1.title', descKey: 'ouatip.highlight.1.desc' },
   { icon: '📖', titleKey: 'ouatip.highlight.2.title', descKey: 'ouatip.highlight.2.desc' },
   { icon: '🎵', titleKey: 'ouatip.highlight.3.title', descKey: 'ouatip.highlight.3.desc' },
   { icon: '🎨', titleKey: 'ouatip.highlight.4.title', descKey: 'ouatip.highlight.4.desc' },
