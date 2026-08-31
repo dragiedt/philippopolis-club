@@ -71,6 +71,13 @@ export default function OnceUponATime() {
             <SectionDivider className="mb-16" />
           </FadeIn>
           <FadeIn>
+            <img
+              src="/images/ouatip-official-logo.png"
+              alt={t('ouatip.hero.title')}
+              className="mx-auto mb-10 w-full max-w-md"
+            />
+          </FadeIn>
+          <FadeIn>
             <p className="text-brand-600 text-lg md:text-xl leading-relaxed mb-6">
               {t('ouatip.intro.p1')}
             </p>
