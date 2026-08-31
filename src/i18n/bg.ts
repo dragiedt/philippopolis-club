@@ -378,7 +378,7 @@ export default {
   'seo.ouatip.desc': 'Ексклузивното годишно събитие на Gentlemen\'s Club Philippopolis — незабравима есенна вечер с премиум пури, история, джаз и другарство в Пловдив от началото на XX век. 17 октомври 2026 г.',
 
   'ouatip.hero.label': 'Годишно събитие · 17 октомври 2026 г.',
-  'ouatip.hero.title': 'Имало едно време във Филипопол',
+  'ouatip.hero.title': 'Once Upon a Time in Philippopolis',
   'ouatip.hero.subtitle': 'Незабравима есенна вечер с носталгичен привкус, изключителен стил и аромат на първокласни пури.',
   'ouatip.hero.date': '17 октомври 2026 г. · Пловдив, България',
   'ouatip.hero.cta': 'Запазете място',

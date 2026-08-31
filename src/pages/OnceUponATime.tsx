@@ -5,7 +5,7 @@ import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
 const highlights = [
-  { icon: '🇮🇹', titleKey: 'ouatip.highlight.0.title', descKey: 'ouatip.highlight.0.desc' },
+  { icon: '🇮🇹', image: '/images/All_cigars_collection_image_2400_x_2400_550x.webp', titleKey: 'ouatip.highlight.0.title', descKey: 'ouatip.highlight.0.desc' },
   { icon: '📰', titleKey: 'ouatip.highlight.1.title', descKey: 'ouatip.highlight.1.desc' },
   { icon: '📖', titleKey: 'ouatip.highlight.2.title', descKey: 'ouatip.highlight.2.desc' },
   { icon: '🎵', titleKey: 'ouatip.highlight.3.title', descKey: 'ouatip.highlight.3.desc' },
@@ -95,10 +95,17 @@ export default function OnceUponATime() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {highlights.map((item, index) => (
               <FadeIn key={index} delay={index * 100}>
-                <div className="p-8 border border-brand-200 hover:border-gold-500/40 transition-colors duration-300">
-                  <span className="text-3xl mb-4 block">{item.icon}</span>
-                  <h3 className="font-serif text-xl text-brand-900 mb-3">{t(item.titleKey)}</h3>
-                  <p className="text-brand-600 leading-relaxed">{t(item.descKey)}</p>
+                <div className="flex flex-col border border-brand-200 hover:border-gold-500/40 transition-colors duration-300 overflow-hidden">
+                  {item.image && (
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img src={item.image} alt={t(item.titleKey)} className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                  <div className="p-8 flex flex-col flex-1">
+                    <span className="text-3xl mb-4 block">{item.icon}</span>
+                    <h3 className="font-serif text-xl text-brand-900 mb-3">{t(item.titleKey)}</h3>
+                    <p className="text-brand-600 leading-relaxed">{t(item.descKey)}</p>
+                  </div>
                 </div>
               </FadeIn>
             ))}
