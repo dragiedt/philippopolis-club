@@ -194,13 +194,14 @@ export default function OnceUponATime() {
           </FadeIn>
 
           <FadeIn>
-            <div className="p-8 md:p-12 border border-brand-200 bg-cream">
+            <div className="relative p-8 md:p-12 border border-brand-200 bg-cream overflow-hidden">
               <img
                 src="/images/ouatip-logo-transparent.png"
-                alt={t('ouatip.hero.title')}
-                className="mx-auto mb-8 w-full max-w-[10rem]"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover opacity-20"
               />
-              <div className="space-y-4 text-brand-600">
+              <div className="relative space-y-4 text-brand-600">
                 <div className="flex justify-between border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.entity')}</span>
                   <span className="font-medium text-brand-900">{t('ouatip.payment.entityName')}</span>
@@ -222,7 +223,7 @@ export default function OnceUponATime() {
                   <span className="font-medium text-brand-900">{t('ouatip.payment.reasonDesc')}</span>
                 </div>
               </div>
-              <p className="mt-4 text-center text-sm text-brand-700">{t('ouatip.payment.note')}</p>
+              <p className="relative mt-4 text-center text-sm text-brand-700">{t('ouatip.payment.note')}</p>
             </div>
           </FadeIn>
         </div>
