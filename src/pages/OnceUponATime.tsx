@@ -195,6 +195,11 @@ export default function OnceUponATime() {
 
           <FadeIn>
             <div className="p-8 md:p-12 border border-brand-200 bg-cream">
+              <img
+                src="/images/ouatip-logo-transparent.png"
+                alt={t('ouatip.hero.title')}
+                className="mx-auto mb-8 w-full max-w-[10rem]"
+              />
               <div className="space-y-4 text-brand-600">
                 <div className="flex justify-between border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.entity')}</span>
