@@ -422,6 +422,8 @@ export default {
 
   'ouatip.payment.label': 'Плащане',
   'ouatip.payment.title': 'Банков превод',
+  'ouatip.sponsors.label': 'Спонсори',
+  'ouatip.sponsors.title': 'Нашите спонсори',
   'ouatip.payment.entity': 'Получател',
   'ouatip.payment.entityName': 'ДЖЕНТЪЛМЕНС КЛУБ ФИЛИПОПОЛИС',
   'ouatip.payment.bank': 'Банка',

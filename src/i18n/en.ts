@@ -416,6 +416,8 @@ export default {
 
   'ouatip.payment.label': 'Payment',
   'ouatip.payment.title': 'Bank Transfer Details',
+  'ouatip.sponsors.label': 'Sponsors',
+  'ouatip.sponsors.title': 'Our Sponsors',
   'ouatip.payment.entity': 'Entity',
   'ouatip.payment.entityName': 'GENTLEMEN\'S CLUB PHILIPPOPOLIS',
   'ouatip.payment.bank': 'Bank',
