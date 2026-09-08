@@ -217,6 +217,7 @@ export default function OnceUponATime() {
                   <span className="font-medium text-brand-900">{t('ouatip.payment.reasonDesc')}</span>
                 </div>
               </div>
+              <p className="mt-4 text-center text-sm text-brand-700">{t('ouatip.payment.note')}</p>
             </div>
           </FadeIn>
         </div>

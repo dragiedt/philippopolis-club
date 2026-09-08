@@ -423,6 +423,7 @@ export default {
   'ouatip.payment.amount': 'Amount',
   'ouatip.payment.reason': 'Reason',
   'ouatip.payment.reasonDesc': 'Envelope + First and Last Name',
+  'ouatip.payment.note': 'Attention: Payment is made exclusively in advance. No tickets are sold at the event!',
 
   'ouatip.contact.label': 'Get in Touch',
   'ouatip.contact.desc': 'For inquiries and reservations, please reach out to us via phone, email, or social media.',

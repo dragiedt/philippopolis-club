@@ -429,6 +429,7 @@ export default {
   'ouatip.payment.amount': 'Сума',
   'ouatip.payment.reason': 'Основание',
   'ouatip.payment.reasonDesc': 'Куверт + Име и Фамилия',
+  'ouatip.payment.note': 'Внимание: Плащането се извършва единствено авансово. На събитието не се продават билети!',
 
   'ouatip.contact.label': 'Свържете се с нас',
   'ouatip.contact.desc': 'За запитвания и резервации, моля свържете се с нас по телефон, имейл или социални мрежи.',
