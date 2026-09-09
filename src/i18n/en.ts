@@ -397,6 +397,8 @@ export default {
   'ouatip.highlight.5.desc': 'Another visual spectacle awaits us right outside the venue! The retro car exhibition by "Markovo" Auto Museum returns for a consecutive year to remind us of "that nostalgic Plovdiv" with its stylish aesthetic!',
   'ouatip.highlight.6.title': 'Appleton Estate Rum — Official Rum Partner of the Event!',
   'ouatip.highlight.6.desc': 'We proudly present the official rum of "Once Upon a Time in Philippopolis 2026" – Appleton Estate Jamaica Rum, provided by Maxxium Bulgaria! For more than 275 years, Appleton Estate has been crafting rums in the heart of Jamaica, blending tradition, craftsmanship, and the unmistakable character of the island.',
+  'ouatip.highlight.7.title': 'GlenAllachie — Official Whisky Partner of the Event!',
+  'ouatip.highlight.7.desc': 'As one of the official Single Malt whiskies of the event, GlenAllachie will immerse you in the magic of one of the most intriguing, award-winning, and rapidly growing distilleries in Scotland. During Once Upon a Time in Philippopolis 2026, GlenAllachie 12 YO will also be presented – a whisky adorned with numerous gold medals that has become one of the distillery\'s emblematic expressions.',
 
   'ouatip.food': 'During the event, we will also enjoy culinary delights prepared by the chefs of Etra Hall, alongside premium whiskey from our partners GlenAllachie Single Malt Whiskey and Appleton Estate Jamaica Rum!',
 
