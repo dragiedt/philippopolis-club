@@ -137,6 +137,17 @@ export default function OnceUponATime() {
         <div className="mx-auto max-w-4xl">
           <FadeIn>
             <div className="text-center mb-16">
+              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('ouatip.sponsors.title')}</p>
+              <img
+                src="/images/sponsors.jpg"
+                alt={t('ouatip.sponsors.title')}
+                className="mx-auto w-full max-w-2xl"
+              />
+            </div>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="text-center mb-16">
               <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('ouatip.info.label')}</p>
               <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">{t('ouatip.info.title')}</h2>
             </div>
@@ -190,18 +201,6 @@ export default function OnceUponATime() {
             <div className="text-center mb-12">
               <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('ouatip.payment.label')}</p>
               <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">{t('ouatip.payment.title')}</h2>
-            </div>
-          </FadeIn>
-
-          <FadeIn>
-            <div className="text-center mb-12">
-              <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('ouatip.sponsors.label')}</p>
-              <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light mb-8">{t('ouatip.sponsors.title')}</h2>
-              <img
-                src="/images/sponsors.jpg"
-                alt={t('ouatip.sponsors.title')}
-                className="mx-auto w-full max-w-2xl"
-              />
             </div>
           </FadeIn>
 
