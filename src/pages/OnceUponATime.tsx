@@ -190,37 +190,42 @@ export default function OnceUponATime() {
       <section ref={paymentRef} className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper gold-hairline-top">
         <div className="mx-auto max-w-3xl">
           <FadeIn>
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('ouatip.payment.label')}</p>
               <h2 className="font-serif text-3xl md:text-4xl text-cream font-light">{t('ouatip.payment.title')}</h2>
             </div>
           </FadeIn>
 
           <FadeIn>
-            <div className="p-8 md:p-12 border border-brand-700 bg-brand-800/60">
-              <div className="space-y-4 text-brand-300">
-                <div className="flex justify-between border-b border-brand-700 pb-3">
+            <p className="text-center text-sm text-brand-300 leading-relaxed mx-auto max-w-xl mb-10">
+              {t('ouatip.payment.note')}
+            </p>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="p-8 md:p-12 border border-brand-200 bg-cream">
+              <div className="space-y-4 text-brand-600">
+                <div className="flex justify-between border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.entity')}</span>
-                  <span className="font-medium text-cream">{t('ouatip.payment.entityName')}</span>
+                  <span className="font-medium text-brand-900">{t('ouatip.payment.entityName')}</span>
                 </div>
-                <div className="flex justify-between border-b border-brand-700 pb-3">
+                <div className="flex justify-between border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">IBAN</span>
-                  <span className="font-mono text-gold-500">BG45 STSA 9300 0031 2344 44</span>
+                  <span className="font-mono text-brand-900">BG45 STSA 9300 0031 2344 44</span>
                 </div>
-                <div className="flex justify-between border-b border-brand-700 pb-3">
+                <div className="flex justify-between border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.bank')}</span>
-                  <span className="font-medium text-cream">{t('ouatip.payment.bankName')}</span>
+                  <span className="font-medium text-brand-900">{t('ouatip.payment.bankName')}</span>
                 </div>
-                <div className="flex justify-between border-b border-brand-700 pb-3">
+                <div className="flex justify-between border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.amount')}</span>
-                  <span className="font-medium text-cream">125 EUR</span>
+                  <span className="font-medium text-brand-900">125 EUR</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.reason')}</span>
-                  <span className="font-medium text-cream">{t('ouatip.payment.reasonDesc')}</span>
+                  <span className="font-medium text-brand-900">{t('ouatip.payment.reasonDesc')}</span>
                 </div>
               </div>
-              <p className="mt-4 text-center text-sm text-gold-500">{t('ouatip.payment.note')}</p>
             </div>
           </FadeIn>
         </div>
