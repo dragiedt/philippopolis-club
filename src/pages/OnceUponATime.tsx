@@ -110,7 +110,7 @@ export default function OnceUponATime() {
             </p>
           </FadeIn>
           <FadeIn delay={200}>
-            <div className="hidden md:flex flex-wrap items-center justify-center gap-3 mt-12">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
               {tabs.map((tab) => (
                 <button
                   key={tab.target}
@@ -331,22 +331,6 @@ export default function OnceUponATime() {
           </FadeIn>
         </div>
       </section>
-
-      {/* Mobile sticky section nav */}
-      <nav className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-brand-900/95 backdrop-blur border-t border-gold-500/30">
-        <div className="flex overflow-x-auto no-scrollbar">
-          {tabs.map((tab) => (
-            <button
-              key={tab.target}
-              type="button"
-              onClick={() => scrollToSection(tab.target)}
-              className="flex-none px-4 py-4 text-gold-500 text-xs tracking-widest uppercase whitespace-nowrap hover:bg-brand-800 transition-colors duration-200"
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-      </nav>
     </>
   )
 }
