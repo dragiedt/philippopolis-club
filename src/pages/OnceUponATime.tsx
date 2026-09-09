@@ -6,7 +6,7 @@ import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
 const highlights = [
-  { image: '/images/All_cigars_collection_image_2400_x_2400_550x.webp', titleKey: 'ouatip.highlight.0.title', descKey: 'ouatip.highlight.0.desc' },
+  { image: '/images/ovtc-cigar-feature.png', titleKey: 'ouatip.highlight.0.title', descKey: 'ouatip.highlight.0.desc' },
   { image: '/images/cigar-journal-logo-social.jpg', titleKey: 'ouatip.highlight.1.title', descKey: 'ouatip.highlight.1.desc' },
   { image: '/images/cigar-factory.jpg', titleKey: 'ouatip.highlight.2.title', descKey: 'ouatip.highlight.2.desc' },
   { image: '/images/jazz-band.jpg', titleKey: 'ouatip.highlight.3.title', descKey: 'ouatip.highlight.3.desc' },
@@ -79,7 +79,7 @@ export default function OnceUponATime() {
       </section>
 
       {/* Intro */}
-      <section className="py-24 md:py-32 px-6 bg-brand-800 cigar-wrapper">
+      <section className="py-24 md:py-32 px-6 bg-brand-800 tobacco-leaf-dark">
         <div className="mx-auto max-w-3xl">
           <FadeIn>
             <SectionDivider className="mb-16" />
@@ -125,7 +125,7 @@ export default function OnceUponATime() {
       </section>
 
       {/* Highlights */}
-      <section id="ouatip-highlights" className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper gold-hairline-top scroll-mt-28">
+      <section id="ouatip-highlights" className="py-24 md:py-32 px-6 bg-brand-900 tobacco-leaf-dark gold-hairline-top scroll-mt-28">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
             <div className="text-center mb-16">
@@ -152,7 +152,7 @@ export default function OnceUponATime() {
       </section>
 
       {/* Practical Info */}
-      <section id="ouatip-info" className="py-24 md:py-32 px-6 bg-brand-800 cigar-wrapper gold-hairline-top scroll-mt-28">
+      <section id="ouatip-info" className="py-24 md:py-32 px-6 bg-brand-800 tobacco-leaf-dark gold-hairline-top scroll-mt-28">
         <div className="mx-auto max-w-4xl">
           <FadeIn>
             <div id="ouatip-sponsors" className="text-center mb-16 scroll-mt-28">
@@ -214,7 +214,7 @@ export default function OnceUponATime() {
       </section>
 
       {/* Payment */}
-      <section ref={paymentRef} id="ouatip-payment" className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper gold-hairline-top scroll-mt-28">
+      <section ref={paymentRef} id="ouatip-payment" className="py-24 md:py-32 px-6 bg-brand-900 tobacco-leaf-dark gold-hairline-top scroll-mt-28">
         <div className="mx-auto max-w-3xl">
           <FadeIn>
             <div className="text-center mb-6">
