@@ -121,17 +121,6 @@ export default function OnceUponATime() {
         </div>
       </section>
 
-      {/* Food & Drink */}
-      <section className="py-24 md:py-32 px-6 tobacco-leaf">
-        <div className="mx-auto max-w-3xl">
-          <FadeIn>
-            <p className="text-brand-600 text-lg md:text-xl leading-relaxed">
-              {t('ouatip.food')}
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* Practical Info */}
       <section className="py-24 md:py-32 px-6 bg-brand-50 tobacco-leaf-warm gold-hairline-top">
         <div className="mx-auto max-w-4xl">
