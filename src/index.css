@@ -206,6 +206,15 @@ h1, h2, h3, h4, h5, h6 {
   background-size: 60px 60px;
 }
 
+/* Hide scrollbar for horizontal nav scrollers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Tobacco leaf vein — dark sections */
 .tobacco-leaf-dark {
   position: relative;

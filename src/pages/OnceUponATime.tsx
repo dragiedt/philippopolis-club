@@ -29,6 +29,14 @@ export default function OnceUponATime() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const tabs = [
+    { label: t('ouatip.highlights.label'), target: 'ouatip-highlights' },
+    { label: t('ouatip.sponsors.title'), target: 'ouatip-sponsors' },
+    { label: t('ouatip.info.label'), target: 'ouatip-info' },
+    { label: t('ouatip.payment.title'), target: 'ouatip-payment' },
+    { label: t('ouatip.contact.label'), target: 'ouatip-contact' },
+  ]
+
   usePageMeta({
     title: t('seo.ouatip.title'),
     description: t('seo.ouatip.desc'),
@@ -102,14 +110,8 @@ export default function OnceUponATime() {
             </p>
           </FadeIn>
           <FadeIn delay={200}>
-            <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
-              {[
-                { label: t('ouatip.highlights.label'), target: 'ouatip-highlights' },
-                { label: t('ouatip.sponsors.title'), target: 'ouatip-sponsors' },
-                { label: t('ouatip.info.label'), target: 'ouatip-info' },
-                { label: t('ouatip.payment.title'), target: 'ouatip-payment' },
-                { label: t('ouatip.contact.label'), target: 'ouatip-contact' },
-              ].map((tab) => (
+            <div className="hidden md:flex flex-wrap items-center justify-center gap-3 mt-12">
+              {tabs.map((tab) => (
                 <button
                   key={tab.target}
                   type="button"
@@ -174,8 +176,8 @@ export default function OnceUponATime() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Venue */}
-            <FadeIn delay={0}>
-              <div className="p-8 border border-brand-700 bg-brand-900/50">
+            <FadeIn delay={0} className="h-full">
+              <div className="h-full p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.venue.title')}</h3>
                 <div className="overflow-hidden border border-brand-700">
                   <iframe
@@ -193,32 +195,32 @@ export default function OnceUponATime() {
             </FadeIn>
 
             {/* Price */}
-            <FadeIn delay={100}>
-              <div className="p-8 border border-brand-700 bg-brand-900/50">
+            <FadeIn delay={100} className="h-full">
+              <div className="flex flex-col h-full p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.price.title')}</h3>
                 <p className="text-brand-300 leading-relaxed">{t('ouatip.info.price.desc')}</p>
               </div>
             </FadeIn>
 
             {/* Dress Code */}
-            <FadeIn delay={200}>
-              <div className="p-8 border border-brand-700 bg-brand-900/50">
+            <FadeIn delay={200} className="h-full">
+              <div className="flex flex-col h-full p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.dresscode.title')}</h3>
                 <p className="text-brand-300 leading-relaxed">{t('ouatip.info.dresscode.desc')}</p>
               </div>
             </FadeIn>
 
             {/* Limited Seats */}
-            <FadeIn delay={300}>
-              <div className="p-8 border border-brand-700 bg-brand-900/50">
+            <FadeIn delay={300} className="h-full">
+              <div className="flex flex-col h-full p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.limited.title')}</h3>
                 <p className="text-brand-300 leading-relaxed">{t('ouatip.info.limited.desc')}</p>
               </div>
             </FadeIn>
 
             {/* Hotels */}
-            <FadeIn delay={400}>
-              <div className="p-8 border border-brand-700 bg-brand-900/50">
+            <FadeIn delay={400} className="h-full md:col-span-2">
+              <div className="flex flex-col h-full p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.hotels.title')}</h3>
                 <p className="text-brand-300 leading-relaxed mb-2">
                   <span className="font-medium text-cream">{t('ouatip.info.hotels.radisson')}</span> — <span className="text-brand-300/80">{t('ouatip.info.hotels.promoLabel')}</span> <span className="font-mono text-gold-500">PHIL26</span>
@@ -329,6 +331,22 @@ export default function OnceUponATime() {
           </FadeIn>
         </div>
       </section>
+
+      {/* Mobile sticky section nav */}
+      <nav className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-brand-900/95 backdrop-blur border-t border-gold-500/30">
+        <div className="flex overflow-x-auto no-scrollbar">
+          {tabs.map((tab) => (
+            <button
+              key={tab.target}
+              type="button"
+              onClick={() => scrollToSection(tab.target)}
+              className="flex-none px-4 py-4 text-gold-500 text-xs tracking-widest uppercase whitespace-nowrap hover:bg-brand-800 transition-colors duration-200"
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </nav>
     </>
   )
 }
