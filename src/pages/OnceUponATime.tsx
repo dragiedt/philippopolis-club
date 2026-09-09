@@ -12,7 +12,7 @@ const highlights = [
   { image: '/images/jazz-band.jpg', titleKey: 'ouatip.highlight.3.title', descKey: 'ouatip.highlight.3.desc' },
   { image: '/images/young-artists-new.jpg', titleKey: 'ouatip.highlight.4.title', descKey: 'ouatip.highlight.4.desc' },
   { image: '/images/retro-car.jpg', titleKey: 'ouatip.highlight.5.title', descKey: 'ouatip.highlight.5.desc' },
-  { image: '/images/appleton-estate.png', titleKey: 'ouatip.highlight.6.title', descKey: 'ouatip.highlight.6.desc' },
+  { image: '/images/appleton-estate.jpg', titleKey: 'ouatip.highlight.6.title', descKey: 'ouatip.highlight.6.desc' },
   { image: '/images/glenallachie-12.jpg', titleKey: 'ouatip.highlight.7.title', descKey: 'ouatip.highlight.7.desc' },
   { image: '/images/frapin-cigar-blend.jpg', titleKey: 'ouatip.highlight.8.title', descKey: 'ouatip.highlight.8.desc' },
 ]
@@ -23,6 +23,10 @@ export default function OnceUponATime() {
 
   const scrollToPayment = () => {
     paymentRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   usePageMeta({
@@ -97,11 +101,31 @@ export default function OnceUponATime() {
               {t('ouatip.intro.p2')}
             </p>
           </FadeIn>
+          <FadeIn delay={200}>
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
+              {[
+                { label: t('ouatip.highlights.label'), target: 'ouatip-highlights' },
+                { label: t('ouatip.sponsors.title'), target: 'ouatip-sponsors' },
+                { label: t('ouatip.info.label'), target: 'ouatip-info' },
+                { label: t('ouatip.payment.title'), target: 'ouatip-payment' },
+                { label: t('ouatip.contact.label'), target: 'ouatip-contact' },
+              ].map((tab) => (
+                <button
+                  key={tab.target}
+                  type="button"
+                  onClick={() => scrollToSection(tab.target)}
+                  className="px-5 py-2.5 border border-brand-700 text-brand-300 text-xs tracking-widest uppercase hover:border-gold-500 hover:text-gold-500 transition-colors duration-200"
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Highlights */}
-      <section className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper gold-hairline-top">
+      <section id="ouatip-highlights" className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper gold-hairline-top scroll-mt-28">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
             <div className="text-center mb-16">
@@ -128,10 +152,10 @@ export default function OnceUponATime() {
       </section>
 
       {/* Practical Info */}
-      <section className="py-24 md:py-32 px-6 bg-brand-800 cigar-wrapper gold-hairline-top">
+      <section id="ouatip-info" className="py-24 md:py-32 px-6 bg-brand-800 cigar-wrapper gold-hairline-top scroll-mt-28">
         <div className="mx-auto max-w-4xl">
           <FadeIn>
-            <div className="text-center mb-16">
+            <div id="ouatip-sponsors" className="text-center mb-16 scroll-mt-28">
               <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('ouatip.sponsors.title')}</p>
               <img
                 src="/images/sponsors.jpg"
@@ -190,7 +214,7 @@ export default function OnceUponATime() {
       </section>
 
       {/* Payment */}
-      <section ref={paymentRef} className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper gold-hairline-top">
+      <section ref={paymentRef} id="ouatip-payment" className="py-24 md:py-32 px-6 bg-brand-900 cigar-wrapper gold-hairline-top scroll-mt-28">
         <div className="mx-auto max-w-3xl">
           <FadeIn>
             <div className="text-center mb-6">
@@ -235,7 +259,7 @@ export default function OnceUponATime() {
       </section>
 
       {/* Contact */}
-      <section className="py-24 md:py-32 px-6 bg-brand-900">
+      <section id="ouatip-contact" className="py-24 md:py-32 px-6 bg-brand-900 scroll-mt-28">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('ouatip.contact.label')}</p>
