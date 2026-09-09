@@ -188,6 +188,7 @@ export default function OnceUponATime() {
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>
+                <p className="text-brand-300 text-sm leading-relaxed mt-4">{t('ouatip.info.venue.address')}</p>
               </div>
             </FadeIn>
 

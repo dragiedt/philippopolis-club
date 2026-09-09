@@ -422,9 +422,10 @@ export default {
   'ouatip.info.hotels.promoLabel': 'Online discount code:',
 
   'ouatip.info.venue.title': 'Event Venue',
+  'ouatip.info.venue.address': 'Etra Hall, Sankt Peterburg Blvd. 131, 4017 Plovdiv. Date: 17.10.2026 Start time: 18:00.',
 
   'ouatip.payment.label': 'Payment',
-  'ouatip.payment.title': 'Bank Transfer Details',
+  'ouatip.payment.title': 'Purchase Your Seat for the Event',
   'ouatip.sponsors.label': 'Sponsors',
   'ouatip.sponsors.title': 'Our Sponsors',
   'ouatip.payment.entity': 'Entity',
