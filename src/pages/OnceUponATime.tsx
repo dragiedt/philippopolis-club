@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import FadeIn from '../components/FadeIn'
 import SectionDivider from '../components/SectionDivider'
@@ -15,6 +16,11 @@ const highlights = [
 
 export default function OnceUponATime() {
   const { t } = useLang()
+  const paymentRef = useRef<HTMLDivElement>(null)
+
+  const scrollToPayment = () => {
+    paymentRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   usePageMeta({
     title: t('seo.ouatip.title'),
@@ -51,12 +57,13 @@ export default function OnceUponATime() {
             </p>
           </FadeIn>
           <FadeIn delay={600}>
-            <Link
-              to="/contact"
+            <button
+              type="button"
+              onClick={scrollToPayment}
               className="inline-flex items-center justify-center px-8 py-3.5 bg-gold-500 text-brand-900 text-sm tracking-widest uppercase font-medium hover:bg-gold-400 transition-colors duration-200"
             >
               {t('ouatip.hero.cta')}
-            </Link>
+            </button>
           </FadeIn>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
@@ -184,7 +191,7 @@ export default function OnceUponATime() {
       </section>
 
       {/* Payment */}
-      <section className="py-24 md:py-32 px-6 tobacco-leaf">
+      <section ref={paymentRef} className="py-24 md:py-32 px-6 tobacco-leaf">
         <div className="mx-auto max-w-3xl">
           <FadeIn>
             <div className="text-center mb-12">
