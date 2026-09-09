@@ -14,6 +14,7 @@ const highlights = [
   { image: '/images/retro-car.jpg', titleKey: 'ouatip.highlight.5.title', descKey: 'ouatip.highlight.5.desc' },
   { image: '/images/appleton-estate.png', titleKey: 'ouatip.highlight.6.title', descKey: 'ouatip.highlight.6.desc' },
   { image: '/images/glenallachie-12.jpg', titleKey: 'ouatip.highlight.7.title', descKey: 'ouatip.highlight.7.desc' },
+  { image: '/images/frapin-cigar-blend.jpg', titleKey: 'ouatip.highlight.8.title', descKey: 'ouatip.highlight.8.desc' },
 ]
 
 export default function OnceUponATime() {
