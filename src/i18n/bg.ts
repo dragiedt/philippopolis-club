@@ -374,7 +374,7 @@ export default {
   'faq.cta.desc': 'Свържете се с нас директно — всички запитвания се третират със строга дискретност.',
   'faq.cta.button': 'Свържете се с нас',
 
-  'seo.ouatip.title': 'Имало едно време във Филипопол | Gentlemen\'s Club Philippopolis',
+  'seo.ouatip.title': 'Once Upon a Time in Philippopolis | Gentlemen\'s Club Philippopolis',
   'seo.ouatip.desc': 'Ексклузивното годишно събитие на Gentlemen\'s Club Philippopolis — незабравима есенна вечер с премиум пури, история, джаз и другарство в Пловдив от началото на XX век. 17 октомври 2026 г.',
 
   'ouatip.hero.label': 'Годишно събитие · 17 октомври 2026 г.',
