@@ -114,7 +114,7 @@ export default function OnceUponATime() {
                   key={tab.target}
                   type="button"
                   onClick={() => scrollToSection(tab.target)}
-                  className="px-5 py-2.5 border border-brand-700 text-brand-300 text-xs tracking-widest uppercase hover:border-gold-500 hover:text-gold-500 transition-colors duration-200"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-brand-900 text-gold-500 border border-gold-500 text-sm tracking-widest uppercase font-medium hover:bg-brand-800 hover:border-gold-400 transition-colors duration-200"
                 >
                   {tab.label}
                 </button>
@@ -173,8 +173,26 @@ export default function OnceUponATime() {
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Price */}
+            {/* Venue */}
             <FadeIn delay={0}>
+              <div className="p-8 border border-brand-700 bg-brand-900/50">
+                <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.venue.title')}</h3>
+                <div className="overflow-hidden border border-brand-700">
+                  <iframe
+                    title={t('ouatip.info.venue.title')}
+                    src="https://maps.google.com/maps?q=Kazarmi%20Iztochen%2C%20bul.%20%22Sankt%20Peterburg%22%20131%2C%204017%20Plovdiv%2C%20Bulgaria&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    className="w-full"
+                    style={{ height: '280px', border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Price */}
+            <FadeIn delay={100}>
               <div className="p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.price.title')}</h3>
                 <p className="text-brand-300 leading-relaxed">{t('ouatip.info.price.desc')}</p>
@@ -182,7 +200,7 @@ export default function OnceUponATime() {
             </FadeIn>
 
             {/* Dress Code */}
-            <FadeIn delay={100}>
+            <FadeIn delay={200}>
               <div className="p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.dresscode.title')}</h3>
                 <p className="text-brand-300 leading-relaxed">{t('ouatip.info.dresscode.desc')}</p>
@@ -190,7 +208,7 @@ export default function OnceUponATime() {
             </FadeIn>
 
             {/* Limited Seats */}
-            <FadeIn delay={200}>
+            <FadeIn delay={300}>
               <div className="p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.limited.title')}</h3>
                 <p className="text-brand-300 leading-relaxed">{t('ouatip.info.limited.desc')}</p>
@@ -198,7 +216,7 @@ export default function OnceUponATime() {
             </FadeIn>
 
             {/* Hotels */}
-            <FadeIn delay={300}>
+            <FadeIn delay={400}>
               <div className="p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.hotels.title')}</h3>
                 <p className="text-brand-300 leading-relaxed mb-2">
@@ -232,25 +250,25 @@ export default function OnceUponATime() {
           <FadeIn>
             <div className="p-8 md:p-12 border border-brand-200 bg-cream">
               <div className="space-y-4 text-brand-600">
-                <div className="flex justify-between border-b border-brand-100 pb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.entity')}</span>
-                  <span className="font-medium text-brand-900">{t('ouatip.payment.entityName')}</span>
+                  <span className="font-medium text-brand-900 sm:text-right">{t('ouatip.payment.entityName')}</span>
                 </div>
-                <div className="flex justify-between border-b border-brand-100 pb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">IBAN</span>
-                  <span className="font-mono text-brand-900">BG45 STSA 9300 0031 2344 44</span>
+                  <span className="font-mono text-brand-900 text-sm sm:text-sm sm:text-right break-all">BG45 STSA 9300 0031 2344 44</span>
                 </div>
-                <div className="flex justify-between border-b border-brand-100 pb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.bank')}</span>
-                  <span className="font-medium text-brand-900">{t('ouatip.payment.bankName')}</span>
+                  <span className="font-medium text-brand-900 sm:text-right">{t('ouatip.payment.bankName')}</span>
                 </div>
-                <div className="flex justify-between border-b border-brand-100 pb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 border-b border-brand-100 pb-3">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.amount')}</span>
-                  <span className="font-medium text-brand-900">125 EUR</span>
+                  <span className="font-medium text-brand-900 sm:text-right">125 EUR</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                   <span className="text-sm tracking-wider uppercase">{t('ouatip.payment.reason')}</span>
-                  <span className="font-medium text-brand-900">{t('ouatip.payment.reasonDesc')}</span>
+                  <span className="font-medium text-brand-900 sm:text-right">{t('ouatip.payment.reasonDesc')}</span>
                 </div>
               </div>
             </div>

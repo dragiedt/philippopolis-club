@@ -380,7 +380,7 @@ export default {
   'ouatip.hero.label': 'Годишно събитие · 17 октомври 2026 г.',
   'ouatip.hero.title': 'Once Upon a Time in Philippopolis',
   'ouatip.hero.subtitle': 'Незабравима есенна вечер с носталгичен привкус, изключителен стил и аромат на първокласни пури.',
-  'ouatip.hero.date': '17 октомври 2026 г. · Пловдив, България',
+  'ouatip.hero.date': '17 октомври 2026 г. - Зала "Етра", Пловдив, България',
   'ouatip.hero.cta': 'Запазете място',
 
   'ouatip.intro.p1': 'Ексклузивното годишно събитие на Gentlemen\'s Club Philippopolis се завръща — по-мащабно от всякога! На 17 октомври ще се потопим в атмосферата на Пловдив в началото на XX век — онзи забележителен град, който някога е бил пулсиращото сърце на българската индустрия!',
@@ -426,6 +426,8 @@ export default {
   'ouatip.info.hotels.radisson': 'Radisson Hotel Plovdiv',
   'ouatip.info.hotels.flavia': 'Villa Flavia Heritage Boutique Hotel',
   'ouatip.info.hotels.promoLabel': 'Промокод за отстъпка онлайн:',
+
+  'ouatip.info.venue.title': 'Място на събитието',
 
   'ouatip.payment.label': 'Плащане',
   'ouatip.payment.title': 'Банков превод',

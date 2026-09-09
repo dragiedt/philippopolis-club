@@ -374,7 +374,7 @@ export default {
   'ouatip.hero.label': 'Annual Event · October 17, 2026',
   'ouatip.hero.title': 'Once Upon a Time in Philippopolis',
   'ouatip.hero.subtitle': 'An unforgettable autumn evening filled with nostalgia, exceptional style, and the aroma of premium cigars.',
-  'ouatip.hero.date': 'October 17, 2026 · Plovdiv, Bulgaria',
+  'ouatip.hero.date': 'October 17, 2026 - Etra Hall, Plovdiv, Bulgaria',
   'ouatip.hero.cta': 'Reserve Your Place',
 
   'ouatip.intro.p1': 'The exclusive annual event of Gentlemen\'s Club Philippopolis is back — grander than ever! On October 17th, we will immerse ourselves in the atmosphere of early XXth-century Plovdiv — that remarkable city which was once the beating heart of Bulgarian industry!',
@@ -420,6 +420,8 @@ export default {
   'ouatip.info.hotels.radisson': 'Radisson Hotel Plovdiv',
   'ouatip.info.hotels.flavia': 'Villa Flavia Heritage Boutique Hotel',
   'ouatip.info.hotels.promoLabel': 'Online discount code:',
+
+  'ouatip.info.venue.title': 'Event Venue',
 
   'ouatip.payment.label': 'Payment',
   'ouatip.payment.title': 'Bank Transfer Details',
