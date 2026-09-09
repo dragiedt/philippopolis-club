@@ -67,7 +67,7 @@ export default function OnceUponATime() {
             <button
               type="button"
               onClick={scrollToPayment}
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-brand-900 text-gold-500 border border-gold-500 text-sm tracking-widest uppercase font-medium hover:bg-brand-800 hover:border-gold-400 transition-colors duration-200"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-gold-500 text-brand-900 text-sm tracking-widest uppercase font-medium hover:bg-gold-400 transition-colors duration-200"
             >
               {t('ouatip.hero.cta')}
             </button>
@@ -114,7 +114,7 @@ export default function OnceUponATime() {
                   key={tab.target}
                   type="button"
                   onClick={() => scrollToSection(tab.target)}
-                  className="inline-flex items-center justify-center px-6 py-3 bg-brand-900 text-gold-500 border border-gold-500 text-sm tracking-widest uppercase font-medium hover:bg-brand-800 hover:border-gold-400 transition-colors duration-200"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gold-500 text-brand-900 text-sm tracking-widest uppercase font-medium hover:bg-gold-400 transition-colors duration-200"
                 >
                   {tab.label}
                 </button>
