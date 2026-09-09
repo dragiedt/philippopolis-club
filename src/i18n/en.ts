@@ -395,6 +395,8 @@ export default {
   'ouatip.highlight.4.desc': 'For the first time at such an event, there will be a group exhibition of young and talented artists from Plovdiv, whom Gentlemen\'s Club Philippopolis will present to the general public to promote and showcase their artistic abilities!',
   'ouatip.highlight.5.title': 'Retro Car Exhibition by Auto Museum Markovo',
   'ouatip.highlight.5.desc': 'Another visual spectacle awaits us right outside the venue! The retro car exhibition by "Markovo" Auto Museum returns for a consecutive year to remind us of "that nostalgic Plovdiv" with its stylish aesthetic!',
+  'ouatip.highlight.6.title': 'Appleton Estate Rum — Official Rum Partner of the Event!',
+  'ouatip.highlight.6.desc': 'We proudly present the official rum of "Once Upon a Time in Philippopolis 2026" – Appleton Estate Jamaica Rum, provided by Maxxium Bulgaria! For more than 275 years, Appleton Estate has been crafting rums in the heart of Jamaica, blending tradition, craftsmanship, and the unmistakable character of the island.',
 
   'ouatip.food': 'During the event, we will also enjoy culinary delights prepared by the chefs of Etra Hall, alongside premium whiskey from our partners GlenAllachie Single Malt Whiskey and Appleton Estate Jamaica Rum!',
 
