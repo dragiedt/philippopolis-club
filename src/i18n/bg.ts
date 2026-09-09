@@ -431,7 +431,7 @@ export default {
   'ouatip.info.venue.address': 'Зала "Етра", бул. Санкт Петербург 131, 4017 Пловдив. Дата: 17.10.2026 Начален час: 18:00 ч.',
 
   'ouatip.payment.label': 'Плащане',
-  'ouatip.payment.title': 'Закупете Куверт за Събитието',
+  'ouatip.payment.title': 'Закупете Куверт',
   'ouatip.sponsors.label': 'Спонсори',
   'ouatip.sponsors.title': 'Нашите спонсори',
   'ouatip.payment.entity': 'Получател',
