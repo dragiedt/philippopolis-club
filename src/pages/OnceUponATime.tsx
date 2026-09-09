@@ -108,8 +108,8 @@ export default function OnceUponATime() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {highlights.map((item, index) => (
-              <FadeIn key={index} delay={index * 100}>
-                <div className="flex flex-col border border-brand-700 bg-brand-800/60 hover:border-gold-500/50 transition-colors duration-300 overflow-hidden">
+              <FadeIn key={index} delay={index * 100} className="h-full">
+                <div className="flex flex-col h-full border border-brand-700 bg-brand-800/60 hover:border-gold-500/50 transition-colors duration-300 overflow-hidden">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img src={item.image} alt={t(item.titleKey)} className="w-full h-full object-cover" />
                   </div>
