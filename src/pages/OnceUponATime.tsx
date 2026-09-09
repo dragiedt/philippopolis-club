@@ -175,10 +175,10 @@ export default function OnceUponATime() {
               <div className="p-8 border border-brand-700 bg-brand-900/50">
                 <h3 className="font-serif text-xl text-cream mb-4">{t('ouatip.info.hotels.title')}</h3>
                 <p className="text-brand-300 leading-relaxed mb-2">
-                  <span className="font-medium text-cream">{t('ouatip.info.hotels.radisson')}</span> — <span className="font-mono text-gold-500">PHIL26</span>
+                  <span className="font-medium text-cream">{t('ouatip.info.hotels.radisson')}</span> — <span className="text-brand-300/80">{t('ouatip.info.hotels.promoLabel')}</span> <span className="font-mono text-gold-500">PHIL26</span>
                 </p>
                 <p className="text-brand-300 leading-relaxed">
-                  <span className="font-medium text-cream">{t('ouatip.info.hotels.flavia')}</span> — <span className="font-mono text-gold-500">GCP</span>
+                  <span className="font-medium text-cream">{t('ouatip.info.hotels.flavia')}</span> — <span className="text-brand-300/80">{t('ouatip.info.hotels.promoLabel')}</span> <span className="font-mono text-gold-500">GCP</span>
                 </p>
               </div>
             </FadeIn>

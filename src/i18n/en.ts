@@ -405,7 +405,7 @@ export default {
   'ouatip.info.price.desc': 'The ticket price is €125 and includes admission to the event, the entertainment program and exhibitions, a selection of alcoholic and non-alcoholic beverages, cigars from various importers, catering, and many other surprises! Stay tuned for more details in the months leading up to the event!',
 
   'ouatip.info.dresscode.title': 'Dress Code',
-  'ouatip.info.dresscode.desc': 'The dress code for the event is strictly formal!',
+  'ouatip.info.dresscode.desc': 'The dress code for the event is strictly formal! Recommended colors - dark.',
 
   'ouatip.info.limited.title': 'Limited Availability',
   'ouatip.info.limited.desc': 'Places for "Once Upon a Time in Philippopolis" are very limited and usually sell out within a few weeks of its announcement!',
@@ -413,6 +413,7 @@ export default {
   'ouatip.info.hotels.title': 'Hotel Partners',
   'ouatip.info.hotels.radisson': 'Radisson Hotel Plovdiv',
   'ouatip.info.hotels.flavia': 'Villa Flavia Heritage Boutique Hotel',
+  'ouatip.info.hotels.promoLabel': 'Online discount code:',
 
   'ouatip.payment.label': 'Payment',
   'ouatip.payment.title': 'Bank Transfer Details',

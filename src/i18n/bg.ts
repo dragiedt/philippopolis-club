@@ -411,7 +411,7 @@ export default {
   'ouatip.info.price.desc': 'Цената на куверта е 125 евро и включва вход за събитието, развлекателна програма и изложби, определено количество алкохолни и безалкохолни напитки, пури от различни вносители, кетъринг и много други изненади! Очаквайте подробности в месеците до събитието!',
 
   'ouatip.info.dresscode.title': 'Дрескод',
-  'ouatip.info.dresscode.desc': 'Дрескодът за събитието е строго официален!',
+  'ouatip.info.dresscode.desc': 'Дрескодът за събитието е строго официален! Препоръчителни цветове - тъмни.',
 
   'ouatip.info.limited.title': 'Ограничен брой места',
   'ouatip.info.limited.desc': 'Местата за "Имало едно време във Филипопол" са силно ограничени и обикновено свършват за броени седмици след неговото обявяване!',
@@ -419,6 +419,7 @@ export default {
   'ouatip.info.hotels.title': 'Партньорски хотели',
   'ouatip.info.hotels.radisson': 'Radisson Hotel Plovdiv',
   'ouatip.info.hotels.flavia': 'Villa Flavia Heritage Boutique Hotel',
+  'ouatip.info.hotels.promoLabel': 'Промокод за отстъпка онлайн:',
 
   'ouatip.payment.label': 'Плащане',
   'ouatip.payment.title': 'Банков превод',
