@@ -8,7 +8,7 @@ import { useLang } from '../i18n/LanguageContext'
 const highlights = [
   { image: '/images/All_cigars_collection_image_2400_x_2400_550x.webp', titleKey: 'ouatip.highlight.0.title', descKey: 'ouatip.highlight.0.desc' },
   { image: '/images/cigar-journal-logo-social.jpg', titleKey: 'ouatip.highlight.1.title', descKey: 'ouatip.highlight.1.desc' },
-  { titleKey: 'ouatip.highlight.2.title', descKey: 'ouatip.highlight.2.desc' },
+  { image: '/images/cigar-factory.jpg', titleKey: 'ouatip.highlight.2.title', descKey: 'ouatip.highlight.2.desc' },
   { image: '/images/jazz-band.jpg', titleKey: 'ouatip.highlight.3.title', descKey: 'ouatip.highlight.3.desc' },
   { image: '/images/young-artists.png', titleKey: 'ouatip.highlight.4.title', descKey: 'ouatip.highlight.4.desc' },
   { image: '/images/retro-car.jpg', titleKey: 'ouatip.highlight.5.title', descKey: 'ouatip.highlight.5.desc' },
@@ -110,13 +110,9 @@ export default function OnceUponATime() {
             {highlights.map((item, index) => (
               <FadeIn key={index} delay={index * 100}>
                 <div className="flex flex-col border border-brand-200 hover:border-gold-500/40 transition-colors duration-300 overflow-hidden">
-                  {item.image ? (
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img src={item.image} alt={t(item.titleKey)} className="w-full h-full object-cover" />
-                    </div>
-                  ) : (
-                    <div className="h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
-                  )}
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img src={item.image} alt={t(item.titleKey)} className="w-full h-full object-cover" />
+                  </div>
                   <div className="p-8 flex flex-col flex-1">
                     <h3 className="font-serif text-xl text-brand-900 mb-3">{t(item.titleKey)}</h3>
                     <p className="text-brand-600 leading-relaxed">{t(item.descKey)}</p>
