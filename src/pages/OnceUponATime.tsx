@@ -6,7 +6,7 @@ import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
 
 const highlights = [
-  { image: '/images/ovtc-cigar-feature.png', titleKey: 'ouatip.highlight.0.title', descKey: 'ouatip.highlight.0.desc' },
+  { image: '/images/ovtc-cigar-feature.jpg', titleKey: 'ouatip.highlight.0.title', descKey: 'ouatip.highlight.0.desc' },
   { image: '/images/cigar-journal-logo-social.jpg', titleKey: 'ouatip.highlight.1.title', descKey: 'ouatip.highlight.1.desc' },
   { image: '/images/cigar-factory.jpg', titleKey: 'ouatip.highlight.2.title', descKey: 'ouatip.highlight.2.desc' },
   { image: '/images/jazz-band.jpg', titleKey: 'ouatip.highlight.3.title', descKey: 'ouatip.highlight.3.desc' },
@@ -49,7 +49,7 @@ export default function OnceUponATime() {
       {/* Hero */}
       <section className="relative min-h-[80vh] flex flex-col justify-center items-center pt-28 pb-16 md:pt-36 md:pb-20 bg-brand-900 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/images/ouatip-logo.png" alt="" className="w-full h-full object-cover opacity-40" />
+          <img src="/images/ouatip-logo.png" alt="" fetchPriority="high" decoding="async" className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-b from-brand-900/60 via-brand-900/20 to-brand-900" />
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -140,7 +140,7 @@ export default function OnceUponATime() {
               <FadeIn key={index} delay={index * 100} className="h-full">
                 <div className="flex flex-col h-full border border-brand-700 bg-brand-800/60 hover:border-gold-500/50 transition-colors duration-300 overflow-hidden">
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img src={item.image} alt={t(item.titleKey)} className="w-full h-full object-cover" />
+                    <img src={item.image} alt={t(item.titleKey)} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
                   <div className="p-8 flex flex-col flex-1">
                     <h3 className="font-serif text-xl text-cream mb-3">{t(item.titleKey)}</h3>
@@ -162,7 +162,7 @@ export default function OnceUponATime() {
               <img
                 src="/images/sponsors.jpg"
                 alt={t('ouatip.sponsors.title')}
-                className="mx-auto w-full max-w-2xl"
+                className="mx-auto w-full max-w-2xl" loading="lazy" decoding="async"
               />
             </div>
           </FadeIn>

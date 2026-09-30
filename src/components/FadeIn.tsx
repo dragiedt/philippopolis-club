@@ -27,12 +27,17 @@ export default function FadeIn({ children, className = '', delay = 0, direction 
       ([entry]) => {
         if (entry.isIntersecting) {
           el.style.transitionDelay = `${delay}ms`
+          el.style.willChange = 'translate, opacity'
           el.classList.add('opacity-100', 'translate-x-0', 'translate-y-0')
           el.classList.remove('opacity-0', ...directionStyles[direction].split(' ').filter(Boolean))
           if (triggerChild) {
             const img = el.querySelector('[data-banner]')
             if (img) img.classList.add('banner-visible')
           }
+          window.setTimeout(() => {
+            el.style.transitionDelay = ''
+            el.style.willChange = 'auto'
+          }, 750 + delay)
           observer.unobserve(el)
         }
       },
@@ -46,7 +51,7 @@ export default function FadeIn({ children, className = '', delay = 0, direction 
   return (
     <div
       ref={ref}
-      className={`opacity-0 transition-all duration-700 ease-out ${directionStyles[direction] ? directionStyles[direction].split(' ')[0] : ''} ${directionStyles[direction] ? directionStyles[direction].split(' ')[1] || '' : ''} ${className}`}
+      className={`opacity-0 transition-[translate,opacity] duration-700 ease-out ${directionStyles[direction] ? directionStyles[direction].split(' ')[0] : ''} ${directionStyles[direction] ? directionStyles[direction].split(' ')[1] || '' : ''} ${className}`}
     >
       {children}
     </div>

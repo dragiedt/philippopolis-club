@@ -163,6 +163,8 @@ export default function Home() {
                   <img
                     src="/images/home-feature.jpg"
                     alt="An evening at the club"
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
