@@ -15,7 +15,6 @@ const previewEvents = [
   { date: 'July 2026', title: 'Dinner with Alto Salento Cigar Club in Italy', type: 'Guests', dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', typeKey: 'event.past.0.type', image: '/images/alto-salento-hero.jpg' },
   { date: 'July 2026', title: 'Davidoff White Party', type: 'Invitation', dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', typeKey: 'event.past.1.type', image: '/images/davidoff-hero.jpg' },
   { date: 'June 2026', title: 'Plasencia Year of the Horse', type: 'Members Only', dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', typeKey: 'event.past.2.type', image: '/images/plasencia-hero.jpg' },
-  { date: 'June 2026', title: 'Rosa Bulgaria Regional Edition', type: 'Guests', dateKey: 'event.past.3.date', titleKey: 'event.past.3.title', typeKey: 'event.past.3.type', image: '/images/rosa-bulgaria-hero.jpg' },
 ]
 
 const previewGallery = [
