@@ -14,7 +14,7 @@ param(
   [Parameter(Mandatory = $true)][string]$OutputName,
   [int]$Width = 1600,
   [int]$Height = 1200,
-  [int]$Quality = 82
+  [int]$Quality = 78
 )
 
 $ErrorActionPreference = 'Stop'
@@ -61,13 +61,16 @@ try {
     $codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
     $encoderParams = New-Object System.Drawing.Imaging.EncoderParameters(1)
     $encoderParams.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter([System.Drawing.Imaging.Encoder]::Quality, [long]$Quality)
-    $bmp.Save($outPath, $codec, $encoderParams)
+    $tmpPath = Join-Path ([System.IO.Path]::GetTempPath()) ("event-hero-" + [Guid]::NewGuid().ToString('N') + '.jpg')
+    $bmp.Save($tmpPath, $codec, $encoderParams)
   } finally {
     $bmp.Dispose()
   }
 } finally {
   $src.Dispose()
 }
+
+Move-Item -LiteralPath $tmpPath -Destination $outPath -Force
 
 $out = Get-Item -LiteralPath $outPath
 Write-Output ("wrote {0} ({1}x{2}, {3:N0} KB)" -f $out.FullName, $Width, $Height, ($out.Length / 1KB))
