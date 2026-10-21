@@ -29,6 +29,6 @@ export const pastEvents: EventData[] = [
   { dateKey: 'event.past.5.date', titleKey: 'event.past.5.title', descKey: 'event.past.5.desc', typeKey: 'event.past.5.type' },
   { dateKey: 'event.past.6.date', titleKey: 'event.past.6.title', descKey: 'event.past.6.desc', typeKey: 'event.past.6.type' },
   { dateKey: 'event.past.7.date', titleKey: 'event.past.7.title', descKey: 'event.past.7.desc', typeKey: 'event.past.7.type' },
-  { dateKey: 'event.past.8.date', titleKey: 'event.past.8.title', descKey: 'event.past.8.desc', typeKey: 'event.past.8.type' },
+  { dateKey: 'event.past.8.date', titleKey: 'event.past.8.title', descKey: 'event.past.8.desc', typeKey: 'event.past.8.type', image: '/images/partagas-maduro-night.jpg' },
   { dateKey: 'event.past.9.date', titleKey: 'event.past.9.title', descKey: 'event.past.9.desc', typeKey: 'event.past.9.type', image: '/images/artista-cigar-night.jpg' },
 ]
