@@ -13,7 +13,7 @@
       "permanent": true
     },
     {
-      "source": "/:path*",
+      "source": "/:path((?!api(?:/|$)).*)",
       "has": [{ "type": "host", "value": "gcp.bg" }],
       "destination": "https://philippopolis.club/bg/:path*",
       "permanent": true
@@ -31,13 +31,13 @@
       "permanent": true
     },
     {
-      "source": "/:path*",
+      "source": "/:path((?!api(?:/|$)).*)",
       "has": [{ "type": "host", "value": "www.gcp.bg" }],
       "destination": "https://philippopolis.club/bg/:path*",
       "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }

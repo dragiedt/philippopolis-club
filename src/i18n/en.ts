@@ -319,6 +319,9 @@ export default {
   'contact.form.referralPlaceholder': "Member's name",
   'contact.form.message': 'Message',
   'contact.form.submit': 'Submit Inquiry',
+  'contact.form.sending': 'Sending...',
+  'contact.form.error': 'Something went wrong while sending your inquiry. Please try again or write to us directly at philippopolis2022@gmail.com.',
+  'contact.form.errorMail': 'We could not send your inquiry automatically, so we opened your email app with the message ready for philippopolis2022@gmail.com. Please press send there.',
   'contact.form.privacy': 'All information provided is kept strictly confidential.',
 
   'contact.thankyou.title': 'Thank you',

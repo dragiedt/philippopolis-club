@@ -15,11 +15,59 @@ export default function Contact() {
     message: '',
     referral: '',
   })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [website, setWebsite] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const buildMailto = () => {
+    const subject = encodeURIComponent(`${formData.subject} - ${formData.name}`)
+    const body = encodeURIComponent(
+      [
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        formData.phone ? `Phone: ${formData.phone}` : '',
+        formData.referral ? `Referred by: ${formData.referral}` : '',
+        '',
+        formData.message,
+      ]
+        .filter(Boolean)
+        .join('\n')
+    )
+    return `mailto:philippopolis2022@gmail.com?subject=${subject}&body=${body}`
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setStatus('sending')
+    setErrorMessage('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, website }),
+      })
+
+      if (res.ok) {
+        setStatus('sent')
+        return
+      }
+
+      const data = await res.json().catch(() => ({}))
+      if (data.error === 'not_configured') {
+        setStatus('error')
+        setErrorMessage(t('contact.form.errorMail'))
+        window.location.href = buildMailto()
+        return
+      }
+
+      setStatus('error')
+      setErrorMessage(t('contact.form.error'))
+    } catch {
+      setStatus('error')
+      setErrorMessage(t('contact.form.errorMail'))
+      window.location.href = buildMailto()
+    }
   }
 
   return (
@@ -55,7 +103,7 @@ export default function Contact() {
                   {t('contact.intro')}
                 </p>
 
-                {submitted ? (
+                {status === 'sent' ? (
                   <div className="p-8 border border-gold-500/30 bg-brand-50 text-center">
                     <h3 className="font-serif text-2xl text-brand-900 mb-4">{t('contact.thankyou.title')}</h3>
                     <p className="text-brand-600">
@@ -64,6 +112,25 @@ export default function Contact() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {status === 'error' && errorMessage && (
+                      <div className="p-4 border border-red-300 bg-red-50 text-sm text-red-800">
+                        {errorMessage}
+                      </div>
+                    )}
+
+                    <div className="hidden" aria-hidden="true">
+                      <label htmlFor="website">Website</label>
+                      <input
+                        type="text"
+                        id="website"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                      />
+                    </div>
+
                     <div>
                       <label htmlFor="name" className="block text-sm text-brand-600 mb-2 tracking-wider uppercase">
                         {t('contact.form.name')} <span className="text-gold-500">*</span>
@@ -153,9 +220,10 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      className="w-full px-8 py-3.5 bg-brand-900 text-cream text-sm tracking-widest uppercase font-medium hover:bg-brand-800 transition-colors duration-200"
+                      disabled={status === 'sending'}
+                      className="w-full px-8 py-3.5 bg-brand-900 text-cream text-sm tracking-widest uppercase font-medium hover:bg-brand-800 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      {t('contact.form.submit')}
+                      {status === 'sending' ? t('contact.form.sending') : t('contact.form.submit')}
                     </button>
 
                     <p className="text-brand-500 text-xs text-center">

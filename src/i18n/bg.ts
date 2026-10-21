@@ -325,6 +325,9 @@ export default {
   'contact.form.referralPlaceholder': 'Име на члена',
   'contact.form.message': 'Съобщение',
   'contact.form.submit': 'Изпрати запитване',
+  'contact.form.sending': 'Изпращане...',
+  'contact.form.error': 'Възникна грешка при изпращането на запитването. Моля, опитайте отново или ни пишете директно на philippopolis2022@gmail.com.',
+  'contact.form.errorMail': 'Не успяхме да изпратим запитването автоматично, затова отворихме вашето имейл приложение с готово съобщение за philippopolis2022@gmail.com. Моля, натиснете „Изпрати“ там.',
   'contact.form.privacy': 'Цялата предоставена информация се обработва при строга поверителност.',
 
   'contact.thankyou.title': 'Благодарим ви',
