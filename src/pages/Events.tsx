@@ -85,10 +85,10 @@ export default function Events() {
       </section>
 
       {/* Event Type Filter */}
-      <section className="py-8 px-6 bg-brand-900 border-b border-cream/10">
+      <section className="py-8 px-6 border-b border-brand-200">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <span className="text-gold-500 text-xs tracking-[0.2em] uppercase shrink-0">{t('events.filter.label')}</span>
+            <span className="text-brand-500 text-xs tracking-[0.2em] uppercase shrink-0">{t('events.filter.label')}</span>
             <div className="flex flex-wrap gap-3">
               {filters.map((filter) => (
                 <button
@@ -96,8 +96,8 @@ export default function Events() {
                   onClick={() => setActiveFilter(filter)}
                   className={`px-4 py-1.5 text-xs tracking-wider uppercase border transition-colors duration-200 ${
                     activeFilter === filter
-                      ? 'bg-gold-500 text-brand-900 border-gold-500'
-                      : 'bg-transparent text-cream/70 border-cream/25 hover:border-gold-500 hover:text-gold-500'
+                      ? 'bg-brand-900 text-cream border-brand-900'
+                      : 'bg-transparent text-brand-600 border-brand-300 hover:border-brand-900 hover:text-brand-900'
                   }`}
                 >
                   {t(filter)}
@@ -109,9 +109,9 @@ export default function Events() {
       </section>
 
       {/* Info */}
-      <section className="py-8 px-6 bg-brand-800 border-b border-cream/5">
+      <section className="py-8 px-6 bg-brand-50 border-b border-brand-200">
         <div className="mx-auto max-w-5xl">
-          <p className="text-brand-300 leading-relaxed">
+          <p className="text-brand-600 leading-relaxed">
             {t('events.info').split(/<link>|<\/link>/).map((part, i) =>
               i % 2 === 0 ? part : <Link key={i} to="/heritage" className="text-gold-500 hover:text-gold-600 underline underline-offset-2 transition-colors">{part}</Link>
             )}
@@ -120,12 +120,12 @@ export default function Events() {
       </section>
 
       {/* Upcoming */}
-      <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-6 bg-brand-900 tobacco-leaf-dark">
+      <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-6 tobacco-leaf">
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <div className="mb-16">
               <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('events.upcoming.label')}</p>
-              <h2 className="font-serif text-3xl md:text-4xl text-cream font-light">
+              <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
                 {t('events.upcoming.title')}
               </h2>
             </div>
@@ -134,7 +134,7 @@ export default function Events() {
             {filteredUpcoming.map((event, index) => (
               <FadeIn key={index} delay={index * 100}>
                 {event.highlighted ? (
-                  <div className="relative overflow-hidden border-2 border-gold-500/40 bg-brand-800">
+                  <div className="relative overflow-hidden border-2 border-gold-500/40 bg-brand-900">
                     {event.image && (
                       <div className="absolute inset-0">
                         <img src={event.image} alt={t(event.titleKey)} className="w-full h-full object-cover opacity-50" />
@@ -160,7 +160,7 @@ export default function Events() {
                     </div>
                   </div>
                 ) : (
-                  <div className="group p-8 bg-cream border border-brand-200 hover:border-gold-500/50 transition-colors duration-300">
+                  <div className="group p-8 border border-brand-200 hover:border-gold-500/50 transition-colors duration-300">
                     <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                       <div className="md:w-40 shrink-0">
                         <span className="text-gold-500 text-sm tracking-wider uppercase">{t(event.dateKey)}</span>
@@ -184,7 +184,7 @@ export default function Events() {
       </section>
 
       {/* Past Events */}
-      <section className="pt-8 md:pt-12 pb-24 md:pb-32 px-6 bg-brand-800 tobacco-leaf-dark">
+      <section className="pt-8 md:pt-12 pb-24 md:pb-32 px-6 bg-brand-50 tobacco-leaf-warm">
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <SectionDivider className="mb-16" />
@@ -192,7 +192,7 @@ export default function Events() {
           <FadeIn>
             <div className="mb-16">
               <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('events.past.label')}</p>
-              <h2 className="font-serif text-3xl md:text-4xl text-cream font-light">
+              <h2 className="font-serif text-3xl md:text-4xl text-brand-900 font-light">
                 {t('events.past.title')}
               </h2>
             </div>
@@ -254,10 +254,10 @@ export default function Events() {
       </section>
 
       {/* Note */}
-      <section className="py-16 px-6 bg-brand-900 tobacco-leaf-dark">
+      <section className="py-16 px-6 tobacco-leaf">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
-            <p className="text-brand-300 text-sm leading-relaxed">
+            <p className="text-brand-500 text-sm leading-relaxed">
               {t('events.note')}
             </p>
           </FadeIn>
