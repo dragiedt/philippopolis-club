@@ -196,7 +196,7 @@ export default {
   'event.past.0.title': 'Oliva Serie V Melanio Edición Año 2025 Robusto Extra',
   'event.past.0.desc': 'Специална дегустационна вечер със специалния гост експортния мениджър и посланик на марката Oliva Çağdaş Çıldır — спонсорирана от Corojo Club.',
   'event.past.0.type': 'Само за членове',
-  'event.past.1.date': 'Септември 2026 г.',
+  'event.past.1.date': 'Август 2026 г.',
   'event.past.1.title': 'Вечеря с Alto Salento Cigar Club в Италия',
   'event.past.1.desc': 'Официална среща с Alto Salento Cigar Club в Masseria Santa Lucia в Остуни, Италия.',
   'event.past.1.type': 'С гости',
