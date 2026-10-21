@@ -25,7 +25,7 @@ export const pastEvents: EventData[] = [
   { dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', descKey: 'event.past.1.desc', typeKey: 'event.past.1.type' },
   { dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', descKey: 'event.past.2.desc', typeKey: 'event.past.2.type' },
   { dateKey: 'event.past.3.date', titleKey: 'event.past.3.title', descKey: 'event.past.3.desc', typeKey: 'event.past.3.type' },
-  { dateKey: 'event.past.4.date', titleKey: 'event.past.4.title', descKey: 'event.past.4.desc', typeKey: 'event.past.4.type' },
+  { dateKey: 'event.past.4.date', titleKey: 'event.past.4.title', descKey: 'event.past.4.desc', typeKey: 'event.past.4.type', image: '/images/rosa-bulgaria-regional-edition.jpg' },
   { dateKey: 'event.past.5.date', titleKey: 'event.past.5.title', descKey: 'event.past.5.desc', typeKey: 'event.past.5.type', image: '/images/bucanero-cigar-night.jpg' },
   { dateKey: 'event.past.6.date', titleKey: 'event.past.6.title', descKey: 'event.past.6.desc', typeKey: 'event.past.6.type', image: '/images/rob-diedrich-night.jpg' },
   { dateKey: 'event.past.7.date', titleKey: 'event.past.7.title', descKey: 'event.past.7.desc', typeKey: 'event.past.7.type', image: '/images/san-luis-rey-night.jpg' },
