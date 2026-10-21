@@ -200,22 +200,53 @@ export default function Events() {
           <div className="space-y-8">
             {filteredPast.map((event, index) => (
               <FadeIn key={index} delay={index * 100}>
-                <div className="p-8 bg-cream border border-brand-200">
-                  <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                    <div className="md:w-40 shrink-0">
-                      <span className="text-brand-500 text-sm tracking-wider uppercase">{t(event.dateKey)}</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-serif text-2xl text-brand-900 mb-2">{t(event.titleKey)}</h3>
-                      <p className="text-brand-600 leading-relaxed">{t(event.descKey)}</p>
-                    </div>
-                    <div className="md:w-32 shrink-0">
-                      <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
-                        {t(event.typeKey)}
+                {event.image ? (
+                  <div className="bg-cream border border-brand-200 overflow-hidden">
+                    <div className="relative h-48 md:h-64 overflow-hidden">
+                      <img
+                        src={event.image}
+                        alt={t(event.titleKey)}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-900/85 via-brand-900/20 to-transparent" />
+                      <span className="absolute bottom-4 left-6 md:left-8 text-gold-500 text-sm tracking-wider uppercase">
+                        {t(event.dateKey)}
                       </span>
                     </div>
+                    <div className="p-8">
+                      <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+                        <div className="flex-1">
+                          <h3 className="font-serif text-2xl text-brand-900 mb-2">{t(event.titleKey)}</h3>
+                          <p className="text-brand-600 leading-relaxed">{t(event.descKey)}</p>
+                        </div>
+                        <div className="md:w-32 shrink-0">
+                          <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
+                            {t(event.typeKey)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="p-8 bg-cream border border-brand-200">
+                    <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+                      <div className="md:w-40 shrink-0">
+                        <span className="text-brand-500 text-sm tracking-wider uppercase">{t(event.dateKey)}</span>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-serif text-2xl text-brand-900 mb-2">{t(event.titleKey)}</h3>
+                        <p className="text-brand-600 leading-relaxed">{t(event.descKey)}</p>
+                      </div>
+                      <div className="md:w-32 shrink-0">
+                        <span className="inline-block px-3 py-1 text-xs tracking-wider uppercase border border-brand-300 text-brand-600">
+                          {t(event.typeKey)}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </FadeIn>
             ))}
           </div>

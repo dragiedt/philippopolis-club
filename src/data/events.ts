@@ -33,7 +33,7 @@ export const upcomingEvents: EventData[] = [
 ]
 
 export const pastEvents: EventData[] = [
-  { dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', descKey: 'event.past.0.desc', typeKey: 'event.past.0.type' },
+  { dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', descKey: 'event.past.0.desc', typeKey: 'event.past.0.type', image: '/images/oliva-melanio-2025.jpg' },
   { dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', descKey: 'event.past.1.desc', typeKey: 'event.past.1.type' },
   { dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', descKey: 'event.past.2.desc', typeKey: 'event.past.2.type' },
   { dateKey: 'event.past.3.date', titleKey: 'event.past.3.title', descKey: 'event.past.3.desc', typeKey: 'event.past.3.type' },
@@ -42,4 +42,5 @@ export const pastEvents: EventData[] = [
   { dateKey: 'event.past.6.date', titleKey: 'event.past.6.title', descKey: 'event.past.6.desc', typeKey: 'event.past.6.type' },
   { dateKey: 'event.past.7.date', titleKey: 'event.past.7.title', descKey: 'event.past.7.desc', typeKey: 'event.past.7.type' },
   { dateKey: 'event.past.8.date', titleKey: 'event.past.8.title', descKey: 'event.past.8.desc', typeKey: 'event.past.8.type' },
+  { dateKey: 'event.past.9.date', titleKey: 'event.past.9.title', descKey: 'event.past.9.desc', typeKey: 'event.past.9.type' },
 ]
