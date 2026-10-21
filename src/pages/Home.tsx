@@ -247,23 +247,23 @@ export default function Home() {
           </FadeIn>
 
           {/* Event Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {previewEvents.map((event, index) => (
-              <FadeIn key={index} delay={index * 120}>
+              <FadeIn key={index} delay={index * 120} className="h-full">
                 <Link
                   to="/events"
-                  className="group block relative p-6 border border-cream/10 hover:border-gold-500/40 transition-all duration-300 overflow-hidden"
+                  className="group block relative h-full p-6 border border-cream/10 hover:border-gold-500/40 transition-all duration-300 overflow-hidden"
                 >
                   {event.image && (
                     <div className="absolute inset-0">
-                      <img src={event.image} alt="" className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
+                      <img src={event.image} alt="" className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute inset-0 bg-brand-900/70" />
                     </div>
                   )}
-                  <div className="relative">
+                  <div className="relative flex h-full flex-col">
                     <span className="text-gold-500 text-xs tracking-[0.2em] uppercase">{t(event.dateKey)}</span>
-                    <h3 className="font-serif text-xl text-cream mt-3 mb-3 group-hover:text-gold-500 transition-colors duration-200">{t(event.titleKey)}</h3>
-                    <span className="inline-block px-3 py-1 text-[10px] tracking-wider uppercase border border-cream/20 text-cream/50">{t(event.typeKey)}</span>
+                    <h3 className="font-serif text-xl text-cream mt-3 mb-3 line-clamp-2 group-hover:text-gold-500 transition-colors duration-200">{t(event.titleKey)}</h3>
+                    <span className="inline-block self-start mt-auto px-3 py-1 text-[10px] tracking-wider uppercase border border-cream/20 text-cream/50">{t(event.typeKey)}</span>
                   </div>
                 </Link>
               </FadeIn>
