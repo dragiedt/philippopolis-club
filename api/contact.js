@@ -1,5 +1,6 @@
 const TO_EMAIL = 'philippopolis2022@gmail.com'
 const FROM = process.env.RESEND_FROM || 'Philippopolis Contact <onboarding@resend.dev>'
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${TO_EMAIL}`
 
 function parseBody(req) {
   const body = req.body
@@ -12,6 +13,71 @@ function parseBody(req) {
     }
   }
   return body
+}
+
+function buildMessage({ name, email, subject, message, phone, referral }) {
+  return [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    phone ? `Phone: ${phone}` : null,
+    referral ? `Referred by: ${referral}` : null,
+    `Subject: ${subject}`,
+    '',
+    message,
+  ]
+    .filter((line) => line !== null)
+    .join('\n')
+}
+
+async function sendViaResend(apiKey, payload) {
+  const result = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      from: FROM,
+      to: [TO_EMAIL],
+      reply_to: payload.email,
+      subject: `Contact form: ${payload.subject} - ${payload.name}`,
+      text: buildMessage(payload),
+    }),
+  })
+
+  if (!result.ok) {
+    console.error('Resend failed:', result.status, await result.text())
+    return { ok: false, error: 'send_failed' }
+  }
+  return { ok: true }
+}
+
+async function sendViaFormSubmit(payload) {
+  const result = await fetch(FORMSUBMIT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      name: payload.name,
+      email: payload.email,
+      phone: payload.phone,
+      referral: payload.referral,
+      subject: payload.subject,
+      message: buildMessage(payload),
+      _subject: `Contact form: ${payload.subject} - ${payload.name}`,
+      _template: 'table',
+    }),
+  })
+
+  const data = await result.json().catch(() => ({}))
+
+  if (!result.ok || data.success === 'false' || data.success === false) {
+    console.error('FormSubmit failed:', result.status, JSON.stringify(data))
+    if (result.status === 403 || String(data.message || '').toLowerCase().includes('confirm')) {
+      return { ok: false, error: 'needs_activation' }
+    }
+    return { ok: false, error: 'send_failed' }
+  }
+  return { ok: true }
 }
 
 export default async function handler(req, res) {
@@ -43,45 +109,16 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'input_too_long' })
   }
 
-  const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) {
-    return res.status(503).json({ error: 'not_configured' })
-  }
-
-  const text = [
-    `Name: ${name}`,
-    `Email: ${email}`,
-    phone ? `Phone: ${phone}` : null,
-    referral ? `Referred by: ${referral}` : null,
-    `Subject: ${subject}`,
-    '',
-    message,
-  ]
-    .filter((line) => line !== null)
-    .join('\n')
+  const payload = { name, email, subject, message, phone, referral }
 
   try {
-    const result = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        from: FROM,
-        to: [TO_EMAIL],
-        reply_to: email,
-        subject: `Contact form: ${subject} - ${name}`,
-        text,
-      }),
-    })
+    const apiKey = process.env.RESEND_API_KEY
+    const result = apiKey ? await sendViaResend(apiKey, payload) : await sendViaFormSubmit(payload)
 
-    if (!result.ok) {
-      console.error('Resend failed:', result.status, await result.text())
-      return res.status(502).json({ error: 'send_failed' })
+    if (result.ok) {
+      return res.status(200).json({ ok: true })
     }
-
-    return res.status(200).json({ ok: true })
+    return res.status(502).json({ error: result.error })
   } catch (err) {
     console.error('Contact form error:', err)
     return res.status(502).json({ error: 'send_failed' })

@@ -54,15 +54,15 @@ export default function Contact() {
       }
 
       const data = await res.json().catch(() => ({}))
-      if (data.error === 'not_configured') {
+      if (res.status === 400 || data.error === 'invalid_email' || data.error === 'missing_fields') {
         setStatus('error')
-        setErrorMessage(t('contact.form.errorMail'))
-        window.location.href = buildMailto()
+        setErrorMessage(t('contact.form.error'))
         return
       }
 
       setStatus('error')
-      setErrorMessage(t('contact.form.error'))
+      setErrorMessage(t('contact.form.errorMail'))
+      window.location.href = buildMailto()
     } catch {
       setStatus('error')
       setErrorMessage(t('contact.form.errorMail'))
