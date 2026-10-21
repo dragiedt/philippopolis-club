@@ -18,18 +18,6 @@ export const upcomingEvents: EventData[] = [
     image: '/images/ouatip-logo.png',
     countdownTo: '2026-10-17T18:00:00+03:00',
   },
-  {
-    dateKey: 'event.upcoming.1.date',
-    titleKey: 'event.upcoming.1.title',
-    descKey: 'event.upcoming.1.desc',
-    typeKey: 'event.upcoming.1.type',
-  },
-  {
-    dateKey: 'event.upcoming.2.date',
-    titleKey: 'event.upcoming.2.title',
-    descKey: 'event.upcoming.2.desc',
-    typeKey: 'event.upcoming.2.type',
-  },
 ]
 
 export const pastEvents: EventData[] = [
