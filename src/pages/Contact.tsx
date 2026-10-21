@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import FadeIn from '../components/FadeIn'
 import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
@@ -18,6 +18,24 @@ export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [website, setWebsite] = useState('')
+  const [captcha, setCaptcha] = useState<{ question: string; token: string } | null>(null)
+  const [captchaAnswer, setCaptchaAnswer] = useState('')
+
+  const loadCaptcha = () => {
+    fetch('/api/captcha')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && data.question && data.token) {
+          setCaptcha({ question: data.question, token: data.token })
+          setCaptchaAnswer('')
+        }
+      })
+      .catch(() => setCaptcha(null))
+  }
+
+  useEffect(() => {
+    loadCaptcha()
+  }, [])
 
   const buildMailto = () => {
     const subject = encodeURIComponent(`${formData.subject} - ${formData.name}`)
@@ -45,7 +63,7 @@ export default function Contact() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, website }),
+        body: JSON.stringify({ ...formData, website, captchaToken: captcha?.token, captchaAnswer }),
       })
 
       if (res.ok) {
@@ -54,7 +72,14 @@ export default function Contact() {
       }
 
       const data = await res.json().catch(() => ({}))
-      if (res.status === 400 || data.error === 'invalid_email' || data.error === 'missing_fields') {
+      if (data.error === 'captcha_failed') {
+        setStatus('error')
+        setErrorMessage(t('contact.form.captchaError'))
+        loadCaptcha()
+        return
+      }
+
+      if (res.status === 400) {
         setStatus('error')
         setErrorMessage(t('contact.form.error'))
         return
@@ -218,11 +243,32 @@ export default function Contact() {
                       />
                     </div>
 
+                    <div>
+                      <label htmlFor="captchaAnswer" className="block text-sm text-brand-600 mb-2 tracking-wider uppercase">
+                        {t('contact.form.captchaLabel')}
+                      </label>
+                      <div className="flex items-stretch gap-3">
+                        <span className="flex items-center px-4 border border-brand-200 bg-brand-100 font-mono text-lg text-brand-900 select-none">
+                          {captcha ? `${captcha.question} = ?` : '…'}
+                        </span>
+                        <input
+                          type="text"
+                          id="captchaAnswer"
+                          inputMode="numeric"
+                          autoComplete="off"
+                          required
+                          placeholder={t('contact.form.captchaAnswer')}
+                          className="flex-1 px-4 py-3 border border-brand-200 bg-cream text-brand-900 focus:outline-none focus:border-gold-500 transition-colors"
+                          value={captchaAnswer}
+                          onChange={(e) => setCaptchaAnswer(e.target.value)}
+                        />
+                      </div>
+                    </div>
+
                     <button
                       type="submit"
-                      disabled={status === 'sending'}
-                      className="w-full px-8 py-3.5 bg-brand-900 text-cream text-sm tracking-widest uppercase font-medium hover:bg-brand-800 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
-                    >
+                      disabled={status === 'sending' || !captcha}
+                      className="w-full px-8 py-3.5 bg-brand-900 text-cream text-sm tracking-widest uppercase font-medium hover:bg-brand-800 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"                    >
                       {status === 'sending' ? t('contact.form.sending') : t('contact.form.submit')}
                     </button>
 

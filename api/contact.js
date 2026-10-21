@@ -1,6 +1,39 @@
+import { verifyChallenge } from './_captcha.js'
+
 const TO_EMAIL = 'philippopolis2022@gmail.com'
 const FROM = process.env.RESEND_FROM || 'Philippopolis Contact <onboarding@resend.dev>'
 const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${TO_EMAIL}`
+
+const RATE_LIMIT = 5
+const RATE_WINDOW_MS = 60 * 60 * 1000
+const UPSTREAM_TIMEOUT_MS = 8000
+const hits = new Map()
+
+function clientIp(req) {
+  const forwarded = req.headers['x-forwarded-for']
+  if (typeof forwarded === 'string' && forwarded.length > 0) {
+    return forwarded.split(',')[0].trim()
+  }
+  return req.headers['x-real-ip'] || 'unknown'
+}
+
+function isRateLimited(ip) {
+  const now = Date.now()
+  const entry = hits.get(ip)
+
+  if (!entry || now - entry.start > RATE_WINDOW_MS) {
+    hits.set(ip, { start: now, count: 1 })
+    if (hits.size > 5000) {
+      for (const [key, value] of hits) {
+        if (now - value.start > RATE_WINDOW_MS) hits.delete(key)
+      }
+    }
+    return false
+  }
+
+  entry.count += 1
+  return entry.count > RATE_LIMIT
+}
 
 function parseBody(req) {
   const body = req.body
@@ -36,14 +69,15 @@ async function sendViaResend(apiKey, payload) {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${apiKey}`,
     },
-    body: JSON.stringify({
-      from: FROM,
-      to: [TO_EMAIL],
-      reply_to: payload.email,
-      subject: `Contact form: ${payload.subject} - ${payload.name}`,
-      text: buildMessage(payload),
-    }),
-  })
+      body: JSON.stringify({
+        from: FROM,
+        to: [TO_EMAIL],
+        reply_to: payload.email,
+        subject: `Contact form: ${payload.subject} - ${payload.name}`,
+        text: buildMessage(payload),
+      }),
+      signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
+    })
 
   if (!result.ok) {
     console.error('Resend failed:', result.status, await result.text())
@@ -66,6 +100,7 @@ async function sendViaFormSubmit(payload) {
       _subject: `Contact form: ${payload.subject} - ${payload.name}`,
       _template: 'table',
     }),
+    signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
   })
 
   const data = await result.json().catch(() => ({}))
@@ -97,6 +132,14 @@ export default async function handler(req, res) {
   // Honeypot: real users never see this field, bots fill it in
   if (String(body.website || '').trim()) {
     return res.status(200).json({ ok: true })
+  }
+
+  if (isRateLimited(clientIp(req))) {
+    return res.status(429).json({ error: 'rate_limited' })
+  }
+
+  if (!verifyChallenge(body.captchaToken, body.captchaAnswer)) {
+    return res.status(400).json({ error: 'captcha_failed' })
   }
 
   if (!name || !email || !subject || !message) {
