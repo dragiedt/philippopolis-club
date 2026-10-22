@@ -94,6 +94,14 @@ export default function Gallery() {
   usePageMeta({ title: t('seo.gallery.title'), description: t('seo.gallery.desc'), path: '/gallery' })
   const [lbIdx, setLbIdx] = useState<number | null>(null)
 
+  const variant = (src: string, width: 640 | 1280) => {
+    const name = src.split('/').pop()!.replace('.jpg', '').toLowerCase().replace('_', '-')
+    return `/images/gallery/${name}-${width}.jpg`
+  }
+  const srcSetFor = (src: string) => `${variant(src, 640)} 640w, ${variant(src, 1280)} 1280w`
+  const sizesFor = (span: GalleryItem['span']) =>
+    span === 'wide' ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 25vw, 50vw'
+
   const close = useCallback(() => setLbIdx(null), [])
   const next = useCallback(() => setLbIdx((p) => (p !== null ? (p + 1) % photos.length : null)), [])
   const prev = useCallback(() => setLbIdx((p) => (p !== null ? (p - 1 + photos.length) % photos.length : null)), [])
@@ -111,7 +119,7 @@ export default function Gallery() {
       {/* Hero */}
       <section className="relative pt-32 pb-16 bg-brand-900 overflow-hidden cigar-wrapper">
         <SmokeBackground />
-        <div className="absolute inset-0 bg-[url('/images/drive/GC_0362.jpg')] bg-cover bg-center opacity-[0.12] z-[1]" />
+        <div className="absolute inset-0 bg-[url('/images/gallery/gc-0362-640.jpg')] bg-cover bg-center opacity-[0.12] z-[1]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-900/30 to-brand-900 z-[2]" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <FadeIn><p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-4">{t('gallery.hero.label')}</p></FadeIn>
@@ -141,7 +149,15 @@ export default function Gallery() {
                     className="group relative w-full h-full overflow-hidden border-2 border-gold-500/40 bg-brand-900 cursor-pointer flex flex-col justify-between p-6 md:p-8"
                   >
                     <div className="absolute inset-0 z-0">
-                      <img src={photo.src} alt={t('gallery.alt.' + i)} className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700" />
+                      <img
+                        src={variant(photo.src, 1280)}
+                        srcSet={srcSetFor(photo.src)}
+                        sizes={sizesFor(photo.span)}
+                        alt={t('gallery.alt.' + i)}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/85 to-brand-900/70" />
                     </div>
                     <div className="relative z-10 flex items-center justify-between gap-2">
@@ -159,7 +175,13 @@ export default function Gallery() {
                     className="group relative w-full h-full overflow-hidden border-0 p-0 bg-transparent cursor-pointer"
                   >
                     <img
-                      src={photo.src} alt={t('gallery.alt.' + i)} loading="lazy"
+                      src={variant(photo.src, 640)}
+                      srcSet={srcSetFor(photo.src)}
+                      sizes={sizesFor(photo.span)}
+                      alt={t('gallery.alt.' + i)}
+                      loading={i < 8 ? 'eager' : 'lazy'}
+                      fetchPriority={i < 2 ? 'high' : undefined}
+                      decoding="async"
                       className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${photo.objectPos ? '' : 'object-[center_30%]'}`}
                       style={photo.objectPos ? { objectPosition: photo.objectPos } : undefined}
                     />
@@ -197,7 +219,7 @@ export default function Gallery() {
           </button>
 
           <div className="max-w-[90vw] max-h-[90vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-            <img key={lbIdx} src={photos[lbIdx].src} alt={t('gallery.alt.' + lbIdx)} className="max-w-full max-h-[80vh] w-auto h-auto object-contain block" />
+            <img key={lbIdx} src={variant(photos[lbIdx].src, 1280)} alt={t('gallery.alt.' + lbIdx)} className="max-w-full max-h-[80vh] w-auto h-auto object-contain block" />
             <p className="text-brand-400 text-sm mt-4 tracking-wider font-light">{t('gallery.alt.' + lbIdx)}<span className="text-brand-500 ml-3">{lbIdx + 1} / {photos.length}</span></p>
           </div>
         </div>,
