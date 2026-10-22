@@ -5,6 +5,7 @@ import FadeIn from '../components/FadeIn'
 import SmokeBackground from '../components/SmokeBackground'
 import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
+import { galleryVariant, gallerySrcSet } from '../utils/galleryImage'
 
 interface GalleryItem {
   src: string
@@ -94,11 +95,8 @@ export default function Gallery() {
   usePageMeta({ title: t('seo.gallery.title'), description: t('seo.gallery.desc'), path: '/gallery' })
   const [lbIdx, setLbIdx] = useState<number | null>(null)
 
-  const variant = (src: string, width: 640 | 1280) => {
-    const name = src.split('/').pop()!.replace('.jpg', '').toLowerCase().replace('_', '-')
-    return `/images/gallery/${name}-${width}.jpg`
-  }
-  const srcSetFor = (src: string) => `${variant(src, 640)} 640w, ${variant(src, 1280)} 1280w`
+  const variant = galleryVariant
+  const srcSetFor = gallerySrcSet
   const sizesFor = (span: GalleryItem['span']) =>
     span === 'wide' ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 25vw, 50vw'
 

@@ -1,9 +1,10 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
 import usePageMeta from '../hooks/usePageMeta'
 import { useLang } from '../i18n/LanguageContext'
+import { galleryVariant, gallerySrcSet } from '../utils/galleryImage'
 
 const pleasures = [
   { number: 'I', titleKey: 'home.pleasures.0.title', descKey: 'home.pleasures.0.desc' },
@@ -31,6 +32,24 @@ export default function Home() {
 
   usePageMeta({ title: t('seo.home.title'), description: t('seo.home.desc'), path: '/' })
   const galleryRef = useRef<HTMLDivElement>(null)
+  const [showVideo, setShowVideo] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const allowed = window.matchMedia('(min-width: 768px) and (prefers-reduced-motion: no-preference)')
+    if (!allowed.matches) return
+    const start = () => {
+      const w = window as Window & { requestIdleCallback?: (cb: () => void) => void }
+      if (w.requestIdleCallback) w.requestIdleCallback(() => setShowVideo(true))
+      else setTimeout(() => setShowVideo(true), 1200)
+    }
+    if (document.readyState === 'complete') {
+      start()
+      return
+    }
+    window.addEventListener('load', start, { once: true })
+    return () => window.removeEventListener('load', start)
+  }, [])
 
   const scrollGallery = (direction: 'left' | 'right') => {
     if (!galleryRef.current) return
@@ -42,16 +61,24 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col justify-center items-center pt-28 pb-16 md:pt-36 md:pb-20 bg-brand-900 overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+        <img
+          src="/images/photo-168-1280.jpg"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)]"
-          poster="/images/photo_168.jpg"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
+        />
+        {showVideo && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)]"
+          >
+            <source src="/videos/hero.mp4" type="video/mp4" />
+          </video>
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/40 via-brand-900/10 to-brand-900" />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <FadeIn delay={100}>
@@ -160,7 +187,9 @@ export default function Home() {
               <div className="relative">
                 <div className="aspect-[4/5] bg-brand-200 overflow-hidden">
                   <img
-                    src="/images/home-feature.jpg"
+                    src="/images/home-feature-1200.jpg"
+                    srcSet="/images/home-feature-800.jpg 800w, /images/home-feature-1200.jpg 1200w"
+                    sizes="(min-width: 1024px) 560px, 100vw"
                     alt="An evening at the club"
                     fetchPriority="high"
                     decoding="async"
@@ -199,7 +228,7 @@ export default function Home() {
       {/* Events Preview */}
       <section className="relative py-16 md:py-20 px-6 bg-brand-900 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/images/SHB_8024.jpg" alt="" className="w-full h-full object-cover opacity-5" />
+          <img src="/images/shb-8024-1200.jpg" alt="" className="w-full h-full object-cover opacity-5" />
         </div>
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
@@ -227,7 +256,7 @@ export default function Home() {
               <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold-500/60 z-10" />
               <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold-500/60 z-10" />
               <div className="absolute inset-0">
-                <img src="/images/ouatip-logo.png" alt="OUATIP" className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                <img src="/images/ouatip-logo-card.jpg" alt="OUATIP" className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-900/70 via-brand-900/30 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-transparent to-brand-900/20" />
               </div>
@@ -256,7 +285,15 @@ export default function Home() {
                 >
                   {event.image && (
                     <div className="absolute inset-0">
-                      <img src={event.image} alt="" className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
+                      <img
+                        src={event.image}
+                        srcSet={`${event.image.replace(/\.jpg$/, '-800.jpg')} 800w, ${event.image} 1600w`}
+                        sizes="(min-width: 768px) 400px, 100vw"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                      />
                       <div className="absolute inset-0 bg-brand-900/70" />
                     </div>
                   )}
@@ -335,8 +372,12 @@ export default function Home() {
                   className="group relative block shrink-0 w-64 md:w-72 aspect-[3/4] overflow-hidden snap-start"
                 >
                   <img
-                    src={photo.src}
+                    src={galleryVariant(photo.src, 640)}
+                    srcSet={gallerySrcSet(photo.src)}
+                    sizes="(min-width: 768px) 288px, 256px"
                     alt={photo.alt}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -376,8 +417,12 @@ export default function Home() {
               <div className="relative">
                 <div className="aspect-[4/3] bg-brand-200 overflow-hidden">
                   <img
-                    src="/images/drive/photo_167.jpg"
+                    src="/images/photo-167-1600.jpg"
+                    srcSet="/images/photo-167-900.jpg 900w, /images/photo-167-1600.jpg 1600w"
+                    sizes="(min-width: 1024px) 640px, 100vw"
                     alt="Ancient theatre of Philippopolis"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>

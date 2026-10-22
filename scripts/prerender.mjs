@@ -27,7 +27,7 @@ const routes = [
   { path: '/events', titleKey: 'seo.events.title', descKey: 'seo.events.desc', image: '/images/natura-cigars-tasting.jpg', imageWidth: 1600, imageHeight: 1068 },
   { path: '/gallery', titleKey: 'seo.gallery.title', descKey: 'seo.gallery.desc' },
   { path: '/contact', titleKey: 'seo.contact.title', descKey: 'seo.contact.desc' },
-  { path: '/once-upon-a-time-in-philippopolis', titleKey: 'seo.ouatip.title', descKey: 'seo.ouatip.desc', image: '/images/ouatip-logo.png', imageWidth: 800, imageHeight: 800, imageType: 'image/png' },
+  { path: '/once-upon-a-time-in-philippopolis', titleKey: 'seo.ouatip.title', descKey: 'seo.ouatip.desc', image: '/images/ouatip-og.jpg', imageWidth: 1200, imageHeight: 630 },
   { path: '/faq', titleKey: 'seo.faq.title', descKey: 'seo.faq.desc' },
 ]
 

@@ -69,8 +69,12 @@ export default function Heritage() {
                     </p>
                     <div className="mt-8 aspect-[16/9] overflow-hidden">
                       <img
-                        src="/images/drive/photo_167.jpg"
+                        src="/images/photo-167-1600.jpg"
+                        srcSet="/images/photo-167-900.jpg 900w, /images/photo-167-1600.jpg 1600w"
+                        sizes="(min-width: 1024px) 768px, 100vw"
                         alt="Gentlemen's Club Philippopolis"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -103,8 +107,12 @@ export default function Heritage() {
                     </p>
                     <div className="mt-8 aspect-[16/9] overflow-hidden">
                       <img
-                        src="/images/drive/photo_167.jpg"
+                        src="/images/photo-167-1600.jpg"
+                        srcSet="/images/photo-167-900.jpg 900w, /images/photo-167-1600.jpg 1600w"
+                        sizes="(min-width: 1024px) 768px, 100vw"
                         alt="Gentlemen's Club Philippopolis"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </div>

@@ -63,7 +63,7 @@ export default function Events() {
       {/* Hero */}
       <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-brand-900 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('/images/SHB_8024.jpg')] bg-cover bg-center opacity-[0.12]" />
+          <div className="absolute inset-0 bg-[url('/images/shb-8024-1200.jpg')] bg-cover bg-center opacity-[0.12]" />
         </div>
         <div className="absolute inset-0 bg-brand-900/60" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -205,6 +205,8 @@ export default function Events() {
                     <div className="relative h-48 md:h-64 overflow-hidden">
                       <img
                         src={event.image}
+                        srcSet={`${event.image.replace(/\.jpg$/, '-800.jpg')} 800w, ${event.image} 1600w`}
+                        sizes="(min-width: 1024px) 1024px, 100vw"
                         alt={t(event.titleKey)}
                         loading="lazy"
                         decoding="async"

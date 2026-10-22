@@ -16,7 +16,7 @@ export const upcomingEvents: EventData[] = [
     descKey: 'event.upcoming.0.desc',
     typeKey: 'event.upcoming.0.type',
     highlighted: true,
-    image: '/images/ouatip-logo.png',
+    image: '/images/ouatip-logo-card.jpg',
     countdownTo: '2026-10-17T18:00:00+03:00',
   },
 ]

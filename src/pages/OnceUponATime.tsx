@@ -41,7 +41,7 @@ export default function OnceUponATime() {
     title: t('seo.ouatip.title'),
     description: t('seo.ouatip.desc'),
     path: '/once-upon-a-time-in-philippopolis',
-    image: '/images/ouatip-logo.png',
+    image: '/images/ouatip-og.jpg',
   })
 
   return (
@@ -49,7 +49,7 @@ export default function OnceUponATime() {
       {/* Hero */}
       <section className="relative min-h-[80vh] flex flex-col justify-center items-center pt-28 pb-16 md:pt-36 md:pb-20 bg-brand-900 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/images/ouatip-logo.png" alt="" fetchPriority="high" decoding="async" className="w-full h-full object-cover opacity-40" />
+          <img src="/images/ouatip-logo-card.jpg" alt="" fetchPriority="high" decoding="async" className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-b from-brand-900/60 via-brand-900/20 to-brand-900" />
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -94,7 +94,7 @@ export default function OnceUponATime() {
           </FadeIn>
           <FadeIn>
             <img
-              src="/images/ouatip-official-logo.png"
+              src="/images/ouatip-official-logo.jpg"
               alt={t('ouatip.hero.title')}
               className="mx-auto mb-10 w-full max-w-md"
             />
