@@ -1,8 +1,7 @@
 param(
   [string]$SourceDir = "public/images/drive",
   [string]$OutputDir = "public/images/gallery",
-  [int[]]$Widths = @(640, 1280),
-  [int]$Quality = 82
+  [int[]]$Widths = @(480, 640, 1280)
 )
 
 $ErrorActionPreference = "Stop"
@@ -18,8 +17,10 @@ if (-not $names) { throw "No GC_*.jpg references found in $galleryFile" }
 if (-not (Test-Path -LiteralPath $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir | Out-Null }
 
 $codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq "image/jpeg" }
-$encParams = New-Object System.Drawing.Imaging.EncoderParameters(1)
-$encParams.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter([System.Drawing.Imaging.Encoder]::Quality, [long]$Quality)
+
+# Thumbnails are shown at <= 640 CSS px inside a dim grid, so a lighter quality keeps them crisp
+# while the 1280 lightbox variant stays at higher quality.
+$qualityFor = @{ 480 = 72; 640 = 74; 1280 = 80 }
 
 $before = 0L
 $after = 0L
@@ -48,7 +49,11 @@ foreach ($name in $names) {
 
         $out = Join-Path $OutputDir "$base-$w.jpg"
         $tmp = "$out.tmp"
+        $quality = if ($qualityFor.ContainsKey($w)) { $qualityFor[$w] } else { 80 }
+        $encParams = New-Object System.Drawing.Imaging.EncoderParameters(1)
+        $encParams.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter([System.Drawing.Imaging.Encoder]::Quality, [long]$quality)
         $bmp.Save($tmp, $codec, $encParams)
+        $encParams.Dispose()
         Move-Item -LiteralPath $tmp -Destination $out -Force
         $after += (Get-Item -LiteralPath $out).Length
       } finally { $bmp.Dispose() }

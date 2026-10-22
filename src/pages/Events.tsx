@@ -210,6 +210,7 @@ export default function Events() {
                         alt={t(event.titleKey)}
                         loading="lazy"
                         decoding="async"
+                        onError={(e) => { e.currentTarget.removeAttribute('srcset'); if (event.image) e.currentTarget.src = event.image }}
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-900/85 via-brand-900/20 to-transparent" />

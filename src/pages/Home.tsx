@@ -265,6 +265,7 @@ export default function Home() {
                         alt=""
                         loading="lazy"
                         decoding="async"
+                        onError={(e) => { e.currentTarget.removeAttribute('srcset'); e.currentTarget.src = event.image }}
                         className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                       />
                       <div className="absolute inset-0 bg-brand-900/70" />
