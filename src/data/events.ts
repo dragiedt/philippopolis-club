@@ -22,11 +22,11 @@ export const upcomingEvents: EventData[] = [
 ]
 
 export const pastEvents: EventData[] = [
-  { dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', descKey: 'event.past.0.desc', typeKey: 'event.past.0.type', image: '/images/oliva-melanio-2025.jpg' },
-  { dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', descKey: 'event.past.1.desc', typeKey: 'event.past.1.type', disclaimerKey: 'event.past.1.disclaimer', image: '/images/drew-estate-evening.jpg' },
+  { dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', descKey: 'event.past.0.desc', typeKey: 'event.past.0.type', image: '/images/natura-cigars-tasting.jpg' },
+  { dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', descKey: 'event.past.1.desc', typeKey: 'event.past.1.type', disclaimerKey: 'event.past.1.disclaimer', image: '/images/promotional-crowned-heads-padilla-cavalier.jpg' },
   { dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', descKey: 'event.past.2.desc', typeKey: 'event.past.2.type', disclaimerKey: 'event.past.2.disclaimer', image: '/images/aganorsa-leaf-evening.jpg' },
-  { dateKey: 'event.past.3.date', titleKey: 'event.past.3.title', descKey: 'event.past.3.desc', typeKey: 'event.past.3.type', disclaimerKey: 'event.past.3.disclaimer', image: '/images/promotional-crowned-heads-padilla-cavalier.jpg' },
-  { dateKey: 'event.past.4.date', titleKey: 'event.past.4.title', descKey: 'event.past.4.desc', typeKey: 'event.past.4.type', image: '/images/natura-cigars-tasting.jpg' },
+  { dateKey: 'event.past.3.date', titleKey: 'event.past.3.title', descKey: 'event.past.3.desc', typeKey: 'event.past.3.type', disclaimerKey: 'event.past.3.disclaimer', image: '/images/drew-estate-evening.jpg' },
+  { dateKey: 'event.past.4.date', titleKey: 'event.past.4.title', descKey: 'event.past.4.desc', typeKey: 'event.past.4.type', image: '/images/oliva-melanio-2025.jpg' },
   { dateKey: 'event.past.5.date', titleKey: 'event.past.5.title', descKey: 'event.past.5.desc', typeKey: 'event.past.5.type', image: '/images/izambar-valentino-siesto.jpg' },
   { dateKey: 'event.past.6.date', titleKey: 'event.past.6.title', descKey: 'event.past.6.desc', typeKey: 'event.past.6.type', image: '/images/alto-salento-dinner.jpg' },
   { dateKey: 'event.past.7.date', titleKey: 'event.past.7.title', descKey: 'event.past.7.desc', typeKey: 'event.past.7.type', image: '/images/davidoff-white-party.jpg' },
