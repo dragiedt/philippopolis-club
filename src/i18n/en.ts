@@ -183,7 +183,7 @@ export default {
 
   'event.upcoming.0.date': 'October 2026',
   'event.upcoming.0.title': 'Once Upon a Time in Philippopolis',
-  'event.upcoming.0.desc': 'Our flagship annual event — an unforgettable evening celebrating cigar culture, heritage, and fellowship. Details to be announced.',
+  'event.upcoming.0.desc': 'Our flagship annual event — an unforgettable evening celebrating cigar culture, heritage, and fellowship. This event has now passed. We thank all of our guests! Event gallery will be available soon!',
   'event.upcoming.0.type': 'Invitation',
 
   'event.past.0.date': 'September 2026',
