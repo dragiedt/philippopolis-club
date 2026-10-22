@@ -308,11 +308,13 @@ export default function Contact() {
                     <a href="tel:+35888262780" className="text-brand-600 hover:text-gold-600 transition-colors">+358 88 262 780</a>
                   </div>
 
-                  <div className="p-6 border border-brand-200">
-                    <p className="text-brand-600 text-sm leading-relaxed italic">
-                      {t('contact.details.quote')}
-                    </p>
-                  </div>
+                  {t('contact.details.quote') && (
+                    <div className="p-6 border border-brand-200">
+                      <p className="text-brand-600 text-sm leading-relaxed italic">
+                        {t('contact.details.quote')}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </FadeIn>
