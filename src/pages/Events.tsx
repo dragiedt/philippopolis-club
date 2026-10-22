@@ -211,9 +211,16 @@ export default function Events() {
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-900/85 via-brand-900/20 to-transparent" />
-                      <span className="absolute bottom-4 left-6 md:left-8 text-gold-500 text-sm tracking-wider uppercase">
-                        {t(event.dateKey)}
-                      </span>
+                      <div className="absolute bottom-4 left-6 md:left-8 flex flex-col gap-1">
+                        <span className="text-gold-500 text-sm tracking-wider uppercase">
+                          {t(event.dateKey)}
+                        </span>
+                        {event.disclaimerKey && (
+                          <span className="text-cream/60 text-[11px] tracking-[0.15em] uppercase">
+                            {t(event.disclaimerKey)}
+                          </span>
+                        )}
+                      </div>
                     </div>
                     <div className="p-8">
                       <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
