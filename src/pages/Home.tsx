@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SectionDivider from '../components/SectionDivider'
 import FadeIn from '../components/FadeIn'
@@ -32,25 +32,6 @@ export default function Home() {
 
   usePageMeta({ title: t('seo.home.title'), description: t('seo.home.desc'), path: '/' })
   const galleryRef = useRef<HTMLDivElement>(null)
-  const [showVideo, setShowVideo] = useState(false)
-  const [videoPlaying, setVideoPlaying] = useState(false)
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const allowed = window.matchMedia('(min-width: 768px) and (prefers-reduced-motion: no-preference)')
-    if (!allowed.matches) return
-    const start = () => {
-      const w = window as Window & { requestIdleCallback?: (cb: () => void) => void }
-      if (w.requestIdleCallback) w.requestIdleCallback(() => setShowVideo(true))
-      else setTimeout(() => setShowVideo(true), 1200)
-    }
-    if (document.readyState === 'complete') {
-      start()
-      return
-    }
-    window.addEventListener('load', start, { once: true })
-    return () => window.removeEventListener('load', start)
-  }, [])
 
   const scrollGallery = (direction: 'left' | 'right') => {
     if (!galleryRef.current) return
@@ -62,27 +43,15 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col justify-center items-center pt-28 pb-16 md:pt-36 md:pb-20 bg-brand-900 overflow-hidden">
-        {!videoPlaying && (
-          <img
-            src="/images/photo-168-1280.jpg"
-            alt=""
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)]"
-          />
-        )}
-        {showVideo && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            onPlaying={() => setVideoPlaying(true)}
-            className={`absolute inset-0 w-full h-full object-cover scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)] ${videoPlaying ? 'opacity-60' : 'opacity-0'}`}
-          >
-            <source src="/videos/hero.mp4" type="video/mp4" />
-          </video>
-        )}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)]"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/40 via-brand-900/10 to-brand-900" />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <FadeIn delay={100}>
