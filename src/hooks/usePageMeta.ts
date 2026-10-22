@@ -44,7 +44,7 @@ function setHreflang(hreflang: string, href: string) {
   document.head.appendChild(el)
 }
 
-export default function usePageMeta({ title, description, path, image = '/images/drive/photo_167.jpg' }: PageMeta) {
+export default function usePageMeta({ title, description, path, image = '/images/og-image.jpg' }: PageMeta) {
   const { lang } = useLang()
 
   useEffect(() => {
@@ -57,8 +57,15 @@ export default function usePageMeta({ title, description, path, image = '/images
     setMeta('og:description', 'property', description)
     setMeta('og:url', 'property', url)
     setMeta('og:image', 'property', `${IMAGE_BASE}${image}`)
+    setMeta('og:image:width', 'property', '1200')
+    setMeta('og:image:height', 'property', '630')
+    setMeta('og:image:type', 'property', 'image/jpeg')
     setMeta('og:image:alt', 'property', title)
     setMeta('og:locale', 'property', lang === 'bg' ? 'bg_BG' : 'en_US')
+    setMeta('twitter:card', 'name', 'summary_large_image')
+    setMeta('twitter:title', 'name', title)
+    setMeta('twitter:description', 'name', description)
+    setMeta('twitter:image', 'name', `${IMAGE_BASE}${image}`)
 
     clearHreflang()
     const enUrl = `${EN_BASE}${path}`

@@ -24,10 +24,10 @@ const routes = [
   { path: '/', titleKey: 'seo.home.title', descKey: 'seo.home.desc' },
   { path: '/heritage', titleKey: 'seo.heritage.title', descKey: 'seo.heritage.desc' },
   { path: '/membership', titleKey: 'seo.membership.title', descKey: 'seo.membership.desc' },
-  { path: '/events', titleKey: 'seo.events.title', descKey: 'seo.events.desc' },
+  { path: '/events', titleKey: 'seo.events.title', descKey: 'seo.events.desc', image: '/images/natura-cigars-tasting.jpg', imageWidth: 1600, imageHeight: 1068 },
   { path: '/gallery', titleKey: 'seo.gallery.title', descKey: 'seo.gallery.desc' },
   { path: '/contact', titleKey: 'seo.contact.title', descKey: 'seo.contact.desc' },
-  { path: '/once-upon-a-time-in-philippopolis', titleKey: 'seo.ouatip.title', descKey: 'seo.ouatip.desc', image: '/images/ouatip-logo.png' },
+  { path: '/once-upon-a-time-in-philippopolis', titleKey: 'seo.ouatip.title', descKey: 'seo.ouatip.desc', image: '/images/ouatip-logo.png', imageWidth: 800, imageHeight: 800, imageType: 'image/png' },
   { path: '/faq', titleKey: 'seo.faq.title', descKey: 'seo.faq.desc' },
 ]
 
@@ -99,7 +99,7 @@ function buildOrgSchema(lang, dict, base) {
     description: dict['seo.home.desc'],
     url: base,
     logo: `${IMAGE_BASE}/images/logo.svg`,
-    image: `${IMAGE_BASE}/images/drive/photo_167.jpg`,
+    image: `${IMAGE_BASE}/images/og-image.jpg`,
     telephone: '+358-88-262-780',
     address: {
       '@type': 'PostalAddress',
@@ -205,8 +205,16 @@ for (const route of routes) {
     html = setMeta(html, 'property', 'og:title', title)
     html = setMeta(html, 'property', 'og:description', desc)
     html = setMeta(html, 'property', 'og:url', url)
-    html = setMeta(html, 'property', 'og:image', `${IMAGE_BASE}${route.image || '/images/drive/photo_167.jpg'}`)
+    const image = route.image || '/images/og-image.jpg'
+    html = setMeta(html, 'property', 'og:image', `${IMAGE_BASE}${image}`)
+    html = setMeta(html, 'property', 'og:image:width', String(route.imageWidth || 1200))
+    html = setMeta(html, 'property', 'og:image:height', String(route.imageHeight || 630))
+    html = setMeta(html, 'property', 'og:image:type', route.imageType || 'image/jpeg')
     html = setMeta(html, 'property', 'og:image:alt', title)
+    html = setMeta(html, 'name', 'twitter:card', 'summary_large_image')
+    html = setMeta(html, 'name', 'twitter:title', title)
+    html = setMeta(html, 'name', 'twitter:description', desc)
+    html = setMeta(html, 'name', 'twitter:image', `${IMAGE_BASE}${image}`)
     html = setMeta(html, 'property', 'og:locale', code === 'bg' ? 'bg_BG' : 'en_US')
     html = removeOgLocaleAlternate(html)
 
