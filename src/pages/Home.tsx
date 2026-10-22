@@ -33,6 +33,7 @@ export default function Home() {
   usePageMeta({ title: t('seo.home.title'), description: t('seo.home.desc'), path: '/' })
   const galleryRef = useRef<HTMLDivElement>(null)
   const [showVideo, setShowVideo] = useState(false)
+  const [videoPlaying, setVideoPlaying] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -66,7 +67,7 @@ export default function Home() {
           alt=""
           fetchPriority="high"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)]"
+          className={`absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-1000 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)] ${videoPlaying ? 'opacity-0' : 'opacity-60'}`}
         />
         {showVideo && (
           <video
@@ -74,6 +75,7 @@ export default function Home() {
             muted
             loop
             playsInline
+            onPlaying={() => setVideoPlaying(true)}
             className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)]"
           >
             <source src="/videos/hero.mp4" type="video/mp4" />
