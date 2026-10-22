@@ -13,8 +13,8 @@ const pleasures = [
 
 const previewEvents = [
   { dateKey: 'event.past.0.date', titleKey: 'event.past.0.title', typeKey: 'event.past.0.type', image: '/images/oliva-hero.jpg' },
-  { dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', typeKey: 'event.past.1.type', image: '/images/alto-salento-hero.jpg' },
-  { dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', typeKey: 'event.past.2.type', image: '/images/davidoff-hero.jpg' },
+  { dateKey: 'event.past.1.date', titleKey: 'event.past.1.title', typeKey: 'event.past.1.type', image: '/images/izambar-valentino-siesto-hero.jpg' },
+  { dateKey: 'event.past.2.date', titleKey: 'event.past.2.title', typeKey: 'event.past.2.type', image: '/images/alto-salento-hero.jpg' },
 ]
 
 const previewGallery = [
