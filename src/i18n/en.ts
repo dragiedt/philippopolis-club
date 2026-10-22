@@ -193,7 +193,7 @@ export default {
   'event.past.1.date': 'September 2026',
   'event.past.1.title': 'An evening with Drew Estate',
   'event.past.1.desc': 'A meeting with Drew Estate ambassador Pedro Gomez.',
-  'event.past.1.type': 'Members Only',
+  'event.past.1.type': 'Guests',
   'event.past.2.date': 'August 2026',
   'event.past.2.title': 'An evening with Izambar Geneva and Valentino Siesto Cigars',
   'event.past.2.desc': 'An evening of tasting with Izambar Geneva and the Valentino Siesto cigars.',

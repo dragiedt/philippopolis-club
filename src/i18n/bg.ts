@@ -199,7 +199,7 @@ export default {
   'event.past.1.date': 'Септември 2026 г.',
   'event.past.1.title': 'Вечер с Drew Estate',
   'event.past.1.desc': 'Среща с посланика на Drew Estate Pedro Gomez.',
-  'event.past.1.type': 'Само за членове',
+  'event.past.1.type': 'С гости',
   'event.past.2.date': 'Август 2026 г.',
   'event.past.2.title': 'Вечер с Izambar Geneva и пурите Valentino Siesto',
   'event.past.2.desc': 'Вечер с дегустация на Izambar Geneva и на пурите Valentino Siesto.',
