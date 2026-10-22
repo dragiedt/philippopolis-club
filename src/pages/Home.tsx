@@ -62,13 +62,15 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col justify-center items-center pt-28 pb-16 md:pt-36 md:pb-20 bg-brand-900 overflow-hidden">
-        <img
-          src="/images/photo-168-1280.jpg"
-          alt=""
-          fetchPriority="high"
-          decoding="async"
-          className={`absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-1000 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)] ${videoPlaying ? 'opacity-0' : 'opacity-60'}`}
-        />
+        {!videoPlaying && (
+          <img
+            src="/images/photo-168-1280.jpg"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)]"
+          />
+        )}
         {showVideo && (
           <video
             autoPlay
@@ -76,7 +78,7 @@ export default function Home() {
             loop
             playsInline
             onPlaying={() => setVideoPlaying(true)}
-            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)]"
+            className={`absolute inset-0 w-full h-full object-cover scale-105 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)] ${videoPlaying ? 'opacity-60' : 'opacity-0'}`}
           >
             <source src="/videos/hero.mp4" type="video/mp4" />
           </video>
